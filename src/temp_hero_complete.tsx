@@ -2,30 +2,30 @@ function HeroServicios() {
   const [hoveredNode, setHoveredNode] = React.useState<number | null>(null);
 
   const orbitServices = [
-    { 
-      icon: <Wifi className="size-6" />, 
+    {
+      icon: <Wifi className="size-6" />,
       label: 'Networking & WiFi',
-      angle: 0 
+      angle: 0
     },
-    { 
-      icon: <Server className="size-6" />, 
+    {
+      icon: <Server className="size-6" />,
       label: 'Data center y energía',
-      angle: 72 
+      angle: 72
     },
-    { 
-      icon: <Camera className="size-6" />, 
+    {
+      icon: <Camera className="size-6" />,
       label: 'Videoseguridad y control',
-      angle: 144 
+      angle: 144
     },
-    { 
-      icon: <Users className="size-6" />, 
+    {
+      icon: <Users className="size-6" />,
       label: 'Team collaboration y salas híbridas',
-      angle: 216 
+      angle: 216
     },
-    { 
-      icon: <Wrench className="size-6" />, 
+    {
+      icon: <Wrench className="size-6" />,
       label: 'Servicios profesionales y gestión de proyectos',
-      angle: 288 
+      angle: 288
     }
   ];
 
@@ -34,11 +34,11 @@ function HeroServicios() {
   };
 
   const handleMeeting = () => {
-    console.log('Agendar reunión');
+    //DO NOTHING
   };
 
   return (
-    <section 
+    <section
       className="relative pt-32 pb-20 px-6 lg:px-12 overflow-hidden"
       style={{
         minHeight: '75vh',
@@ -68,7 +68,7 @@ function HeroServicios() {
             className="space-y-7"
           >
             {/* Badge */}
-            <div 
+            <div
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[11px] uppercase font-bold tracking-wider"
               style={{
                 background: 'rgba(233, 78, 27, 0.08)',
@@ -101,7 +101,7 @@ function HeroServicios() {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
-              <Button 
+              <Button
                 size="lg"
                 onClick={handleMeeting}
                 className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white px-8 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto"
@@ -113,7 +113,7 @@ function HeroServicios() {
               >
                 Agendar una reunión con Trendit
               </Button>
-              <Button 
+              <Button
                 size="lg"
                 variant="outline"
                 onClick={handleWhatsApp}
@@ -137,7 +137,7 @@ function HeroServicios() {
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             className="relative"
           >
-            <div 
+            <div
               className="relative rounded-[32px] p-8 lg:p-12"
               style={{
                 minHeight: '500px',
@@ -168,7 +168,7 @@ function HeroServicios() {
                   transition={{ delay: 0.7, duration: 0.5, ease: "backOut" }}
                   className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
                 >
-                  <div 
+                  <div
                     className="px-6 py-5 rounded-2xl flex flex-col items-center justify-center text-white relative"
                     style={{
                       background: 'linear-gradient(135deg, #E94E1B 0%, #d94419 100%)',
@@ -217,14 +217,14 @@ function HeroServicios() {
                       {/* Service node */}
                       <motion.div
                         initial={{ opacity: 0, scale: 0, x: 0, y: 0 }}
-                        animate={{ 
-                          opacity: 1, 
+                        animate={{
+                          opacity: 1,
                           scale: 1,
                           x: x,
                           y: y
                         }}
-                        transition={{ 
-                          delay: 0.9 + idx * 0.12, 
+                        transition={{
+                          delay: 0.9 + idx * 0.12,
                           duration: 0.5,
                           ease: "backOut"
                         }}
@@ -238,7 +238,7 @@ function HeroServicios() {
                         <motion.div
                           className="flex flex-col items-center gap-2 p-3 rounded-2xl transition-all duration-300"
                           style={{
-                            background: hoveredNode === idx 
+                            background: hoveredNode === idx
                               ? 'linear-gradient(135deg, #FFF7F0 0%, #FFFFFF 100%)'
                               : 'linear-gradient(135deg, #FFFFFF 0%, #FAFAFA 100%)',
                             boxShadow: hoveredNode === idx
@@ -250,7 +250,7 @@ function HeroServicios() {
                           }}
                           whileHover={{ scale: 1.08 }}
                         >
-                          <div 
+                          <div
                             className="size-11 rounded-xl flex items-center justify-center transition-all duration-300"
                             style={{
                               background: hoveredNode === idx
@@ -261,7 +261,7 @@ function HeroServicios() {
                           >
                             {service.icon}
                           </div>
-                          <span 
+                          <span
                             className="text-[10px] font-semibold text-center leading-tight transition-colors duration-300"
                             style={{
                               color: hoveredNode === idx ? '#E94E1B' : '#282327'

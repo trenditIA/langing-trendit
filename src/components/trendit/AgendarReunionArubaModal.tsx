@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  X, 
+import {
+  X,
   Wifi,
   Network,
   Settings,
@@ -14,6 +14,7 @@ import {
   Building2
 } from 'lucide-react';
 import { Button } from '../ui/button';
+import { AlertModal } from './AlertModal';
 
 interface AgendarReunionArubaModalProps {
   isOpen: boolean;
@@ -88,6 +89,17 @@ const HORARIOS = [
 
 export function AgendarReunionArubaModal({ isOpen, onClose }: AgendarReunionArubaModalProps) {
   const [step, setStep] = useState(1);
+  const [alertModal, setAlertModal] = useState<{
+    isOpen: boolean;
+    type: 'success' | 'error' | 'warning';
+    title: string;
+    message: string;
+  }>({
+    isOpen: false,
+    type: 'success',
+    title: '',
+    message: ''
+  });
   const [formData, setFormData] = useState<FormData>({
     solucion: '',
     alcance: '',
@@ -134,7 +146,7 @@ export function AgendarReunionArubaModal({ isOpen, onClose }: AgendarReunionArub
 
   const handleSubmit = (sendViaWhatsApp: boolean = false) => {
     const selectedSolucion = SOLUCIONES.find(s => s.id === formData.solucion);
-    
+
     const message = `🔷 *Solicitud Aruba Networking*\n\n` +
       `*Solución:* ${selectedSolucion?.label || 'No especificada'}\n` +
       `*Alcance:* ${formData.alcance}\n` +
@@ -152,11 +164,19 @@ export function AgendarReunionArubaModal({ isOpen, onClose }: AgendarReunionArub
     if (sendViaWhatsApp) {
       const encodedMessage = encodeURIComponent(message);
       window.open(`https://wa.me/5493516714007?text=${encodedMessage}`, '_blank');
+      onClose();
     } else {
-      console.log('Formulario enviado:', formData);
-      alert('¡Solicitud enviada! Te contactaremos pronto.');
+      setAlertModal({
+        isOpen: true,
+        type: 'success',
+        title: '¡Solicitud enviada!',
+        message: 'Te contactaremos pronto.'
+      });
     }
-    
+  };
+
+  const handleCloseAlert = () => {
+    setAlertModal({ ...alertModal, isOpen: false });
     onClose();
   };
 
@@ -199,13 +219,13 @@ export function AgendarReunionArubaModal({ isOpen, onClose }: AgendarReunionArub
                   <Network className="size-6 text-white" />
                 </div>
                 <div>
-                  <h2 
+                  <h2
                     className="text-white text-[22px] md:text-[24px]"
                     style={{ fontFamily: 'Campton, sans-serif', fontWeight: 700 }}
                   >
                     Diseño de red Aruba
                   </h2>
-                  <p 
+                  <p
                     className="text-neutral-300 text-[14px]"
                     style={{ fontFamily: 'Campton, sans-serif', fontWeight: 400 }}
                   >
@@ -307,6 +327,15 @@ export function AgendarReunionArubaModal({ isOpen, onClose }: AgendarReunionArub
           </motion.div>
         </div>
       )}
+
+      {/* Alert Modal */}
+      <AlertModal
+        isOpen={alertModal.isOpen}
+        onClose={handleCloseAlert}
+        type={alertModal.type}
+        title={alertModal.title}
+        message={alertModal.message}
+      />
     </AnimatePresence>
   );
 }
@@ -330,13 +359,13 @@ interface StepProps {
 function Step1Solucion({ formData, setFormData }: StepProps) {
   return (
     <div>
-      <h3 
+      <h3
         className="mb-2 text-neutral-900"
         style={{ fontFamily: 'Campton, sans-serif' }}
       >
         ¿Qué solución Aruba te interesa?
       </h3>
-      <p 
+      <p
         className="text-neutral-600 mb-6 text-[15px]"
         style={{ fontFamily: 'Campton, sans-serif', fontWeight: 400 }}
       >
@@ -348,26 +377,24 @@ function Step1Solucion({ formData, setFormData }: StepProps) {
           <button
             key={solucion.id}
             onClick={() => setFormData({ ...formData, solucion: solucion.id })}
-            className={`p-5 rounded-xl border-2 text-left transition-all duration-300 ${
-              formData.solucion === solucion.id
-                ? 'border-[#E94E1B] bg-orange-50'
-                : 'border-neutral-200 hover:border-neutral-300 bg-white'
-            }`}
+            className={`p-5 rounded-xl border-2 text-left transition-all duration-300 ${formData.solucion === solucion.id
+              ? 'border-[#E94E1B] bg-orange-50'
+              : 'border-neutral-200 hover:border-neutral-300 bg-white'
+              }`}
           >
-            <div className={`size-10 rounded-lg flex items-center justify-center mb-3 ${
-              formData.solucion === solucion.id
-                ? 'bg-[#E94E1B] text-white'
-                : 'bg-neutral-100 text-neutral-600'
-            }`}>
+            <div className={`size-10 rounded-lg flex items-center justify-center mb-3 ${formData.solucion === solucion.id
+              ? 'bg-[#E94E1B] text-white'
+              : 'bg-neutral-100 text-neutral-600'
+              }`}>
               {solucion.icon}
             </div>
-            <div 
+            <div
               className="text-neutral-900 mb-1"
               style={{ fontFamily: 'Campton, sans-serif', fontWeight: 600 }}
             >
               {solucion.label}
             </div>
-            <div 
+            <div
               className="text-neutral-500 text-[13px]"
               style={{ fontFamily: 'Campton, sans-serif', fontWeight: 400 }}
             >
@@ -383,13 +410,13 @@ function Step1Solucion({ formData, setFormData }: StepProps) {
 function Step2Alcance({ formData, setFormData }: StepProps) {
   return (
     <div>
-      <h3 
+      <h3
         className="mb-2 text-neutral-900"
         style={{ fontFamily: 'Campton, sans-serif' }}
       >
         ¿Cuál es el alcance del proyecto?
       </h3>
-      <p 
+      <p
         className="text-neutral-600 mb-6 text-[15px]"
         style={{ fontFamily: 'Campton, sans-serif', fontWeight: 400 }}
       >
@@ -401,22 +428,20 @@ function Step2Alcance({ formData, setFormData }: StepProps) {
           <button
             key={alcance}
             onClick={() => setFormData({ ...formData, alcance })}
-            className={`w-full p-4 rounded-xl border-2 text-left transition-all duration-300 flex items-center gap-3 ${
-              formData.alcance === alcance
-                ? 'border-[#E94E1B] bg-orange-50'
-                : 'border-neutral-200 hover:border-neutral-300 bg-white'
-            }`}
+            className={`w-full p-4 rounded-xl border-2 text-left transition-all duration-300 flex items-center gap-3 ${formData.alcance === alcance
+              ? 'border-[#E94E1B] bg-orange-50'
+              : 'border-neutral-200 hover:border-neutral-300 bg-white'
+              }`}
           >
-            <div className={`size-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
-              formData.alcance === alcance
-                ? 'border-[#E94E1B]'
-                : 'border-neutral-300'
-            }`}>
+            <div className={`size-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${formData.alcance === alcance
+              ? 'border-[#E94E1B]'
+              : 'border-neutral-300'
+              }`}>
               {formData.alcance === alcance && (
                 <div className="size-2.5 rounded-full bg-[#E94E1B]" />
               )}
             </div>
-            <span 
+            <span
               className="text-neutral-900 text-[15px]"
               style={{ fontFamily: 'Campton, sans-serif', fontWeight: 500 }}
             >
@@ -432,13 +457,13 @@ function Step2Alcance({ formData, setFormData }: StepProps) {
 function Step3Sedes({ formData, setFormData }: StepProps) {
   return (
     <div>
-      <h3 
+      <h3
         className="mb-2 text-neutral-900"
         style={{ fontFamily: 'Campton, sans-serif' }}
       >
         ¿Cuántas sedes involucra?
       </h3>
-      <p 
+      <p
         className="text-neutral-600 mb-6 text-[15px]"
         style={{ fontFamily: 'Campton, sans-serif', fontWeight: 400 }}
       >
@@ -450,22 +475,20 @@ function Step3Sedes({ formData, setFormData }: StepProps) {
           <button
             key={sede}
             onClick={() => setFormData({ ...formData, sedes: sede })}
-            className={`w-full p-4 rounded-xl border-2 text-left transition-all duration-300 flex items-center gap-3 ${
-              formData.sedes === sede
-                ? 'border-[#E94E1B] bg-orange-50'
-                : 'border-neutral-200 hover:border-neutral-300 bg-white'
-            }`}
+            className={`w-full p-4 rounded-xl border-2 text-left transition-all duration-300 flex items-center gap-3 ${formData.sedes === sede
+              ? 'border-[#E94E1B] bg-orange-50'
+              : 'border-neutral-200 hover:border-neutral-300 bg-white'
+              }`}
           >
-            <div className={`size-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
-              formData.sedes === sede
-                ? 'border-[#E94E1B]'
-                : 'border-neutral-300'
-            }`}>
+            <div className={`size-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${formData.sedes === sede
+              ? 'border-[#E94E1B]'
+              : 'border-neutral-300'
+              }`}>
               {formData.sedes === sede && (
                 <div className="size-2.5 rounded-full bg-[#E94E1B]" />
               )}
             </div>
-            <span 
+            <span
               className="text-neutral-900 text-[15px]"
               style={{ fontFamily: 'Campton, sans-serif', fontWeight: 500 }}
             >
@@ -481,13 +504,13 @@ function Step3Sedes({ formData, setFormData }: StepProps) {
 function Step4Fecha({ formData, setFormData }: StepProps) {
   return (
     <div>
-      <h3 
+      <h3
         className="mb-2 text-neutral-900"
         style={{ fontFamily: 'Campton, sans-serif' }}
       >
         ¿Cuándo te gustaría tener la reunión? (opcional)
       </h3>
-      <p 
+      <p
         className="text-neutral-600 mb-6 text-[15px]"
         style={{ fontFamily: 'Campton, sans-serif', fontWeight: 400 }}
       >
@@ -496,7 +519,7 @@ function Step4Fecha({ formData, setFormData }: StepProps) {
 
       <div className="space-y-4">
         <div>
-          <label 
+          <label
             className="block text-neutral-700 mb-2 text-[14px]"
             style={{ fontFamily: 'Campton, sans-serif', fontWeight: 500 }}
           >
@@ -513,7 +536,7 @@ function Step4Fecha({ formData, setFormData }: StepProps) {
         </div>
 
         <div>
-          <label 
+          <label
             className="block text-neutral-700 mb-2 text-[14px]"
             style={{ fontFamily: 'Campton, sans-serif', fontWeight: 500 }}
           >
@@ -524,11 +547,10 @@ function Step4Fecha({ formData, setFormData }: StepProps) {
               <button
                 key={hora}
                 onClick={() => setFormData({ ...formData, hora })}
-                className={`py-3 rounded-xl border-2 text-center transition-all duration-300 ${
-                  formData.hora === hora
-                    ? 'border-[#E94E1B] bg-orange-50 text-[#E94E1B]'
-                    : 'border-neutral-200 hover:border-neutral-300 bg-white text-neutral-700'
-                }`}
+                className={`py-3 rounded-xl border-2 text-center transition-all duration-300 ${formData.hora === hora
+                  ? 'border-[#E94E1B] bg-orange-50 text-[#E94E1B]'
+                  : 'border-neutral-200 hover:border-neutral-300 bg-white text-neutral-700'
+                  }`}
                 style={{ fontFamily: 'Campton, sans-serif', fontWeight: 500 }}
               >
                 {hora}
@@ -544,13 +566,13 @@ function Step4Fecha({ formData, setFormData }: StepProps) {
 function Step5Contacto({ formData, setFormData }: StepProps) {
   return (
     <div>
-      <h3 
+      <h3
         className="mb-2 text-neutral-900"
         style={{ fontFamily: 'Campton, sans-serif' }}
       >
         Datos de contacto
       </h3>
-      <p 
+      <p
         className="text-neutral-600 mb-6 text-[15px]"
         style={{ fontFamily: 'Campton, sans-serif', fontWeight: 400 }}
       >
@@ -560,7 +582,7 @@ function Step5Contacto({ formData, setFormData }: StepProps) {
       <div className="space-y-4">
         <div className="grid sm:grid-cols-2 gap-4">
           <div>
-            <label 
+            <label
               className="block text-neutral-700 mb-2 text-[14px]"
               style={{ fontFamily: 'Campton, sans-serif', fontWeight: 500 }}
             >
@@ -577,7 +599,7 @@ function Step5Contacto({ formData, setFormData }: StepProps) {
           </div>
 
           <div>
-            <label 
+            <label
               className="block text-neutral-700 mb-2 text-[14px]"
               style={{ fontFamily: 'Campton, sans-serif', fontWeight: 500 }}
             >
@@ -595,7 +617,7 @@ function Step5Contacto({ formData, setFormData }: StepProps) {
         </div>
 
         <div>
-          <label 
+          <label
             className="block text-neutral-700 mb-2 text-[14px]"
             style={{ fontFamily: 'Campton, sans-serif', fontWeight: 500 }}
           >
@@ -613,7 +635,7 @@ function Step5Contacto({ formData, setFormData }: StepProps) {
 
         <div className="grid sm:grid-cols-2 gap-4">
           <div>
-            <label 
+            <label
               className="block text-neutral-700 mb-2 text-[14px]"
               style={{ fontFamily: 'Campton, sans-serif', fontWeight: 500 }}
             >
@@ -630,7 +652,7 @@ function Step5Contacto({ formData, setFormData }: StepProps) {
           </div>
 
           <div>
-            <label 
+            <label
               className="block text-neutral-700 mb-2 text-[14px]"
               style={{ fontFamily: 'Campton, sans-serif', fontWeight: 500 }}
             >
@@ -648,7 +670,7 @@ function Step5Contacto({ formData, setFormData }: StepProps) {
         </div>
 
         <div>
-          <label 
+          <label
             className="block text-neutral-700 mb-2 text-[14px]"
             style={{ fontFamily: 'Campton, sans-serif', fontWeight: 500 }}
           >

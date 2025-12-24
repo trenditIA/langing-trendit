@@ -1,8 +1,8 @@
 import { motion, useScroll, useTransform } from 'motion/react';
-import { 
-  DollarSign, 
-  TrendingUp, 
-  Handshake, 
+import {
+  DollarSign,
+  TrendingUp,
+  Handshake,
   Clock,
   FileText,
   Wallet,
@@ -30,7 +30,12 @@ export function Financiacion() {
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (element) {
+      const offset = 100; // Offset para que el título no quede tapado
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    }
     setActiveSection(sectionId);
   };
 
@@ -53,11 +58,10 @@ export function Financiacion() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`px-4 py-2 rounded-full whitespace-nowrap transition-all duration-300 text-sm ${
-                  activeSection === item.id
-                    ? 'bg-[#E94E1B] text-white shadow-md'
-                    : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200'
-                }`}
+                className={`px-4 py-2 rounded-full whitespace-nowrap transition-all duration-300 text-sm ${activeSection === item.id
+                  ? 'bg-[#E94E1B] text-white shadow-md'
+                  : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200'
+                  }`}
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
                   fontWeight: 500
@@ -97,7 +101,7 @@ function HeroFinanciacion() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
 
   return (
-    <section 
+    <section
       ref={ref}
       className="pt-24 pb-16 px-6 lg:px-12"
       style={{ background: '#F8F0E7' }}
@@ -141,7 +145,7 @@ function HeroFinanciacion() {
               }}
               className="absolute bottom-0 left-0 w-80 h-80 bg-[#E94E1B]/15 rounded-full blur-3xl"
             />
-            
+
             {/* Additional glow around CTA area */}
             <motion.div
               animate={{
@@ -159,7 +163,7 @@ function HeroFinanciacion() {
 
           {/* Subtle overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#E94E1B]/6 to-transparent opacity-40" />
-          
+
           {/* Content */}
           <div className="relative z-10 px-8 lg:px-20 py-14 lg:py-20 text-center">
             {/* Chip/Label - replaces icon */}
@@ -169,7 +173,7 @@ function HeroFinanciacion() {
               transition={{ delay: 0.2, duration: 0.5 }}
               className="flex justify-center mb-7"
             >
-              <div 
+              <div
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full"
                 style={{
                   background: 'rgba(255, 255, 255, 0.12)',
@@ -178,7 +182,7 @@ function HeroFinanciacion() {
                 }}
               >
                 <CreditCard className="size-4 text-[#E94E1B]" />
-                <span 
+                <span
                   className="text-[12px] tracking-[0.08em] uppercase"
                   style={{
                     color: 'rgba(255, 255, 255, 0.9)',
@@ -192,7 +196,7 @@ function HeroFinanciacion() {
             </motion.div>
 
             {/* H1 - improved readability */}
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
@@ -209,7 +213,7 @@ function HeroFinanciacion() {
             </motion.h1>
 
             {/* Subtitle - narrower for better reading */}
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
@@ -225,7 +229,7 @@ function HeroFinanciacion() {
             </motion.p>
 
             {/* Paragraph */}
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
@@ -241,7 +245,7 @@ function HeroFinanciacion() {
             </motion.p>
 
             {/* CTAs - aligned in row, centered */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
@@ -260,7 +264,7 @@ function HeroFinanciacion() {
                 Solicitar financiación
                 <ArrowRight className="size-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              
+
               <button
                 onClick={scrollToForm}
                 className="w-full sm:w-auto px-8 py-4 bg-transparent text-white border-2 border-[#E94E1B]/60 rounded-xl hover:border-[#E94E1B] hover:bg-[#E94E1B]/10 transition-all duration-300"
@@ -282,7 +286,7 @@ function HeroFinanciacion() {
               className="flex items-center justify-center gap-2 px-4"
             >
               <Clock className="size-3.5 text-white/50" strokeWidth={2.5} />
-              <p 
+              <p
                 className="text-[13px]"
                 style={{
                   color: 'rgba(255, 255, 255, 0.6)',
@@ -327,7 +331,7 @@ function PorQueFinanciar({ setActiveSection }: { setActiveSection: (section: str
   ];
 
   return (
-    <section 
+    <section
       id="beneficios"
       ref={ref}
       className="py-20 px-6 lg:px-12 bg-white relative"
@@ -343,7 +347,7 @@ function PorQueFinanciar({ setActiveSection }: { setActiveSection: (section: str
           transition={{ duration: 0.5 }}
           className="text-center mb-14 max-w-[900px] mx-auto"
         >
-          <h2 
+          <h2
             className="text-[36px] lg:text-[42px] text-[#282327] mb-5 leading-[1.2] tracking-tight"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -352,7 +356,7 @@ function PorQueFinanciar({ setActiveSection }: { setActiveSection: (section: str
           >
             ¿Por qué financiar tu tecnología con Trendit?
           </h2>
-          <p 
+          <p
             className="text-[16px] text-neutral-600 leading-[1.7]"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -374,7 +378,7 @@ function PorQueFinanciar({ setActiveSection }: { setActiveSection: (section: str
               transition={{ delay: idx * 0.1, duration: 0.5 }}
               className="bg-white border border-neutral-200 rounded-2xl p-7 hover:shadow-xl hover:border-[#E94E1B]/40 hover:-translate-y-1 transition-all duration-300 group"
             >
-              <div 
+              <div
                 className="size-14 rounded-xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110"
                 style={{ backgroundColor: 'rgba(233, 78, 27, 0.08)' }}
               >
@@ -382,7 +386,7 @@ function PorQueFinanciar({ setActiveSection }: { setActiveSection: (section: str
                   {beneficio.icon}
                 </div>
               </div>
-              <h3 
+              <h3
                 className="text-[17px] mb-3 leading-tight"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -392,7 +396,7 @@ function PorQueFinanciar({ setActiveSection }: { setActiveSection: (section: str
               >
                 {beneficio.title}
               </h3>
-              <p 
+              <p
                 className="text-[15px] leading-[1.7]"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -414,7 +418,7 @@ function ModalidadesLeasing({ setActiveSection }: { setActiveSection: (section: 
   const ref = useRef(null);
 
   return (
-    <section 
+    <section
       id="leasing"
       ref={ref}
       className="py-20 px-6 lg:px-12 bg-gradient-to-br from-neutral-50 to-white"
@@ -427,7 +431,7 @@ function ModalidadesLeasing({ setActiveSection }: { setActiveSection: (section: 
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 
+          <h2
             className="text-[36px] lg:text-[42px] text-[#282327] mb-4 leading-[1.2] tracking-tight"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -436,7 +440,7 @@ function ModalidadesLeasing({ setActiveSection }: { setActiveSection: (section: 
           >
             Modalidades de leasing para tu proyecto
           </h2>
-          <p 
+          <p
             className="text-[15px] text-neutral-600 leading-[1.7] max-w-[680px] mx-auto"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -460,7 +464,7 @@ function ModalidadesLeasing({ setActiveSection }: { setActiveSection: (section: 
             {/* Header */}
             <div className="bg-gradient-to-r from-neutral-50 to-neutral-100 p-6 border-b border-neutral-200">
               <div className="flex items-start justify-between mb-2">
-                <h3 
+                <h3
                   className="text-[20px]"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -470,7 +474,7 @@ function ModalidadesLeasing({ setActiveSection }: { setActiveSection: (section: 
                 >
                   Leasing operativo
                 </h3>
-                <span 
+                <span
                   className="px-3 py-1 bg-[#E94E1B]/10 text-[#E94E1B] rounded-full text-xs"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -485,7 +489,7 @@ function ModalidadesLeasing({ setActiveSection }: { setActiveSection: (section: 
             {/* Content */}
             <div className="p-6 space-y-6">
               <div>
-                <p 
+                <p
                   className="text-[14px] mb-2 uppercase tracking-wide"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -495,7 +499,7 @@ function ModalidadesLeasing({ setActiveSection }: { setActiveSection: (section: 
                 >
                   ¿En qué consiste?
                 </p>
-                <p 
+                <p
                   className="text-[15px] text-neutral-700 leading-[1.75]"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -509,7 +513,7 @@ function ModalidadesLeasing({ setActiveSection }: { setActiveSection: (section: 
               <div className="h-px bg-gradient-to-r from-transparent via-neutral-200 to-transparent" />
 
               <div>
-                <p 
+                <p
                   className="text-[14px] mb-2 uppercase tracking-wide"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -519,7 +523,7 @@ function ModalidadesLeasing({ setActiveSection }: { setActiveSection: (section: 
                 >
                   ¿Para quién es ideal?
                 </p>
-                <p 
+                <p
                   className="text-[15px] text-neutral-700 leading-[1.75]"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -533,7 +537,7 @@ function ModalidadesLeasing({ setActiveSection }: { setActiveSection: (section: 
               <div className="h-px bg-gradient-to-r from-transparent via-neutral-200 to-transparent" />
 
               <div>
-                <p 
+                <p
                   className="text-[14px] mb-2 uppercase tracking-wide"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -543,7 +547,7 @@ function ModalidadesLeasing({ setActiveSection }: { setActiveSection: (section: 
                 >
                   Plazos orientativos*
                 </p>
-                <p 
+                <p
                   className="text-[15px] text-neutral-700 leading-[1.75]"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -567,7 +571,7 @@ function ModalidadesLeasing({ setActiveSection }: { setActiveSection: (section: 
             {/* Header */}
             <div className="bg-gradient-to-r from-neutral-50 to-neutral-100 p-6 border-b border-neutral-200">
               <div className="flex items-start justify-between mb-2">
-                <h3 
+                <h3
                   className="text-[20px]"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -577,7 +581,7 @@ function ModalidadesLeasing({ setActiveSection }: { setActiveSection: (section: 
                 >
                   Leasing financiero
                 </h3>
-                <span 
+                <span
                   className="px-3 py-1 bg-[#E94E1B]/10 text-[#E94E1B] rounded-full text-xs"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -592,7 +596,7 @@ function ModalidadesLeasing({ setActiveSection }: { setActiveSection: (section: 
             {/* Content */}
             <div className="p-6 space-y-6">
               <div>
-                <p 
+                <p
                   className="text-[14px] mb-2 uppercase tracking-wide"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -602,7 +606,7 @@ function ModalidadesLeasing({ setActiveSection }: { setActiveSection: (section: 
                 >
                   ¿En qué consiste?
                 </p>
-                <p 
+                <p
                   className="text-[15px] text-neutral-700 leading-[1.75]"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -616,7 +620,7 @@ function ModalidadesLeasing({ setActiveSection }: { setActiveSection: (section: 
               <div className="h-px bg-gradient-to-r from-transparent via-neutral-200 to-transparent" />
 
               <div>
-                <p 
+                <p
                   className="text-[14px] mb-2 uppercase tracking-wide"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -626,7 +630,7 @@ function ModalidadesLeasing({ setActiveSection }: { setActiveSection: (section: 
                 >
                   ¿Para quién es ideal?
                 </p>
-                <p 
+                <p
                   className="text-[15px] text-neutral-700 leading-[1.75]"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -640,7 +644,7 @@ function ModalidadesLeasing({ setActiveSection }: { setActiveSection: (section: 
               <div className="h-px bg-gradient-to-r from-transparent via-neutral-200 to-transparent" />
 
               <div>
-                <p 
+                <p
                   className="text-[14px] mb-2 uppercase tracking-wide"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -650,7 +654,7 @@ function ModalidadesLeasing({ setActiveSection }: { setActiveSection: (section: 
                 >
                   Plazos orientativos*
                 </p>
-                <p 
+                <p
                   className="text-[15px] text-neutral-700 leading-[1.75]"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -687,7 +691,7 @@ function FinanciacionPropia({ setActiveSection }: { setActiveSection: (section: 
   const ref = useRef(null);
 
   return (
-    <section 
+    <section
       id="financiacion-directa"
       ref={ref}
       className="py-20 px-6 lg:px-12 bg-white"
@@ -701,14 +705,14 @@ function FinanciacionPropia({ setActiveSection }: { setActiveSection: (section: 
           className="bg-white border border-neutral-200 rounded-3xl p-8 lg:p-10 shadow-lg hover:shadow-xl transition-all duration-300"
         >
           <div className="flex items-start gap-5 mb-7">
-            <div 
+            <div
               className="size-14 rounded-xl flex items-center justify-center flex-shrink-0"
               style={{ backgroundColor: 'rgba(233, 78, 27, 0.1)' }}
             >
               <CreditCard className="size-7 text-[#E94E1B]" />
             </div>
             <div>
-              <h2 
+              <h2
                 className="text-[32px] lg:text-[36px] leading-[1.2] tracking-tight"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -721,7 +725,7 @@ function FinanciacionPropia({ setActiveSection }: { setActiveSection: (section: 
             </div>
           </div>
 
-          <p 
+          <p
             className="text-[16px] text-neutral-600 leading-[1.75] mb-7"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -750,7 +754,7 @@ function FinanciacionPropia({ setActiveSection }: { setActiveSection: (section: 
                 description: 'proceso simplificado para no demorar la implementación tecnológica.'
               }
             ].map((item, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -758,20 +762,20 @@ function FinanciacionPropia({ setActiveSection }: { setActiveSection: (section: 
                 transition={{ delay: idx * 0.1, duration: 0.4 }}
                 className="flex items-start gap-3"
               >
-                <div 
+                <div
                   className="size-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
                   style={{ backgroundColor: 'rgba(233, 78, 27, 0.15)' }}
                 >
                   <CheckCircle2 className="size-4 text-[#E94E1B]" />
                 </div>
-                <p 
+                <p
                   className="text-[15px] text-neutral-700 leading-[1.75]"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
                     fontWeight: 400
                   }}
                 >
-                  <span 
+                  <span
                     style={{
                       fontWeight: 600,
                       color: '#282327'
@@ -785,10 +789,10 @@ function FinanciacionPropia({ setActiveSection }: { setActiveSection: (section: 
             ))}
           </div>
 
-          <div 
+          <div
             className="bg-neutral-50 border-t-2 border-neutral-200 rounded-xl p-4"
           >
-            <p 
+            <p
               className="text-[13px] text-neutral-600 leading-[1.65]"
               style={{
                 fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -841,7 +845,7 @@ function QueSeFinancia({ setActiveSection }: { setActiveSection: (section: strin
   ];
 
   return (
-    <section 
+    <section
       id="equipos"
       ref={ref}
       className="py-20 px-6 lg:px-12 bg-gradient-to-br from-neutral-50 to-white"
@@ -855,7 +859,7 @@ function QueSeFinancia({ setActiveSection }: { setActiveSection: (section: strin
           className="text-center mb-3"
         >
           {/* Mini label */}
-          <span 
+          <span
             className="inline-block px-4 py-1.5 bg-[#E94E1B]/10 text-[#E94E1B] rounded-full text-xs mb-6"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -866,7 +870,7 @@ function QueSeFinancia({ setActiveSection }: { setActiveSection: (section: strin
             COBERTURA DE PRODUCTOS
           </span>
 
-          <h2 
+          <h2
             className="text-[36px] lg:text-[42px] text-[#282327] mb-4 leading-[1.2] tracking-tight"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -875,7 +879,7 @@ function QueSeFinancia({ setActiveSection }: { setActiveSection: (section: strin
           >
             Equipos y servicios que podés financiar
           </h2>
-          <p 
+          <p
             className="text-[15px] text-neutral-600 leading-[1.7] max-w-[680px] mx-auto"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -897,7 +901,7 @@ function QueSeFinancia({ setActiveSection }: { setActiveSection: (section: strin
               transition={{ delay: idx * 0.08, duration: 0.5 }}
               className="bg-white border border-neutral-200 rounded-2xl p-6 hover:shadow-lg hover:border-[#E94E1B]/40 transition-all duration-300 flex flex-col h-full"
             >
-              <div 
+              <div
                 className="size-14 rounded-xl flex items-center justify-center mb-5 mx-auto"
                 style={{ backgroundColor: 'rgba(233, 78, 27, 0.1)' }}
               >
@@ -905,7 +909,7 @@ function QueSeFinancia({ setActiveSection }: { setActiveSection: (section: strin
                   {equipo.icon}
                 </div>
               </div>
-              <h3 
+              <h3
                 className="text-[17px] mb-3 leading-tight text-center"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -915,7 +919,7 @@ function QueSeFinancia({ setActiveSection }: { setActiveSection: (section: strin
               >
                 {equipo.title}
               </h3>
-              <p 
+              <p
                 className="text-[14px] leading-[1.7] text-center flex-grow"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -970,7 +974,7 @@ function ComoFunciona({ setActiveSection }: { setActiveSection: (section: string
   ];
 
   return (
-    <section 
+    <section
       id="proceso"
       ref={ref}
       className="py-20 px-6 lg:px-12 bg-white"
@@ -983,7 +987,7 @@ function ComoFunciona({ setActiveSection }: { setActiveSection: (section: string
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 
+          <h2
             className="text-[36px] lg:text-[42px] text-[#282327] mb-4 leading-[1.2] tracking-tight"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1012,7 +1016,7 @@ function ComoFunciona({ setActiveSection }: { setActiveSection: (section: string
                 <div className="flex items-start gap-6 lg:gap-8">
                   {/* Number Circle - centered on line */}
                   <div className="flex-shrink-0 lg:absolute lg:left-1/2 lg:-translate-x-1/2 z-10">
-                    <div 
+                    <div
                       className="size-12 rounded-full flex items-center justify-center shadow-lg"
                       style={{
                         backgroundColor: '#E94E1B',
@@ -1030,7 +1034,7 @@ function ComoFunciona({ setActiveSection }: { setActiveSection: (section: string
                   {/* Content Card - alternating sides on desktop */}
                   <div className={`flex-1 lg:w-[calc(50%-40px)] ${idx % 2 === 0 ? 'lg:mr-auto lg:pr-16' : 'lg:ml-auto lg:pl-16'}`}>
                     <div className="bg-white border border-neutral-200 rounded-2xl p-6 hover:shadow-xl hover:border-[#E94E1B]/30 transition-all duration-300">
-                      <h3 
+                      <h3
                         className="text-[18px] mb-2 leading-tight"
                         style={{
                           fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1040,7 +1044,7 @@ function ComoFunciona({ setActiveSection }: { setActiveSection: (section: string
                       >
                         {paso.title}
                       </h3>
-                      <p 
+                      <p
                         className="text-[15px] leading-[1.75]"
                         style={{
                           fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',

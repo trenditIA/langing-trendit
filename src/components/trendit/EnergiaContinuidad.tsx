@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { 
+import {
   Zap,
   Battery,
   Shield,
@@ -47,7 +47,7 @@ function HeroEnergia() {
   };
 
   return (
-    <section 
+    <section
       className="relative pt-28 md:pt-32 lg:pt-36 pb-16 md:pb-20 lg:pb-24 px-6 lg:px-12 overflow-hidden"
       style={{
         minHeight: 'calc(100vh - 80px)',
@@ -55,14 +55,14 @@ function HeroEnergia() {
       }}
     >
       {/* Subtle gradient overlay */}
-      <div 
+      <div
         className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-[0.04] blur-3xl pointer-events-none"
         style={{ background: '#E94E1B' }}
       />
 
       <div className="max-w-[980px] mx-auto">
         <div className="flex flex-col items-center">
-          
+
           {/* Centered Content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -71,7 +71,7 @@ function HeroEnergia() {
             className="w-full max-w-[900px]"
           >
             {/* H1 */}
-            <h1 
+            <h1
               className="text-[38px] md:text-[48px] lg:text-[54px] leading-[1.1] mb-5 lg:mb-6 text-[#282327] text-center"
               style={{
                 fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -82,7 +82,7 @@ function HeroEnergia() {
             </h1>
 
             {/* Subtitle */}
-            <p 
+            <p
               className="text-[16px] md:text-[17px] lg:text-[18px] leading-[1.6] mb-6 text-neutral-600 text-center"
               style={{
                 fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -101,7 +101,7 @@ function HeroEnergia() {
               ].map((item, idx) => (
                 <li key={idx} className="flex items-start gap-3">
                   <CheckCircle2 className="size-5 text-[#E94E1B] flex-shrink-0 mt-0.5" />
-                  <span 
+                  <span
                     className="text-[15px] lg:text-[16px] text-neutral-700"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -144,7 +144,7 @@ function HeroEnergia() {
             </div>
 
             {/* Microcopy - centered */}
-            <p 
+            <p
               className="text-[13px] text-neutral-500 text-center"
               style={{
                 fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -164,13 +164,13 @@ function HeroEnergia() {
 function DiagramNode({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
     <div className="flex flex-col items-center gap-2">
-      <div 
+      <div
         className="size-14 rounded-xl flex items-center justify-center bg-white border border-neutral-200 text-neutral-700"
         style={{ boxShadow: '0 4px 12px rgba(0, 0, 0, 0.06)' }}
       >
         {icon}
       </div>
-      <span 
+      <span
         className="text-[12px] text-neutral-600"
         style={{
           fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -213,7 +213,7 @@ function ContextoEnergia() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10 lg:mb-12"
         >
-          <h2 
+          <h2
             className="text-[32px] md:text-[40px] lg:text-[44px] mb-5 text-[#282327] leading-tight"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -222,7 +222,7 @@ function ContextoEnergia() {
           >
             Cuando la energía falla, la tecnología también
           </h2>
-          <p 
+          <p
             className="text-[16px] md:text-[17px] lg:text-[18px] text-neutral-600 max-w-[920px] mx-auto leading-relaxed"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -246,7 +246,7 @@ function ContextoEnergia() {
                 boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)'
               }}
             >
-              <div 
+              <div
                 className="size-12 rounded-xl flex items-center justify-center mb-4 text-white"
                 style={{
                   background: 'linear-gradient(135deg, #E94E1B 0%, #d94419 100%)',
@@ -255,7 +255,7 @@ function ContextoEnergia() {
               >
                 {card.icon}
               </div>
-              <h3 
+              <h3
                 className="text-[18px] lg:text-[19px] mb-2 text-[#282327]"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -264,7 +264,7 @@ function ContextoEnergia() {
               >
                 {card.title}
               </h3>
-              <p 
+              <p
                 className="text-[14px] lg:text-[15px] text-neutral-600 leading-relaxed"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -340,7 +340,7 @@ function QueIncluye() {
           viewport={{ once: true }}
           className="text-center mb-10 lg:mb-12"
         >
-          <h2 
+          <h2
             className="text-[32px] md:text-[40px] lg:text-[44px] mb-4 text-[#282327] leading-tight"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -349,7 +349,7 @@ function QueIncluye() {
           >
             Soluciones de punta a punta
           </h2>
-          <p 
+          <p
             className="text-[15px] lg:text-[16px] text-neutral-600"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -373,7 +373,7 @@ function QueIncluye() {
                 boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)'
               }}
             >
-              <div 
+              <div
                 className="size-12 rounded-xl flex items-center justify-center mb-4 text-white"
                 style={{
                   background: 'linear-gradient(135deg, #E94E1B 0%, #d94419 100%)',
@@ -382,7 +382,7 @@ function QueIncluye() {
               >
                 {bloque.icon}
               </div>
-              <h3 
+              <h3
                 className="text-[17px] lg:text-[18px] mb-3 text-[#282327]"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -395,7 +395,7 @@ function QueIncluye() {
                 {bloque.items.map((item, itemIdx) => (
                   <li key={itemIdx} className="flex items-start gap-2">
                     <div className="size-1.5 rounded-full bg-[#E94E1B] mt-2 flex-shrink-0" />
-                    <span 
+                    <span
                       className="text-[14px] text-neutral-600 leading-relaxed"
                       style={{
                         fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -459,7 +459,7 @@ function MarcasPrincipales() {
           viewport={{ once: true }}
           className="text-center mb-10 lg:mb-12"
         >
-          <h2 
+          <h2
             className="text-[32px] md:text-[40px] lg:text-[44px] mb-5 text-[#282327] leading-tight"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -468,7 +468,7 @@ function MarcasPrincipales() {
           >
             Dos marcas líderes, un criterio: confiabilidad
           </h2>
-          <p 
+          <p
             className="text-[16px] md:text-[17px] text-neutral-600 max-w-[820px] mx-auto leading-relaxed"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -485,11 +485,10 @@ function MarcasPrincipales() {
             <button
               key={tab.id}
               onClick={() => setSelectedTab(tab.id)}
-              className={`px-6 py-3 rounded-full transition-all duration-300 ${
-                selectedTab === tab.id
+              className={`px-6 py-3 rounded-full transition-all duration-300 ${selectedTab === tab.id
                   ? 'bg-[#E94E1B] text-white shadow-lg'
                   : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
-              }`}
+                }`}
               style={{
                 fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
                 fontWeight: 600,
@@ -512,7 +511,7 @@ function MarcasPrincipales() {
             boxShadow: '0 4px 24px rgba(0, 0, 0, 0.04)'
           }}
         >
-          <h3 
+          <h3
             className="text-[22px] lg:text-[26px] mb-4 text-[#282327]"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -521,7 +520,7 @@ function MarcasPrincipales() {
           >
             {current.titulo}
           </h3>
-          <p 
+          <p
             className="text-[16px] lg:text-[17px] text-neutral-600 leading-relaxed max-w-[700px] mx-auto"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -560,7 +559,7 @@ function VRLAvsLitio() {
           viewport={{ once: true }}
           className="text-center mb-10 lg:mb-12"
         >
-          <h2 
+          <h2
             className="text-[32px] md:text-[40px] lg:text-[44px] mb-4 text-[#282327] leading-tight"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -569,7 +568,7 @@ function VRLAvsLitio() {
           >
             Baterías: el corazón del respaldo
           </h2>
-          <p 
+          <p
             className="text-[15px] lg:text-[16px] text-neutral-600"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -593,7 +592,7 @@ function VRLAvsLitio() {
             }}
           >
             <div className="flex items-center gap-3 mb-6">
-              <div 
+              <div
                 className="size-12 rounded-xl flex items-center justify-center text-white"
                 style={{
                   background: 'linear-gradient(135deg, #6B7280 0%, #4B5563 100%)',
@@ -602,7 +601,7 @@ function VRLAvsLitio() {
               >
                 <Battery className="size-6" />
               </div>
-              <h3 
+              <h3
                 className="text-[22px] lg:text-[24px] text-[#282327]"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -620,7 +619,7 @@ function VRLAvsLitio() {
               ].map((item, idx) => (
                 <li key={idx} className="flex items-start gap-2">
                   <CheckCircle2 className="size-4 text-neutral-500 flex-shrink-0 mt-1" />
-                  <span 
+                  <span
                     className="text-[15px] text-neutral-700 leading-relaxed"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -645,7 +644,7 @@ function VRLAvsLitio() {
             }}
           >
             <div className="flex items-center gap-3 mb-6">
-              <div 
+              <div
                 className="size-12 rounded-xl flex items-center justify-center text-white"
                 style={{
                   background: 'linear-gradient(135deg, #E94E1B 0%, #d94419 100%)',
@@ -654,7 +653,7 @@ function VRLAvsLitio() {
               >
                 <Battery className="size-6" />
               </div>
-              <h3 
+              <h3
                 className="text-[22px] lg:text-[24px] text-[#282327]"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -672,7 +671,7 @@ function VRLAvsLitio() {
               ].map((item, idx) => (
                 <li key={idx} className="flex items-start gap-2">
                   <CheckCircle2 className="size-4 text-[#E94E1B] flex-shrink-0 mt-1" />
-                  <span 
+                  <span
                     className="text-[15px] text-neutral-700 leading-relaxed"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -721,7 +720,7 @@ function Termografia() {
           viewport={{ once: true }}
           className="text-center mb-8"
         >
-          <h2 
+          <h2
             className="text-[32px] md:text-[40px] lg:text-[44px] mb-5 text-[#282327] leading-tight"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -730,7 +729,7 @@ function Termografia() {
           >
             Ver el riesgo antes de que sea un incidente
           </h2>
-          <p 
+          <p
             className="text-[16px] md:text-[17px] text-neutral-600 max-w-[780px] mx-auto leading-relaxed"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -751,7 +750,7 @@ function Termografia() {
           }}
         >
           <div className="flex items-center gap-4 mb-6">
-            <div 
+            <div
               className="size-14 rounded-xl flex items-center justify-center text-white"
               style={{
                 background: 'linear-gradient(135deg, #E94E1B 0%, #d94419 100%)',
@@ -760,7 +759,7 @@ function Termografia() {
             >
               <Thermometer className="size-7" />
             </div>
-            <h3 
+            <h3
               className="text-[20px] lg:text-[22px] text-[#282327]"
               style={{
                 fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -770,12 +769,12 @@ function Termografia() {
               Inspección térmica preventiva
             </h3>
           </div>
-          
+
           <ul className="space-y-3">
             {bullets.map((bullet, idx) => (
               <li key={idx} className="flex items-start gap-3">
                 <CheckCircle2 className="size-5 text-[#E94E1B] flex-shrink-0 mt-0.5" />
-                <span 
+                <span
                   className="text-[15px] lg:text-[16px] text-neutral-700 leading-relaxed"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -834,7 +833,7 @@ function ComoTrabajamosEnergia() {
               }}
             >
               <div className="flex items-start gap-4">
-                <div 
+                <div
                   className="size-12 rounded-xl flex items-center justify-center flex-shrink-0 text-white"
                   style={{
                     background: 'linear-gradient(135deg, #E94E1B 0%, #d94419 100%)',
@@ -844,7 +843,7 @@ function ComoTrabajamosEnergia() {
                   {paso.icon}
                 </div>
                 <div className="pt-1">
-                  <div 
+                  <div
                     className="text-[13px] text-[#E94E1B] mb-2"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -853,7 +852,7 @@ function ComoTrabajamosEnergia() {
                   >
                     Paso {idx + 1}
                   </div>
-                  <h3 
+                  <h3
                     className="text-[16px] lg:text-[17px] text-[#282327] leading-tight"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -892,7 +891,6 @@ function CTAFinalEnergia() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
   };
 
   const tipoOperacionOptions = ['Data center', 'Industria', 'Oficinas', 'Retail', 'Salud', 'Educación'];
@@ -922,7 +920,7 @@ function CTAFinalEnergia() {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <h2 
+          <h2
             className="text-[32px] md:text-[40px] lg:text-[44px] mb-4 text-[#282327] leading-tight"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -931,7 +929,7 @@ function CTAFinalEnergia() {
           >
             Solicitar una propuesta de continuidad
           </h2>
-          <p 
+          <p
             className="text-[15px] lg:text-[16px] text-neutral-600"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -956,7 +954,7 @@ function CTAFinalEnergia() {
             <form onSubmit={handleSubmit} className="space-y-5">
               {/* Organización */}
               <div>
-                <label 
+                <label
                   className="block text-[14px] text-neutral-700 mb-2"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -981,7 +979,7 @@ function CTAFinalEnergia() {
 
               {/* CUIT */}
               <div>
-                <label 
+                <label
                   className="block text-[14px] text-neutral-700 mb-2"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1007,7 +1005,7 @@ function CTAFinalEnergia() {
               {/* Email + Teléfono */}
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label 
+                  <label
                     className="block text-[14px] text-neutral-700 mb-2"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1030,7 +1028,7 @@ function CTAFinalEnergia() {
                   />
                 </div>
                 <div>
-                  <label 
+                  <label
                     className="block text-[14px] text-neutral-700 mb-2"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1057,7 +1055,7 @@ function CTAFinalEnergia() {
               {/* Ciudad + Provincia */}
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label 
+                  <label
                     className="block text-[14px] text-neutral-700 mb-2"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1080,7 +1078,7 @@ function CTAFinalEnergia() {
                   />
                 </div>
                 <div>
-                  <label 
+                  <label
                     className="block text-[14px] text-neutral-700 mb-2"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1106,7 +1104,7 @@ function CTAFinalEnergia() {
 
               {/* Tipo de operación */}
               <div>
-                <label 
+                <label
                   className="block text-[14px] text-neutral-700 mb-3"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1121,11 +1119,10 @@ function CTAFinalEnergia() {
                       key={tipo}
                       type="button"
                       onClick={() => toggleSelection('tipoOperacion', tipo)}
-                      className={`px-4 py-2 rounded-full transition-all duration-300 ${
-                        formData.tipoOperacion.includes(tipo)
+                      className={`px-4 py-2 rounded-full transition-all duration-300 ${formData.tipoOperacion.includes(tipo)
                           ? 'bg-[#E94E1B] text-white border-2 border-[#E94E1B]'
                           : 'bg-white text-neutral-700 border-2 border-neutral-200 hover:border-neutral-300'
-                      }`}
+                        }`}
                       style={{
                         fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
                         fontWeight: 600,
@@ -1140,7 +1137,7 @@ function CTAFinalEnergia() {
 
               {/* Qué se necesita */}
               <div>
-                <label 
+                <label
                   className="block text-[14px] text-neutral-700 mb-3"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1155,11 +1152,10 @@ function CTAFinalEnergia() {
                       key={necesidad}
                       type="button"
                       onClick={() => toggleSelection('necesidades', necesidad)}
-                      className={`px-4 py-2 rounded-full transition-all duration-300 ${
-                        formData.necesidades.includes(necesidad)
+                      className={`px-4 py-2 rounded-full transition-all duration-300 ${formData.necesidades.includes(necesidad)
                           ? 'bg-[#E94E1B] text-white border-2 border-[#E94E1B]'
                           : 'bg-white text-neutral-700 border-2 border-neutral-200 hover:border-neutral-300'
-                      }`}
+                        }`}
                       style={{
                         fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
                         fontWeight: 600,
@@ -1174,7 +1170,7 @@ function CTAFinalEnergia() {
 
               {/* Autonomía objetivo */}
               <div>
-                <label 
+                <label
                   className="block text-[14px] text-neutral-700 mb-2"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1228,7 +1224,7 @@ function CTAFinalEnergia() {
             }}
           >
             <div>
-              <h3 
+              <h3
                 className="text-[24px] lg:text-[28px] mb-4"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1237,7 +1233,7 @@ function CTAFinalEnergia() {
               >
                 Atención rápida
               </h3>
-              <p 
+              <p
                 className="text-[15px] lg:text-[16px] text-white/80 mb-8 leading-relaxed"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',

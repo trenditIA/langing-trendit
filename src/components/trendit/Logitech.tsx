@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
+import {
   ArrowRight,
   ChevronRight,
   ChevronDown,
@@ -32,6 +32,7 @@ import {
   Layout
 } from 'lucide-react';
 import { Button } from '../ui/button';
+import { AlertModal } from './AlertModal';
 
 export function Logitech() {
   const whatsappNumber = '5493516013543';
@@ -159,7 +160,7 @@ function Hero({ scrollToSection, whatsappNumber, whatsappMessage }: any) {
 
             <div className="flex flex-wrap gap-3 mb-8 md:mb-10">
               {chips.map((chip, idx) => (
-                <span 
+                <span
                   key={idx}
                   className="inline-block bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-full text-xs sm:text-sm hover:bg-white/15 hover:border-white/30 transition-all duration-300"
                 >
@@ -169,7 +170,7 @@ function Hero({ scrollToSection, whatsappNumber, whatsappMessage }: any) {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-6 md:mb-8">
-              <Button 
+              <Button
                 size="lg"
                 className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white px-6 md:px-8 group shadow-lg shadow-[#E94E1B]/20 w-full sm:w-auto"
                 onClick={() => scrollToSection('cta-wizard')}
@@ -177,8 +178,8 @@ function Hero({ scrollToSection, whatsappNumber, whatsappMessage }: any) {
                 Configurar mi solución
                 <ArrowRight className="ml-2 size-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              
-              <Button 
+
+              <Button
                 size="lg"
                 variant="outline"
                 className="border-2 border-white/40 bg-white/5 text-white hover:bg-white/10 hover:border-white/60 backdrop-blur-sm w-full sm:w-auto transition-all duration-300"
@@ -200,17 +201,16 @@ function Hero({ scrollToSection, whatsappNumber, whatsappMessage }: any) {
               <h3 className="text-sm uppercase tracking-wider text-white/50 mb-4">
                 Selector de escenario
               </h3>
-              
+
               <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
                 {tabs.map((tab) => (
                   <button
                     key={tab.id}
                     onClick={() => setSelectedTab(tab.id)}
-                    className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-300 ${
-                      selectedTab === tab.id
-                        ? 'bg-[#E94E1B] text-white shadow-lg'
-                        : 'bg-white/10 text-white/70 hover:bg-white/15 border border-white/20'
-                    }`}
+                    className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-300 ${selectedTab === tab.id
+                      ? 'bg-[#E94E1B] text-white shadow-lg'
+                      : 'bg-white/10 text-white/70 hover:bg-white/15 border border-white/20'
+                      }`}
                   >
                     {tab.label}
                   </button>
@@ -236,7 +236,7 @@ function Hero({ scrollToSection, whatsappNumber, whatsappMessage }: any) {
                 <p className="text-sm text-white/70 mb-6">
                   {currentRec.desc}
                 </p>
-                
+
                 <div className="space-y-3">
                   {currentRec.products.map((product, idx) => (
                     <div
@@ -397,7 +397,7 @@ function ExploraPorNecesidad({ scrollToSection }: any) {
               <h3 className="text-lg font-semibold text-[#282327] mb-3">
                 {nec.title}
               </h3>
-              
+
               <div className="mb-4">
                 <p className="text-xs font-semibold text-neutral-500 uppercase tracking-wide mb-2">
                   Dolor típico
@@ -461,11 +461,10 @@ function MeetingRooms({ scrollToSection }: any) {
               <button
                 key={section.id}
                 onClick={() => setActiveSection(section.id)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all ${
-                  activeSection === section.id
-                    ? 'bg-[#E94E1B] text-white'
-                    : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
-                }`}
+                className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all ${activeSection === section.id
+                  ? 'bg-[#E94E1B] text-white'
+                  : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
+                  }`}
               >
                 {section.label}
               </button>
@@ -499,7 +498,7 @@ function VideoBarsSection({ scrollToSection }: any) {
       <h3 className="text-2xl md:text-3xl font-semibold text-[#282327] mb-4">
         Video bars todo-en-uno con IA integrada
       </h3>
-      
+
       <div className="bg-gradient-to-br from-neutral-50 to-white border-2 border-neutral-200 hover:border-[#E94E1B]/30 rounded-2xl p-8 mb-6 transition-all duration-300 hover:shadow-lg">
         <div className="flex items-start gap-6">
           <div className="size-16 rounded-xl bg-[#E94E1B]/5 flex items-center justify-center text-[#E94E1B] flex-shrink-0">
@@ -515,7 +514,7 @@ function VideoBarsSection({ scrollToSection }: any) {
             <p className="text-sm md:text-base text-neutral-700 leading-relaxed mb-6">
               Barra de video todo-en-uno con IA integrada, óptica avanzada y audio potente para salas de reunión de medianas a grandes. Experiencia premium con gestión centralizada.
             </p>
-            <Button 
+            <Button
               className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white"
               onClick={() => scrollToSection('room-configurator')}
             >
@@ -575,7 +574,7 @@ function CamarasSection({ scrollToSection }: any) {
           <p className="text-sm text-neutral-700 leading-relaxed mb-4">
             Cámara de mesa compacta que ofrece una segunda perspectiva de la sala, ideal para capturar interacciones en la mesa o pizarra.
           </p>
-          <Button 
+          <Button
             size="sm"
             variant="outline"
             className="border-2 border-neutral-300 hover:border-[#E94E1B] hover:text-[#E94E1B]"
@@ -593,7 +592,7 @@ function CamarasSection({ scrollToSection }: any) {
           <p className="text-sm text-neutral-700 leading-relaxed mb-4">
             Controlador táctil para gestionar reuniones, calendario y funciones de sala con interfaz intuitiva.
           </p>
-          <Button 
+          <Button
             size="sm"
             variant="outline"
             className="border-2 border-neutral-300 hover:border-[#E94E1B] hover:text-[#E94E1B]"
@@ -613,7 +612,7 @@ function ProgramacionSection({ scrollToSection }: any) {
       <h3 className="text-2xl md:text-3xl font-semibold text-[#282327] mb-4">
         Disponibilidad al instante
       </h3>
-      
+
       <div className="bg-gradient-to-br from-neutral-50 to-white border-2 border-neutral-200 hover:border-[#E94E1B]/30 rounded-2xl p-8 transition-all duration-300 hover:shadow-lg">
         <div className="flex items-start gap-6">
           <div className="size-16 rounded-xl bg-[#E94E1B]/5 flex items-center justify-center text-[#E94E1B] flex-shrink-0">
@@ -626,7 +625,7 @@ function ProgramacionSection({ scrollToSection }: any) {
             <p className="text-sm md:text-base text-neutral-700 leading-relaxed mb-6">
               Panel de programación que muestra detalles de disponibilidad y permite reservar salas ad hoc o futuras para encontrar el espacio correcto. Integración con calendarios corporativos.
             </p>
-            <Button 
+            <Button
               className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white"
               onClick={() => scrollToSection('cta-wizard')}
             >
@@ -646,7 +645,7 @@ function PizarrasSection({ scrollToSection }: any) {
       <h3 className="text-2xl md:text-3xl font-semibold text-[#282327] mb-4">
         Sesiones de ideas inclusivas
       </h3>
-      
+
       <div className="bg-gradient-to-br from-neutral-50 to-white border-2 border-neutral-200 hover:border-[#E94E1B]/30 rounded-2xl p-8 transition-all duration-300 hover:shadow-lg">
         <div className="flex items-start gap-6">
           <div className="size-16 rounded-xl bg-[#E94E1B]/5 flex items-center justify-center text-[#E94E1B] flex-shrink-0">
@@ -659,7 +658,7 @@ function PizarrasSection({ scrollToSection }: any) {
             <p className="text-sm md:text-base text-neutral-700 leading-relaxed mb-6">
               Cámara para pizarra con IA que transmite el contenido con nitidez para participantes remotos y en sala. Captura automática de contenido y colaboración inclusiva sin importar la ubicación.
             </p>
-            <Button 
+            <Button
               className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white"
               onClick={() => scrollToSection('cta-wizard')}
             >
@@ -734,11 +733,10 @@ function WorkDesks({ scrollToSection }: any) {
               <button
                 key={section.id}
                 onClick={() => setActiveSection(section.id)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all ${
-                  activeSection === section.id
-                    ? 'bg-[#E94E1B] text-white'
-                    : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
-                }`}
+                className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all ${activeSection === section.id
+                  ? 'bg-[#E94E1B] text-white'
+                  : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
+                  }`}
               >
                 {section.label}
               </button>
@@ -818,7 +816,7 @@ function WebcamsSection({ scrollToSection }: any) {
         ))}
       </div>
 
-      <Button 
+      <Button
         className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white"
         onClick={() => scrollToSection('cta-wizard')}
       >
@@ -869,7 +867,7 @@ function HeadsetsSection({ scrollToSection }: any) {
         ))}
       </div>
 
-      <Button 
+      <Button
         className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white"
         onClick={() => scrollToSection('cta-wizard')}
       >
@@ -918,7 +916,7 @@ function KeyboardsSection({ scrollToSection }: any) {
         ))}
       </div>
 
-      <Button 
+      <Button
         className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white"
         onClick={() => scrollToSection('cta-wizard')}
       >
@@ -969,7 +967,7 @@ function DockingSection({ scrollToSection }: any) {
         ))}
       </div>
 
-      <Button 
+      <Button
         className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white"
         onClick={() => scrollToSection('cta-wizard')}
       >
@@ -1037,7 +1035,7 @@ function SoftwareServices() {
         </div>
 
         <div className="text-center">
-          <Button 
+          <Button
             size="lg"
             variant="outline"
             className="border-2 border-[#E94E1B] text-[#E94E1B] hover:bg-[#E94E1B] hover:text-white transition-all"
@@ -1133,11 +1131,10 @@ function RoomConfigurator({ scrollToSection }: any) {
                   <button
                     key={option.value}
                     onClick={() => updateConfig('size', option.value)}
-                    className={`px-4 py-3 rounded-xl border-2 font-medium transition-all ${
-                      config.size === option.value
-                        ? 'border-[#E94E1B] bg-[#E94E1B] text-white'
-                        : 'border-neutral-300 text-neutral-700 hover:border-neutral-400'
-                    }`}
+                    className={`px-4 py-3 rounded-xl border-2 font-medium transition-all ${config.size === option.value
+                      ? 'border-[#E94E1B] bg-[#E94E1B] text-white'
+                      : 'border-neutral-300 text-neutral-700 hover:border-neutral-400'
+                      }`}
                   >
                     {option.label}
                   </button>
@@ -1160,11 +1157,10 @@ function RoomConfigurator({ scrollToSection }: any) {
                   <button
                     key={option.value}
                     onClick={() => updateConfig('platform', option.value)}
-                    className={`px-4 py-3 rounded-xl border-2 font-medium transition-all ${
-                      config.platform === option.value
-                        ? 'border-[#E94E1B] bg-[#E94E1B] text-white'
-                        : 'border-neutral-300 text-neutral-700 hover:border-neutral-400'
-                    }`}
+                    className={`px-4 py-3 rounded-xl border-2 font-medium transition-all ${config.platform === option.value
+                      ? 'border-[#E94E1B] bg-[#E94E1B] text-white'
+                      : 'border-neutral-300 text-neutral-700 hover:border-neutral-400'
+                      }`}
                   >
                     {option.label}
                   </button>
@@ -1186,11 +1182,10 @@ function RoomConfigurator({ scrollToSection }: any) {
                   <button
                     key={option.value}
                     onClick={() => updateConfig('mode', option.value)}
-                    className={`px-4 py-3 rounded-xl border-2 font-medium transition-all ${
-                      config.mode === option.value
-                        ? 'border-[#E94E1B] bg-[#E94E1B] text-white'
-                        : 'border-neutral-300 text-neutral-700 hover:border-neutral-400'
-                    }`}
+                    className={`px-4 py-3 rounded-xl border-2 font-medium transition-all ${config.mode === option.value
+                      ? 'border-[#E94E1B] bg-[#E94E1B] text-white'
+                      : 'border-neutral-300 text-neutral-700 hover:border-neutral-400'
+                      }`}
                   >
                     {option.label}
                   </button>
@@ -1208,11 +1203,10 @@ function RoomConfigurator({ scrollToSection }: any) {
                   <button
                     key={need}
                     onClick={() => toggleNeed(need)}
-                    className={`px-4 py-2.5 rounded-xl border-2 font-medium transition-all ${
-                      config.needs.includes(need)
-                        ? 'border-[#E94E1B] bg-[#E94E1B] text-white'
-                        : 'border-neutral-300 text-neutral-700 hover:border-neutral-400'
-                    }`}
+                    className={`px-4 py-2.5 rounded-xl border-2 font-medium transition-all ${config.needs.includes(need)
+                      ? 'border-[#E94E1B] bg-[#E94E1B] text-white'
+                      : 'border-neutral-300 text-neutral-700 hover:border-neutral-400'
+                      }`}
                   >
                     {need}
                   </button>
@@ -1234,7 +1228,7 @@ function RoomConfigurator({ scrollToSection }: any) {
               <h3 className="text-xl md:text-2xl font-semibold text-[#282327] mb-6">
                 Kit recomendado: {recommendation.title}
               </h3>
-              
+
               <div className="mb-6">
                 <p className="text-sm font-semibold text-neutral-700 mb-3 uppercase tracking-wide">
                   Qué incluye:
@@ -1255,7 +1249,7 @@ function RoomConfigurator({ scrollToSection }: any) {
                 </p>
               </div>
 
-              <Button 
+              <Button
                 size="lg"
                 className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white w-full md:w-auto"
                 onClick={() => scrollToSection('cta-wizard')}
@@ -1369,13 +1363,12 @@ function FAQ() {
                 <span className="text-base md:text-lg font-semibold text-[#282327] pr-8">
                   {faq.q}
                 </span>
-                <ChevronDown 
-                  className={`size-5 text-neutral-400 flex-shrink-0 transition-transform ${
-                    openIndex === idx ? 'rotate-180' : ''
-                  }`}
+                <ChevronDown
+                  className={`size-5 text-neutral-400 flex-shrink-0 transition-transform ${openIndex === idx ? 'rotate-180' : ''
+                    }`}
                 />
               </button>
-              
+
               <AnimatePresence>
                 {openIndex === idx && (
                   <motion.div
@@ -1419,7 +1412,7 @@ function CTAWizard({ whatsappNumber }: any) {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
+              <Button
                 size="lg"
                 className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white px-10 text-base md:text-lg"
                 onClick={() => setShowWizard(true)}
@@ -1427,8 +1420,8 @@ function CTAWizard({ whatsappNumber }: any) {
                 Iniciar asistente
                 <ArrowRight className="ml-2 size-5" />
               </Button>
-              
-              <Button 
+
+              <Button
                 size="lg"
                 variant="outline"
                 className="border-2 border-[#E94E1B] text-[#E94E1B] hover:bg-[#E94E1B] hover:text-white px-10 text-base md:text-lg transition-all"
@@ -1452,6 +1445,17 @@ function CTAWizard({ whatsappNumber }: any) {
 
 function Wizard({ onClose, whatsappNumber }: any) {
   const [step, setStep] = useState(1);
+  const [alertModal, setAlertModal] = useState<{
+    isOpen: boolean;
+    type: 'success' | 'error' | 'warning';
+    title: string;
+    message: string;
+  }>({
+    isOpen: false,
+    type: 'success',
+    title: '',
+    message: ''
+  });
   const [formData, setFormData] = useState({
     objetivo: '',
     escenario: '',
@@ -1495,8 +1499,16 @@ function Wizard({ onClose, whatsappNumber }: any) {
   };
 
   const handleSubmit = () => {
-    alert('¡Consulta enviada! Un especialista Trendit te contactará en breve con tu solución Logitech.');
-    console.log('Wizard data:', formData);
+    setAlertModal({
+      isOpen: true,
+      type: 'success',
+      title: '¡Consulta enviada!',
+      message: 'Un especialista Trendit te contactará en breve con tu solución Logitech.'
+    });
+  };
+
+  const handleCloseAlert = () => {
+    setAlertModal({ ...alertModal, isOpen: false });
     onClose();
   };
 
@@ -1525,7 +1537,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
         </div>
 
         <div className="h-2 bg-neutral-100">
-          <div 
+          <div
             className="h-full bg-[#E94E1B] transition-all duration-300"
             style={{ width: `${(step / totalSteps) * 100}%` }}
           />
@@ -1540,11 +1552,10 @@ function Wizard({ onClose, whatsappNumber }: any) {
                     <button
                       key={obj}
                       onClick={() => updateField('objetivo', obj)}
-                      className={`p-6 rounded-xl border-2 text-left transition-all ${
-                        formData.objetivo === obj
-                          ? 'border-[#E94E1B] bg-[#E94E1B]/5'
-                          : 'border-neutral-200 hover:border-neutral-300'
-                      }`}
+                      className={`p-6 rounded-xl border-2 text-left transition-all ${formData.objetivo === obj
+                        ? 'border-[#E94E1B] bg-[#E94E1B]/5'
+                        : 'border-neutral-200 hover:border-neutral-300'
+                        }`}
                     >
                       <span className="text-base md:text-lg font-medium text-[#282327]">{obj}</span>
                     </button>
@@ -1560,11 +1571,10 @@ function Wizard({ onClose, whatsappNumber }: any) {
                     <button
                       key={esc}
                       onClick={() => updateField('escenario', esc)}
-                      className={`p-5 rounded-xl border-2 text-left transition-all ${
-                        formData.escenario === esc
-                          ? 'border-[#E94E1B] bg-[#E94E1B]/5'
-                          : 'border-neutral-200 hover:border-neutral-300'
-                      }`}
+                      className={`p-5 rounded-xl border-2 text-left transition-all ${formData.escenario === esc
+                        ? 'border-[#E94E1B] bg-[#E94E1B]/5'
+                        : 'border-neutral-200 hover:border-neutral-300'
+                        }`}
                     >
                       <span className="text-base font-medium text-[#282327]">{esc}</span>
                     </button>
@@ -1580,11 +1590,10 @@ function Wizard({ onClose, whatsappNumber }: any) {
                     <button
                       key={plat}
                       onClick={() => updateField('plataforma', plat)}
-                      className={`px-6 py-4 rounded-xl border-2 transition-all ${
-                        formData.plataforma === plat
-                          ? 'border-[#E94E1B] bg-[#E94E1B] text-white'
-                          : 'border-neutral-200 hover:border-neutral-300'
-                      }`}
+                      className={`px-6 py-4 rounded-xl border-2 transition-all ${formData.plataforma === plat
+                        ? 'border-[#E94E1B] bg-[#E94E1B] text-white'
+                        : 'border-neutral-200 hover:border-neutral-300'
+                        }`}
                     >
                       {plat}
                     </button>
@@ -1645,11 +1654,10 @@ function Wizard({ onClose, whatsappNumber }: any) {
                     <button
                       key={extra}
                       onClick={() => toggleExtra(extra)}
-                      className={`px-5 py-3 rounded-xl border-2 transition-all ${
-                        formData.extras.includes(extra)
-                          ? 'border-[#E94E1B] bg-[#E94E1B] text-white'
-                          : 'border-neutral-200 hover:border-neutral-300'
-                      }`}
+                      className={`px-5 py-3 rounded-xl border-2 transition-all ${formData.extras.includes(extra)
+                        ? 'border-[#E94E1B] bg-[#E94E1B] text-white'
+                        : 'border-neutral-200 hover:border-neutral-300'
+                        }`}
                     >
                       {extra}
                     </button>
@@ -1677,7 +1685,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
                       className="px-4 py-3 border-2 border-neutral-300 rounded-xl focus:ring-2 focus:ring-[#E94E1B] focus:border-transparent outline-none"
                     />
                   </div>
-                  
+
                   <input
                     type="text"
                     placeholder="Cargo"
@@ -1685,7 +1693,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
                     onChange={(e) => updateField('cargo', e.target.value)}
                     className="w-full px-4 py-3 border-2 border-neutral-300 rounded-xl focus:ring-2 focus:ring-[#E94E1B] focus:border-transparent outline-none"
                   />
-                  
+
                   <div className="grid md:grid-cols-2 gap-4">
                     <input
                       type="email"
@@ -1702,7 +1710,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
                       className="px-4 py-3 border-2 border-neutral-300 rounded-xl focus:ring-2 focus:ring-[#E94E1B] focus:border-transparent outline-none"
                     />
                   </div>
-                  
+
                   <input
                     type="text"
                     placeholder="Ciudad"
@@ -1710,7 +1718,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
                     onChange={(e) => updateField('ciudad', e.target.value)}
                     className="w-full px-4 py-3 border-2 border-neutral-300 rounded-xl focus:ring-2 focus:ring-[#E94E1B] focus:border-transparent outline-none"
                   />
-                  
+
                   <textarea
                     placeholder="Contanos más sobre tu necesidad"
                     value={formData.mensaje}
@@ -1734,7 +1742,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
           </button>
 
           {step < totalSteps ? (
-            <Button 
+            <Button
               onClick={() => setStep(s => s + 1)}
               disabled={!canProceed()}
               className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white disabled:opacity-30"
@@ -1743,7 +1751,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
               <ArrowRight className="ml-2 size-4" />
             </Button>
           ) : (
-            <Button 
+            <Button
               onClick={handleSubmit}
               disabled={!canProceed()}
               className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white disabled:opacity-30"
@@ -1754,6 +1762,15 @@ function Wizard({ onClose, whatsappNumber }: any) {
           )}
         </div>
       </motion.div>
+
+      {/* Alert Modal */}
+      <AlertModal
+        isOpen={alertModal.isOpen}
+        onClose={handleCloseAlert}
+        type={alertModal.type}
+        title={alertModal.title}
+        message={alertModal.message}
+      />
     </div>
   );
 }

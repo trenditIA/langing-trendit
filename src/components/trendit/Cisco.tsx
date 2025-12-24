@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { 
+import {
   ArrowRight,
   ChevronRight,
   Wifi,
@@ -26,6 +26,7 @@ import {
   Boxes
 } from 'lucide-react';
 import { Button } from '../ui/button';
+import { AlertModal } from './AlertModal';
 
 export function Cisco() {
   const whatsappNumber = '5493516013543';
@@ -133,7 +134,7 @@ function Hero({ scrollToSection, whatsappNumber, whatsappMessage }: any) {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-4 md:mb-6">
-              <Button 
+              <Button
                 size="lg"
                 className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white px-6 md:px-8 group shadow-lg shadow-[#E94E1B]/20 w-full sm:w-auto"
                 onClick={() => window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank')}
@@ -142,8 +143,8 @@ function Hero({ scrollToSection, whatsappNumber, whatsappMessage }: any) {
                 Hablar por WhatsApp
                 <ArrowRight className="ml-2 size-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              
-              <Button 
+
+              <Button
                 size="lg"
                 variant="outline"
                 className="border-2 border-white/40 bg-white/5 text-white hover:bg-white/10 hover:border-white/60 backdrop-blur-sm w-full sm:w-auto transition-all duration-300"
@@ -163,7 +164,7 @@ function Hero({ scrollToSection, whatsappNumber, whatsappMessage }: any) {
             <h3 className="text-[17px] font-semibold text-white mb-4">
               Acceso rápido
             </h3>
-            
+
             <div className="space-y-2">
               {jumpLinks.map((link, idx) => (
                 <button
@@ -257,7 +258,7 @@ function Networking({ whatsappNumber }: any) {
           <h2 className="text-[36px] lg:text-[42px] text-[#282327] mb-5 leading-[1.2]">
             Networking Cisco: performance, segmentación y crecimiento
           </h2>
-          
+
           <p className="text-[18px] text-neutral-700 mb-8 leading-[1.7]">
             <strong>Qué resuelve:</strong> Capacidad y confiabilidad para redes que escalan con seguridad.
           </p>
@@ -282,7 +283,7 @@ function Networking({ whatsappNumber }: any) {
             </h4>
             <div className="flex flex-wrap gap-3">
               {idealPara.map((chip, idx) => (
-                <span 
+                <span
                   key={idx}
                   className="px-4 py-2 bg-[#E94E1B]/10 border border-[#E94E1B]/20 rounded-full text-[14px] text-[#E94E1B] font-medium"
                 >
@@ -293,7 +294,7 @@ function Networking({ whatsappNumber }: any) {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button 
+            <Button
               size="lg"
               className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white"
               onClick={() => {
@@ -304,8 +305,8 @@ function Networking({ whatsappNumber }: any) {
               <MessageCircle className="mr-2 size-5" />
               Hablar por WhatsApp
             </Button>
-            
-            <Button 
+
+            <Button
               size="lg"
               variant="outline"
               onClick={() => {
@@ -347,7 +348,7 @@ function WiFi({ whatsappNumber }: any) {
           <h2 className="text-[36px] lg:text-[42px] text-[#282327] mb-5 leading-[1.2]">
             Wi-Fi corporativo y acceso seguro
           </h2>
-          
+
           <p className="text-[18px] text-neutral-700 mb-8 leading-[1.7]">
             <strong>Qué resuelve:</strong> Cobertura y roaming estable para alta densidad de usuarios y dispositivos.
           </p>
@@ -372,7 +373,7 @@ function WiFi({ whatsappNumber }: any) {
             </h4>
             <div className="flex flex-wrap gap-3">
               {idealPara.map((chip, idx) => (
-                <span 
+                <span
                   key={idx}
                   className="px-4 py-2 bg-[#E94E1B]/10 border border-[#E94E1B]/20 rounded-full text-[14px] text-[#E94E1B] font-medium"
                 >
@@ -383,7 +384,7 @@ function WiFi({ whatsappNumber }: any) {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button 
+            <Button
               size="lg"
               className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white"
               onClick={() => {
@@ -394,8 +395,8 @@ function WiFi({ whatsappNumber }: any) {
               <MessageCircle className="mr-2 size-5" />
               Hablar por WhatsApp
             </Button>
-            
-            <Button 
+
+            <Button
               size="lg"
               variant="outline"
               onClick={() => {
@@ -436,7 +437,7 @@ function SDWAN({ whatsappNumber }: any) {
           <h2 className="text-[36px] lg:text-[42px] text-[#282327] mb-5 leading-[1.2]">
             WAN / SD-WAN: conectividad entre sedes con control
           </h2>
-          
+
           <p className="text-[18px] text-neutral-700 mb-8 leading-[1.7]">
             <strong>Qué resuelve:</strong> Mejor experiencia de aplicaciones y gestión centralizada.
           </p>
@@ -461,7 +462,7 @@ function SDWAN({ whatsappNumber }: any) {
             </h4>
             <div className="flex flex-wrap gap-3">
               {idealPara.map((chip, idx) => (
-                <span 
+                <span
                   key={idx}
                   className="px-4 py-2 bg-[#E94E1B]/10 border border-[#E94E1B]/20 rounded-full text-[14px] text-[#E94E1B] font-medium"
                 >
@@ -472,7 +473,7 @@ function SDWAN({ whatsappNumber }: any) {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button 
+            <Button
               size="lg"
               className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white"
               onClick={() => {
@@ -483,8 +484,8 @@ function SDWAN({ whatsappNumber }: any) {
               <MessageCircle className="mr-2 size-5" />
               Hablar por WhatsApp
             </Button>
-            
-            <Button 
+
+            <Button
               size="lg"
               variant="outline"
               onClick={() => {
@@ -527,7 +528,7 @@ function Ciberseguridad({ whatsappNumber }: any) {
           <h2 className="text-[36px] lg:text-[42px] text-[#282327] mb-5 leading-[1.2]">
             Seguridad Cisco: Zero Trust desde el usuario hasta la nube
           </h2>
-          
+
           <p className="text-[18px] text-neutral-700 mb-8 leading-[1.7]">
             <strong>Qué resuelve:</strong> Reducir superficie de ataque y responder más rápido.
           </p>
@@ -552,7 +553,7 @@ function Ciberseguridad({ whatsappNumber }: any) {
             </h4>
             <div className="flex flex-wrap gap-3">
               {idealPara.map((chip, idx) => (
-                <span 
+                <span
                   key={idx}
                   className="px-4 py-2 bg-[#E94E1B]/10 border border-[#E94E1B]/20 rounded-full text-[14px] text-[#E94E1B] font-medium"
                 >
@@ -563,7 +564,7 @@ function Ciberseguridad({ whatsappNumber }: any) {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button 
+            <Button
               size="lg"
               className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white"
               onClick={() => {
@@ -574,8 +575,8 @@ function Ciberseguridad({ whatsappNumber }: any) {
               <MessageCircle className="mr-2 size-5" />
               Hablar por WhatsApp
             </Button>
-            
-            <Button 
+
+            <Button
               size="lg"
               variant="outline"
               onClick={() => {
@@ -616,7 +617,7 @@ function Observabilidad({ whatsappNumber }: any) {
           <h2 className="text-[36px] lg:text-[42px] text-[#282327] mb-5 leading-[1.2]">
             Observabilidad: ver lo que pasa antes de que impacte
           </h2>
-          
+
           <p className="text-[18px] text-neutral-700 mb-8 leading-[1.7]">
             <strong>Qué resuelve:</strong> Visibilidad de experiencia y performance para anticipar incidentes.
           </p>
@@ -641,7 +642,7 @@ function Observabilidad({ whatsappNumber }: any) {
             </h4>
             <div className="flex flex-wrap gap-3">
               {idealPara.map((chip, idx) => (
-                <span 
+                <span
                   key={idx}
                   className="px-4 py-2 bg-[#E94E1B]/10 border border-[#E94E1B]/20 rounded-full text-[14px] text-[#E94E1B] font-medium"
                 >
@@ -652,7 +653,7 @@ function Observabilidad({ whatsappNumber }: any) {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button 
+            <Button
               size="lg"
               className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white"
               onClick={() => {
@@ -663,8 +664,8 @@ function Observabilidad({ whatsappNumber }: any) {
               <MessageCircle className="mr-2 size-5" />
               Hablar por WhatsApp
             </Button>
-            
-            <Button 
+
+            <Button
               size="lg"
               variant="outline"
               onClick={() => {
@@ -708,7 +709,7 @@ function Meraki({ whatsappNumber }: any) {
           <h2 className="text-[36px] lg:text-[42px] text-[#282327] mb-5 leading-[1.2]">
             Cisco Meraki: redes distribuidas, gestión cloud
           </h2>
-          
+
           <p className="text-[18px] text-neutral-700 mb-8 leading-[1.7]">
             <strong>Qué resuelve:</strong> Administración simple y rápida de redes multi-sitio.
           </p>
@@ -733,7 +734,7 @@ function Meraki({ whatsappNumber }: any) {
             </h4>
             <div className="flex flex-wrap gap-3">
               {idealPara.map((chip, idx) => (
-                <span 
+                <span
                   key={idx}
                   className="px-4 py-2 bg-[#E94E1B]/10 border border-[#E94E1B]/20 rounded-full text-[14px] text-[#E94E1B] font-medium"
                 >
@@ -744,7 +745,7 @@ function Meraki({ whatsappNumber }: any) {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button 
+            <Button
               size="lg"
               className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white"
               onClick={() => {
@@ -755,8 +756,8 @@ function Meraki({ whatsappNumber }: any) {
               <MessageCircle className="mr-2 size-5" />
               Hablar por WhatsApp
             </Button>
-            
-            <Button 
+
+            <Button
               size="lg"
               variant="outline"
               onClick={() => {
@@ -824,7 +825,7 @@ function MetodoTrendit() {
                   {paso.description}
                 </p>
               </div>
-              
+
               {/* Conector (solo desktop) */}
               {idx < pasos.length - 1 && (
                 <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 bg-[#E94E1B]/30 z-10" />
@@ -913,6 +914,17 @@ function IndustriasSection() {
 }
 
 function CTAFinal({ whatsappNumber }: any) {
+  const [alertModal, setAlertModal] = useState<{
+    isOpen: boolean;
+    type: 'success' | 'error' | 'warning';
+    title: string;
+    message: string;
+  }>({
+    isOpen: false,
+    type: 'success',
+    title: '',
+    message: ''
+  });
   const [formData, setFormData] = useState({
     solucionesSeleccionadas: [] as string[],
     otraSolucion: '',
@@ -952,8 +964,12 @@ function CTAFinal({ whatsappNumber }: any) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Consulta enviada. Te contactaremos pronto con tu propuesta Cisco.');
-    console.log('Datos enviados:', formData);
+    setAlertModal({
+      isOpen: true,
+      type: 'success',
+      title: '¡Consulta enviada!',
+      message: 'Te contactaremos pronto con tu propuesta Cisco.'
+    });
   };
 
   const handleWhatsApp = () => {
@@ -995,11 +1011,10 @@ function CTAFinal({ whatsappNumber }: any) {
                     key={idx}
                     type="button"
                     onClick={() => toggleSolucion(sol)}
-                    className={`px-4 py-3 rounded-xl text-[14px] font-medium transition-all border-2 ${
-                      formData.solucionesSeleccionadas.includes(sol)
-                        ? 'bg-[#E94E1B] text-white border-[#E94E1B]'
-                        : 'bg-neutral-50 text-neutral-700 border-neutral-200 hover:border-neutral-300'
-                    }`}
+                    className={`px-4 py-3 rounded-xl text-[14px] font-medium transition-all border-2 ${formData.solucionesSeleccionadas.includes(sol)
+                      ? 'bg-[#E94E1B] text-white border-[#E94E1B]'
+                      : 'bg-neutral-50 text-neutral-700 border-neutral-200 hover:border-neutral-300'
+                      }`}
                   >
                     {sol}
                   </button>
@@ -1152,7 +1167,7 @@ function CTAFinal({ whatsappNumber }: any) {
 
             {/* Botones */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
+              <Button
                 type="submit"
                 size="lg"
                 className="flex-1 bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white"
@@ -1161,8 +1176,8 @@ function CTAFinal({ whatsappNumber }: any) {
                 Enviar consulta
                 <ArrowRight className="ml-2 size-5" />
               </Button>
-              
-              <Button 
+
+              <Button
                 type="button"
                 size="lg"
                 variant="outline"
@@ -1175,6 +1190,15 @@ function CTAFinal({ whatsappNumber }: any) {
             </div>
           </form>
         </div>
+
+        {/* Alert Modal */}
+        <AlertModal
+          isOpen={alertModal.isOpen}
+          onClose={() => setAlertModal({ ...alertModal, isOpen: false })}
+          type={alertModal.type}
+          title={alertModal.title}
+          message={alertModal.message}
+        />
       </div>
     </section>
   );

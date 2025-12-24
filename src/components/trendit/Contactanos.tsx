@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { 
-  Clock, 
-  Mail, 
-  MapPin, 
+import {
+  Clock,
+  Mail,
+  MapPin,
   MessageCircle,
   CheckCircle2,
   Send
@@ -25,8 +25,6 @@ export function Contactanos() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Aquí iría la lógica de envío real
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -67,7 +65,7 @@ export function Contactanos() {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <h1 
+            <h1
               className="text-[32px] sm:text-[38px] md:text-[48px] lg:text-[56px] mb-4 md:mb-5 lg:mb-6 leading-[1.1] tracking-tight px-4"
               style={{
                 color: '#282327',
@@ -77,8 +75,8 @@ export function Contactanos() {
             >
               Contáctanos
             </h1>
-            
-            <p 
+
+            <p
               className="text-[15px] sm:text-[16px] md:text-[18px] leading-[1.6] mb-6 max-w-[700px] mx-auto px-4"
               style={{
                 color: '#4A4A4A',
@@ -92,7 +90,7 @@ export function Contactanos() {
             {/* Dato de respuesta */}
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-neutral-200">
               <Clock className="size-4 text-[#E94E1B] flex-shrink-0" />
-              <span 
+              <span
                 className="text-[13px] sm:text-[14px]"
                 style={{
                   color: '#6B6B6B',
@@ -111,24 +109,24 @@ export function Contactanos() {
       <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-12 bg-white">
         <div className="max-w-[1200px] mx-auto">
           <div className="grid lg:grid-cols-[1fr_380px] gap-8 lg:gap-12">
-            
+
             {/* Columna izquierda - Formulario */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div 
+              <div
                 className="bg-white rounded-2xl p-6 md:p-8 lg:p-10 border border-neutral-200"
                 style={{
                   boxShadow: '0 4px 16px rgba(40, 35, 39, 0.08), 0 1px 4px rgba(40, 35, 39, 0.04)'
                 }}
               >
                 <form onSubmit={handleSubmit} className="space-y-5">
-                  
+
                   {/* Nombre y apellido */}
                   <div>
-                    <label 
+                    <label
                       htmlFor="nombre"
                       className="block text-[14px] mb-2"
                       style={{
@@ -157,7 +155,7 @@ export function Contactanos() {
 
                   {/* Empresa */}
                   <div>
-                    <label 
+                    <label
                       htmlFor="empresa"
                       className="block text-[14px] mb-2"
                       style={{
@@ -186,7 +184,7 @@ export function Contactanos() {
 
                   {/* CUIT */}
                   <div>
-                    <label 
+                    <label
                       htmlFor="cuit"
                       className="block text-[14px] mb-2"
                       style={{
@@ -215,7 +213,7 @@ export function Contactanos() {
 
                   {/* Email */}
                   <div>
-                    <label 
+                    <label
                       htmlFor="email"
                       className="block text-[14px] mb-2"
                       style={{
@@ -244,7 +242,7 @@ export function Contactanos() {
 
                   {/* Teléfono */}
                   <div>
-                    <label 
+                    <label
                       htmlFor="telefono"
                       className="block text-[14px] mb-2"
                       style={{
@@ -274,7 +272,7 @@ export function Contactanos() {
 
                   {/* Provincia / Ciudad */}
                   <div>
-                    <label 
+                    <label
                       htmlFor="ciudad"
                       className="block text-[14px] mb-2"
                       style={{
@@ -304,7 +302,7 @@ export function Contactanos() {
 
                   {/* Servicio de interés */}
                   <div>
-                    <label 
+                    <label
                       htmlFor="servicio"
                       className="block text-[14px] mb-2"
                       style={{
@@ -337,7 +335,7 @@ export function Contactanos() {
 
                   {/* Mensaje */}
                   <div>
-                    <label 
+                    <label
                       htmlFor="mensaje"
                       className="block text-[14px] mb-2"
                       style={{
@@ -376,7 +374,7 @@ export function Contactanos() {
                       onChange={handleChange}
                       className="mt-1 size-4 rounded border-neutral-300 text-[#E94E1B] focus:ring-[#E94E1B]"
                     />
-                    <label 
+                    <label
                       htmlFor="privacidad"
                       className="text-[13px] leading-[1.5]"
                       style={{
@@ -410,8 +408,8 @@ export function Contactanos() {
                       Enviar consulta
                       <Send className="ml-2 size-5 group-hover:translate-x-1 transition-transform" />
                     </Button>
-                    
-                    <p 
+
+                    <p
                       className="text-[13px] text-center mt-3"
                       style={{
                         color: '#6B6B6B',
@@ -433,9 +431,9 @@ export function Contactanos() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="space-y-5"
             >
-              
+
               {/* WhatsApp - Card destacada */}
-              <div 
+              <div
                 className="bg-gradient-to-br from-[#FFF7F3] to-white rounded-2xl p-6 border-2 border-[#E94E1B]/30"
                 style={{
                   boxShadow: '0 8px 24px rgba(233, 78, 27, 0.12), 0 2px 8px rgba(233, 78, 27, 0.08)'
@@ -445,7 +443,7 @@ export function Contactanos() {
                   <div className="size-12 rounded-xl bg-[#25D366] flex items-center justify-center">
                     <MessageCircle className="size-6 text-white" />
                   </div>
-                  <h3 
+                  <h3
                     className="text-[18px]"
                     style={{
                       color: '#282327',
@@ -456,8 +454,8 @@ export function Contactanos() {
                     WhatsApp directo
                   </h3>
                 </div>
-                
-                <p 
+
+                <p
                   className="text-[14px] mb-5"
                   style={{
                     color: '#4A4A4A',
@@ -485,7 +483,7 @@ export function Contactanos() {
                   Ir a WhatsApp
                 </Button>
 
-                <p 
+                <p
                   className="text-[12px] text-center"
                   style={{
                     color: '#6B6B6B',
@@ -498,7 +496,7 @@ export function Contactanos() {
               </div>
 
               {/* Email */}
-              <div 
+              <div
                 className="bg-white rounded-xl p-5 border border-neutral-200"
                 style={{
                   boxShadow: '0 2px 8px rgba(40, 35, 39, 0.06)'
@@ -508,7 +506,7 @@ export function Contactanos() {
                   <div className="size-10 rounded-lg bg-neutral-100 flex items-center justify-center">
                     <Mail className="size-5 text-[#E94E1B]" />
                   </div>
-                  <h4 
+                  <h4
                     className="text-[15px]"
                     style={{
                       color: '#282327',
@@ -519,7 +517,7 @@ export function Contactanos() {
                     Email comercial
                   </h4>
                 </div>
-                <a 
+                <a
                   href="mailto:ventas@trendit.com.ar"
                   className="text-[14px] text-[#E94E1B] hover:underline"
                   style={{
@@ -532,7 +530,7 @@ export function Contactanos() {
               </div>
 
               {/* Ubicación */}
-              <div 
+              <div
                 className="bg-white rounded-xl p-5 border border-neutral-200"
                 style={{
                   boxShadow: '0 2px 8px rgba(40, 35, 39, 0.06)'
@@ -542,7 +540,7 @@ export function Contactanos() {
                   <div className="size-10 rounded-lg bg-neutral-100 flex items-center justify-center">
                     <MapPin className="size-5 text-[#E94E1B]" />
                   </div>
-                  <h4 
+                  <h4
                     className="text-[15px]"
                     style={{
                       color: '#282327',
@@ -553,7 +551,7 @@ export function Contactanos() {
                     Ubicación
                   </h4>
                 </div>
-                <p 
+                <p
                   className="text-[14px]"
                   style={{
                     color: '#4A4A4A',
@@ -566,7 +564,7 @@ export function Contactanos() {
               </div>
 
               {/* Horario */}
-              <div 
+              <div
                 className="bg-white rounded-xl p-5 border border-neutral-200"
                 style={{
                   boxShadow: '0 2px 8px rgba(40, 35, 39, 0.06)'
@@ -576,7 +574,7 @@ export function Contactanos() {
                   <div className="size-10 rounded-lg bg-neutral-100 flex items-center justify-center">
                     <Clock className="size-5 text-[#E94E1B]" />
                   </div>
-                  <h4 
+                  <h4
                     className="text-[15px]"
                     style={{
                       color: '#282327',
@@ -587,7 +585,7 @@ export function Contactanos() {
                     Horario
                   </h4>
                 </div>
-                <p 
+                <p
                   className="text-[14px]"
                   style={{
                     color: '#4A4A4A',

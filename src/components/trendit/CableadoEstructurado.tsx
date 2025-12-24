@@ -1,13 +1,13 @@
 import { motion } from 'motion/react';
-import { 
-  ArrowRight, 
-  Cable, 
-  CheckCircle2, 
-  Network, 
-  Zap, 
-  Search, 
-  FileCheck, 
-  Shield, 
+import {
+  ArrowRight,
+  Cable,
+  CheckCircle2,
+  Network,
+  Zap,
+  Search,
+  FileCheck,
+  Shield,
   Home,
   Building2,
   Factory,
@@ -45,7 +45,7 @@ export function CableadoEstructurado() {
   });
 
   const fabricantes = [
-    'HPE', 'Lenovo', 'Dell', 'Cisco', 'Apple', 
+    'HPE', 'Lenovo', 'Dell', 'Cisco', 'Apple',
     'Samsung', 'Microsoft', 'Fortinet', 'Otros'
   ];
 
@@ -60,8 +60,6 @@ export function CableadoEstructurado() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Formulario enviado:', { selectedProject, formData });
-    // Aquí iría la lógica de envío
   };
 
   const proyectos = [
@@ -107,7 +105,7 @@ export function CableadoEstructurado() {
       {/* 1. HERO DEL SERVICIO - Clean minimal style */}
       <section className="relative bg-gradient-to-br from-[#282327] via-[#2d2832] to-[#282327] pt-24 lg:pt-28 pb-20 lg:pb-24 px-6 lg:px-12 overflow-hidden min-h-[90vh] flex items-center">
         {/* Floating Breadcrumb */}
-        <FloatingBreadcrumb 
+        <FloatingBreadcrumb
           items={[
             { label: 'Inicio', href: '#home' },
             { label: 'Servicios', href: '#servicios' },
@@ -122,7 +120,7 @@ export function CableadoEstructurado() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Textos y CTAs */}
             <div className="max-w-[600px]">
-              <h1 
+              <h1
                 className="text-[48px] lg:text-[56px] leading-[1.1] tracking-tight mb-6 text-white"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -134,7 +132,7 @@ export function CableadoEstructurado() {
                 para tu infraestructura crítica
               </h1>
 
-              <p 
+              <p
                 className="text-[16px] lg:text-[18px] text-white/70 leading-[1.7] mb-8"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -155,7 +153,7 @@ export function CableadoEstructurado() {
                     <div className="size-10 rounded-xl flex items-center justify-center flex-shrink-0 bg-white/10 backdrop-blur-sm border border-white/20">
                       <CheckCircle2 className="size-5 text-white/80" />
                     </div>
-                    <span 
+                    <span
                       className="text-[16px] text-white leading-relaxed"
                       style={{
                         fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -206,7 +204,7 @@ export function CableadoEstructurado() {
               {/* Chip superior - Soporte urgente */}
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#E94E1B]/30 bg-[#E94E1B]/5">
                 <div className="size-2 rounded-full bg-[#E94E1B]" />
-                <span 
+                <span
                   className="text-[12px] lg:text-[13px] uppercase tracking-wide text-white/80"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -227,7 +225,7 @@ export function CableadoEstructurado() {
                   boxShadow: '0 10px 30px rgba(233, 78, 27, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.15), inset 0 -2px 4px rgba(0, 0, 0, 0.1)'
                 }}
               >
-                <span 
+                <span
                   className="text-[20px] sm:text-[22px] lg:text-[24px] text-white text-center leading-tight"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -252,7 +250,7 @@ export function CableadoEstructurado() {
             transition={{ duration: 0.6 }}
             className="bg-neutral-50 rounded-3xl p-8 lg:p-12 border border-neutral-200"
           >
-            <h2 
+            <h2
               className="text-[36px] lg:text-[42px] leading-[1.2] tracking-tight mb-10 text-center"
               style={{
                 fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -266,7 +264,7 @@ export function CableadoEstructurado() {
             <div className="grid lg:grid-cols-2 gap-10">
               {/* Columna izquierda - storytelling */}
               <div className="space-y-6">
-                <p 
+                <p
                   className="text-[16px] text-neutral-600 leading-[1.8]"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -275,7 +273,7 @@ export function CableadoEstructurado() {
                 >
                   La mayoría de las organizaciones invierte mucho tiempo en elegir servidores, switches, cámaras, Wi-Fi o sistemas de colaboración. Pero todo eso depende de algo más básico: cómo están tendidos los cables que llevan datos y energía.
                 </p>
-                <p 
+                <p
                   className="text-[16px] text-neutral-600 leading-[1.8]"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -284,7 +282,7 @@ export function CableadoEstructurado() {
                 >
                   Un patch panel mal organizado, fibras sin etiquetar o un tendido eléctrico improvisado pueden traducirse en caídas de servicios, cuellos de botella, riesgos de seguridad y costos que se multiplican cada vez que hay que tocar la red. Un diseño de cableado estructurado profesional es lo que permite que la infraestructura sea ordenada, escalable y fácil de mantener.
                 </p>
-                <p 
+                <p
                   className="text-[16px] text-neutral-600 leading-[1.8]"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -301,7 +299,7 @@ export function CableadoEstructurado() {
                   <div className="size-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-[#E94E1B]/20 to-[#E94E1B]/10">
                     <Eye className="size-5 text-[#E94E1B]" />
                   </div>
-                  <h3 
+                  <h3
                     className="text-[18px]"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -324,7 +322,7 @@ export function CableadoEstructurado() {
                       <div className="mt-1">
                         <div className="size-2 rounded-full" style={{ backgroundColor: '#E94E1B' }} />
                       </div>
-                      <span 
+                      <span
                         className="text-[15px] text-neutral-600 leading-[1.6]"
                         style={{
                           fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -356,7 +354,7 @@ export function CableadoEstructurado() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 
+            <h2
               className="text-[36px] lg:text-[42px] leading-[1.2] tracking-tight mb-4 text-white"
               style={{
                 fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -413,7 +411,7 @@ export function CableadoEstructurado() {
                     {servicio.icon}
                   </div>
                 </div>
-                <h3 
+                <h3
                   className="text-[18px] mb-3 text-white"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -422,7 +420,7 @@ export function CableadoEstructurado() {
                 >
                   {servicio.title}
                 </h3>
-                <p 
+                <p
                   className="text-[15px] text-white/70 leading-[1.7]"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -521,14 +519,14 @@ export function CableadoEstructurado() {
                     </div>
                   </div>
                   {idx < 6 && (
-                    <div 
+                    <div
                       className="w-0.5 h-16 mt-4"
                       style={{ backgroundColor: '#E94E1B', opacity: 0.3 }}
                     />
                   )}
                 </div>
                 <div className="flex-1 pt-2">
-                  <h3 
+                  <h3
                     className="text-[18px] mb-2"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -538,7 +536,7 @@ export function CableadoEstructurado() {
                   >
                     {step.title}
                   </h3>
-                  <p 
+                  <p
                     className="text-[15px] text-neutral-600 leading-[1.7]"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -581,7 +579,7 @@ export function CableadoEstructurado() {
             transition={{ duration: 0.6 }}
             className="mb-10"
           >
-            <h2 
+            <h2
               className="text-[36px] lg:text-[42px] leading-[1.2] tracking-tight mb-4 text-white"
               style={{
                 fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -590,7 +588,7 @@ export function CableadoEstructurado() {
             >
               Por qué certificar tu cableado
             </h2>
-            <p 
+            <p
               className="text-[17px] text-white/70"
               style={{
                 fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -622,7 +620,7 @@ export function CableadoEstructurado() {
                   <div className="size-6 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 bg-white/10 backdrop-blur-sm border border-white/20">
                     <CheckCircle2 className="size-4 text-white/80" />
                   </div>
-                  <p 
+                  <p
                     className="text-[15px] text-white/70 leading-[1.7]"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -655,7 +653,7 @@ export function CableadoEstructurado() {
                         {item.icon}
                       </div>
                     </div>
-                    <span 
+                    <span
                       className="text-[16px] text-white"
                       style={{
                         fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -686,7 +684,7 @@ export function CableadoEstructurado() {
               <div className="size-14 rounded-xl flex items-center justify-center bg-gradient-to-br from-[#E94E1B]/20 to-[#E94E1B]/10">
                 <Construction className="size-7 text-[#E94E1B]" />
               </div>
-              <h2 
+              <h2
                 className="text-[32px] leading-[1.2] tracking-tight"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -698,7 +696,7 @@ export function CableadoEstructurado() {
               </h2>
             </div>
 
-            <p 
+            <p
               className="text-[16px] text-neutral-600 leading-[1.8] mb-8"
               style={{
                 fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -718,7 +716,7 @@ export function CableadoEstructurado() {
                   <div className="size-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 bg-gradient-to-br from-[#E94E1B]/20 to-[#E94E1B]/10">
                     <CheckCircle2 className="size-4 text-[#E94E1B]" />
                   </div>
-                  <p 
+                  <p
                     className="text-[14px] text-neutral-600 leading-[1.6]"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -755,7 +753,7 @@ export function CableadoEstructurado() {
           <div className="grid lg:grid-cols-2 gap-10">
             {/* Izquierda - sectores */}
             <div>
-              <h3 
+              <h3
                 className="text-[18px] mb-6"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -784,7 +782,7 @@ export function CableadoEstructurado() {
                     <div className="text-[#E94E1B]">
                       {sector.icon}
                     </div>
-                    <span 
+                    <span
                       className="text-[14px]"
                       style={{
                         fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -806,7 +804,7 @@ export function CableadoEstructurado() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <p 
+              <p
                 className="text-[16px] text-neutral-600 leading-[1.8] mb-8"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -819,7 +817,7 @@ export function CableadoEstructurado() {
               {/* Contador visual */}
               <div className="grid grid-cols-2 gap-6">
                 <div className="bg-white rounded-2xl p-6 border border-neutral-200">
-                  <div 
+                  <div
                     className="text-[36px] mb-2"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -829,7 +827,7 @@ export function CableadoEstructurado() {
                   >
                     +10
                   </div>
-                  <p 
+                  <p
                     className="text-[14px] text-neutral-600"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -840,7 +838,7 @@ export function CableadoEstructurado() {
                   </p>
                 </div>
                 <div className="bg-white rounded-2xl p-6 border border-neutral-200">
-                  <div 
+                  <div
                     className="text-[36px] mb-2"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -850,7 +848,7 @@ export function CableadoEstructurado() {
                   >
                     +200
                   </div>
-                  <p 
+                  <p
                     className="text-[14px] text-neutral-600"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -880,7 +878,7 @@ export function CableadoEstructurado() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 
+            <h2
               className="text-[36px] lg:text-[42px] leading-[1.2] tracking-tight mb-4 text-white"
               style={{
                 fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -901,26 +899,24 @@ export function CableadoEstructurado() {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.5 }}
                 onClick={() => setSelectedProject(idx)}
-                className={`p-6 rounded-2xl border-2 cursor-pointer transition-all duration-300 ${
-                  selectedProject === idx
+                className={`p-6 rounded-2xl border-2 cursor-pointer transition-all duration-300 ${selectedProject === idx
                     ? 'border-[#E94E1B] bg-gradient-to-br from-[#E94E1B]/20 to-[#E94E1B]/10'
                     : 'border-white/20 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-white/30'
-                }`}
+                  }`}
               >
                 <div className="flex items-start gap-4">
-                  <div 
-                    className={`size-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors ${
-                      selectedProject === idx
+                  <div
+                    className={`size-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors ${selectedProject === idx
                         ? 'bg-[#E94E1B]'
                         : 'bg-white/10 backdrop-blur-sm border border-white/20'
-                    }`}
+                      }`}
                   >
                     <div className="text-white/80">
                       {proyecto.icon}
                     </div>
                   </div>
                   <div>
-                    <h3 
+                    <h3
                       className="text-[16px] mb-2 text-white"
                       style={{
                         fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -929,7 +925,7 @@ export function CableadoEstructurado() {
                     >
                       {proyecto.title}
                     </h3>
-                    <p 
+                    <p
                       className="text-[14px] text-white/70 leading-[1.6]"
                       style={{
                         fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -952,7 +948,7 @@ export function CableadoEstructurado() {
               transition={{ duration: 0.5 }}
               className="bg-white/5 backdrop-blur-sm border border-white/20 rounded-3xl p-8 lg:p-12"
             >
-              <h3 
+              <h3
                 className="text-[24px] mb-8 text-center text-white"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -965,7 +961,7 @@ export function CableadoEstructurado() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label 
+                    <label
                       className="block text-[14px] mb-2 text-white/80"
                       style={{
                         fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -989,7 +985,7 @@ export function CableadoEstructurado() {
                   </div>
 
                   <div>
-                    <label 
+                    <label
                       className="block text-[14px] mb-2 text-white/80"
                       style={{
                         fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1013,7 +1009,7 @@ export function CableadoEstructurado() {
                   </div>
 
                   <div>
-                    <label 
+                    <label
                       className="block text-[14px] mb-2 text-white/80"
                       style={{
                         fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1037,7 +1033,7 @@ export function CableadoEstructurado() {
                   </div>
 
                   <div>
-                    <label 
+                    <label
                       className="block text-[14px] mb-2 text-white/80"
                       style={{
                         fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1061,7 +1057,7 @@ export function CableadoEstructurado() {
                   </div>
 
                   <div>
-                    <label 
+                    <label
                       className="block text-[14px] mb-2 text-white/80"
                       style={{
                         fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1085,7 +1081,7 @@ export function CableadoEstructurado() {
                   </div>
 
                   <div>
-                    <label 
+                    <label
                       className="block text-[14px] mb-2 text-white/80"
                       style={{
                         fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1110,7 +1106,7 @@ export function CableadoEstructurado() {
                 </div>
 
                 <div>
-                  <label 
+                  <label
                     className="block text-[14px] mb-2 text-white/80"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1134,7 +1130,7 @@ export function CableadoEstructurado() {
                 </div>
 
                 <div>
-                  <label 
+                  <label
                     className="block text-[14px] mb-3 text-white/80"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1149,11 +1145,10 @@ export function CableadoEstructurado() {
                         key={fab}
                         type="button"
                         onClick={() => toggleFabricante(fab)}
-                        className={`px-4 py-2 rounded-xl border-2 transition-all duration-300 ${
-                          formData.fabricantes.includes(fab)
+                        className={`px-4 py-2 rounded-xl border-2 transition-all duration-300 ${formData.fabricantes.includes(fab)
                             ? 'border-[#E94E1B] bg-[#E94E1B]/20 text-white'
                             : 'border-white/20 bg-white/5 text-white/70 hover:border-white/40 hover:bg-white/10'
-                        }`}
+                          }`}
                         style={{
                           fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
                           fontWeight: 500,
@@ -1182,7 +1177,7 @@ export function CableadoEstructurado() {
                 </div>
 
                 <div>
-                  <label 
+                  <label
                     className="block text-[14px] mb-2 text-white/80"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
+import {
   ArrowRight,
   ChevronRight,
   ChevronDown,
@@ -35,6 +35,7 @@ import {
   Award
 } from 'lucide-react';
 import { Button } from '../ui/button';
+import { AlertModal } from './AlertModal';
 
 export function APC() {
   const [activeEscenarioTab, setActiveEscenarioTab] = useState(0);
@@ -147,51 +148,51 @@ function Hero({ scrollToSection, whatsappNumber, whatsappMessage }: any) {
             Diseñamos e integramos soluciones APC para proteger infraestructura IT, redes y operaciones: UPS, distribución eléctrica, racks y monitoreo inteligente. Del relevamiento al soporte.
           </p>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-8 md:mb-10">
-              <Button 
-                size="lg"
-                className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white px-6 md:px-8 group shadow-lg shadow-[#E94E1B]/20 w-full sm:w-auto"
-                onClick={() => scrollToSection('cta-wizard')}
-              >
-                Iniciar consulta guiada
-                <ArrowRight className="ml-2 size-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              
-              <Button 
-                size="lg"
-                variant="outline"
-                className="border-2 border-white/40 bg-white/5 text-white hover:bg-white/10 hover:border-white/60 backdrop-blur-sm w-full sm:w-auto transition-all duration-300"
-                onClick={() => window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank')}
-              >
-                <MessageCircle className="mr-2 size-5" />
-                Hablar por WhatsApp
-              </Button>
-            </div>
-
-            <button
-              onClick={() => scrollToSection('explorar-necesidad')}
-              className="text-sm md:text-base text-white/70 hover:text-white underline underline-offset-4 mb-8 md:mb-10 transition-colors"
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-8 md:mb-10">
+            <Button
+              size="lg"
+              className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white px-6 md:px-8 group shadow-lg shadow-[#E94E1B]/20 w-full sm:w-auto"
+              onClick={() => scrollToSection('cta-wizard')}
             >
-              Explorar soluciones →
-            </button>
+              Iniciar consulta guiada
+              <ArrowRight className="ml-2 size-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
 
-            {/* Trust chips */}
-            <div className="flex flex-wrap gap-3 mb-4">
-              {trustChips.map((chip, idx) => (
-                <span 
-                  key={idx}
-                  className="inline-block bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-full text-xs sm:text-sm hover:bg-white/15 hover:border-white/30 transition-all duration-300 cursor-help"
-                  title={chip.tooltip}
-                >
-                  {chip.label}
-                </span>
-              ))}
-            </div>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-2 border-white/40 bg-white/5 text-white hover:bg-white/10 hover:border-white/60 backdrop-blur-sm w-full sm:w-auto transition-all duration-300"
+              onClick={() => window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank')}
+            >
+              <MessageCircle className="mr-2 size-5" />
+              Hablar por WhatsApp
+            </Button>
+          </div>
 
-            <p className="text-xs sm:text-sm text-white/50">
-              Arquitecturas on-prem e híbridas, escalables por sitio o multi-sede.
-            </p>
+          <button
+            onClick={() => scrollToSection('explorar-necesidad')}
+            className="text-sm md:text-base text-white/70 hover:text-white underline underline-offset-4 mb-8 md:mb-10 transition-colors"
+          >
+            Explorar soluciones →
+          </button>
+
+          {/* Trust chips */}
+          <div className="flex flex-wrap gap-3 mb-4">
+            {trustChips.map((chip, idx) => (
+              <span
+                key={idx}
+                className="inline-block bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-full text-xs sm:text-sm hover:bg-white/15 hover:border-white/30 transition-all duration-300 cursor-help"
+                title={chip.tooltip}
+              >
+                {chip.label}
+              </span>
+            ))}
+          </div>
+
+          <p className="text-xs sm:text-sm text-white/50">
+            Arquitecturas on-prem e híbridas, escalables por sitio o multi-sede.
+          </p>
         </div>
       </div>
     </section>
@@ -306,7 +307,7 @@ function ExplorarNecesidad({ scrollToSection }: any) {
               <p className="text-[15px] text-neutral-600 mb-6 leading-[1.6]">
                 {escenario.tag}
               </p>
-              
+
               <div className="flex gap-3">
                 <button
                   onClick={() => scrollToSection(escenario.id)}
@@ -406,11 +407,10 @@ function ArquitecturasRecomendadas({ selectedTab, setSelectedTab }: any) {
             <button
               key={idx}
               onClick={() => setSelectedTab(idx)}
-              className={`px-6 py-3 rounded-xl text-[14px] font-medium whitespace-nowrap transition-all ${
-                selectedTab === idx
-                  ? 'bg-[#00BE00] text-white'
-                  : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
-              }`}
+              className={`px-6 py-3 rounded-xl text-[14px] font-medium whitespace-nowrap transition-all ${selectedTab === idx
+                ? 'bg-[#00BE00] text-white'
+                : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
+                }`}
             >
               {esc.name}
             </button>
@@ -483,7 +483,7 @@ function ArquitecturasRecomendadas({ selectedTab, setSelectedTab }: any) {
                   </ul>
                 </div>
 
-                <Button 
+                <Button
                   size="lg"
                   className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white w-full sm:w-auto"
                   onClick={() => {
@@ -616,21 +616,19 @@ function SoftwareMonitoreo() {
           <div className="inline-flex bg-neutral-100 rounded-xl p-1">
             <button
               onClick={() => setTipoSitio('single')}
-              className={`px-6 py-3 rounded-lg text-[14px] font-medium transition-all ${
-                tipoSitio === 'single'
-                  ? 'bg-white text-[#282327] shadow-sm'
-                  : 'text-neutral-600 hover:text-[#282327]'
-              }`}
+              className={`px-6 py-3 rounded-lg text-[14px] font-medium transition-all ${tipoSitio === 'single'
+                ? 'bg-white text-[#282327] shadow-sm'
+                : 'text-neutral-600 hover:text-[#282327]'
+                }`}
             >
               1 sitio
             </button>
             <button
               onClick={() => setTipoSitio('multi')}
-              className={`px-6 py-3 rounded-lg text-[14px] font-medium transition-all ${
-                tipoSitio === 'multi'
-                  ? 'bg-white text-[#282327] shadow-sm'
-                  : 'text-neutral-600 hover:text-[#282327]'
-              }`}
+              className={`px-6 py-3 rounded-lg text-[14px] font-medium transition-all ${tipoSitio === 'multi'
+                ? 'bg-white text-[#282327] shadow-sm'
+                : 'text-neutral-600 hover:text-[#282327]'
+                }`}
             >
               Multi-sitio
             </button>
@@ -716,7 +714,7 @@ function SoftwareMonitoreo() {
         </AnimatePresence>
 
         <div className="text-center mt-10">
-          <Button 
+          <Button
             variant="outline"
             className="border-[#00BE00] text-[#00BE00] hover:bg-[#00BE00] hover:text-white"
             onClick={() => {
@@ -796,11 +794,10 @@ function SolucionesIndustria() {
             <button
               key={idx}
               onClick={() => setSelectedTab(idx)}
-              className={`px-6 py-3 rounded-xl text-[14px] font-medium whitespace-nowrap transition-all ${
-                selectedTab === idx
-                  ? 'bg-[#00BE00] text-white'
-                  : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
-              }`}
+              className={`px-6 py-3 rounded-xl text-[14px] font-medium whitespace-nowrap transition-all ${selectedTab === idx
+                ? 'bg-[#00BE00] text-white'
+                : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
+                }`}
             >
               {ind.name}
             </button>
@@ -858,7 +855,7 @@ function SolucionesIndustria() {
                   {current.arquitectura}
                 </p>
 
-                <Button 
+                <Button
                   size="lg"
                   className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white w-full sm:w-auto"
                   onClick={() => {
@@ -980,11 +977,10 @@ function CalculadoraRapida({ scrollToSection }: any) {
                   <button
                     key={tipo}
                     onClick={() => setFormData({ ...formData, tipoCarga: tipo })}
-                    className={`px-6 py-3 rounded-xl border-2 transition-all ${
-                      formData.tipoCarga === tipo
-                        ? 'border-[#00BE00] bg-[#00BE00] text-white'
-                        : 'border-neutral-200 hover:border-neutral-300'
-                    }`}
+                    className={`px-6 py-3 rounded-xl border-2 transition-all ${formData.tipoCarga === tipo
+                      ? 'border-[#00BE00] bg-[#00BE00] text-white'
+                      : 'border-neutral-200 hover:border-neutral-300'
+                      }`}
                   >
                     {tipo}
                   </button>
@@ -1001,11 +997,10 @@ function CalculadoraRapida({ scrollToSection }: any) {
                   <button
                     key={pot}
                     onClick={() => setFormData({ ...formData, potencia: pot })}
-                    className={`px-6 py-3 rounded-xl border-2 transition-all ${
-                      formData.potencia === pot
-                        ? 'border-[#00BE00] bg-[#00BE00] text-white'
-                        : 'border-neutral-200 hover:border-neutral-300'
-                    }`}
+                    className={`px-6 py-3 rounded-xl border-2 transition-all ${formData.potencia === pot
+                      ? 'border-[#00BE00] bg-[#00BE00] text-white'
+                      : 'border-neutral-200 hover:border-neutral-300'
+                      }`}
                   >
                     {pot}
                   </button>
@@ -1022,11 +1017,10 @@ function CalculadoraRapida({ scrollToSection }: any) {
                   <button
                     key={aut}
                     onClick={() => setFormData({ ...formData, autonomia: aut })}
-                    className={`px-6 py-3 rounded-xl border-2 transition-all ${
-                      formData.autonomia === aut
-                        ? 'border-[#00BE00] bg-[#00BE00] text-white'
-                        : 'border-neutral-200 hover:border-neutral-300'
-                    }`}
+                    className={`px-6 py-3 rounded-xl border-2 transition-all ${formData.autonomia === aut
+                      ? 'border-[#00BE00] bg-[#00BE00] text-white'
+                      : 'border-neutral-200 hover:border-neutral-300'
+                      }`}
                   >
                     {aut}
                   </button>
@@ -1047,7 +1041,7 @@ function CalculadoraRapida({ scrollToSection }: any) {
               />
             </div>
 
-            <Button 
+            <Button
               size="lg"
               onClick={calcular}
               className="bg-[#00BE00] hover:bg-[#00BE00]/90 text-white w-full"
@@ -1069,7 +1063,7 @@ function CalculadoraRapida({ scrollToSection }: any) {
               <p className="text-[15px] text-neutral-700 mb-4">
                 {resultado}
               </p>
-              <Button 
+              <Button
                 variant="outline"
                 className="border-[#E94E1B] text-[#E94E1B] hover:bg-[#E94E1B] hover:text-white"
                 onClick={() => scrollToSection('cta-wizard')}
@@ -1108,7 +1102,7 @@ function CTAWizard({ whatsappNumber }: any) {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
+              <Button
                 size="lg"
                 className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white px-10 text-[16px]"
                 onClick={() => setShowWizard(true)}
@@ -1116,8 +1110,8 @@ function CTAWizard({ whatsappNumber }: any) {
                 Iniciar consulta guiada
                 <ArrowRight className="ml-2 size-5" />
               </Button>
-              
-              <Button 
+
+              <Button
                 size="lg"
                 variant="outline"
                 className="border-[#00BE00] text-[#00BE00] hover:bg-[#00BE00] hover:text-white px-10 text-[16px]"
@@ -1141,6 +1135,17 @@ function CTAWizard({ whatsappNumber }: any) {
 
 function Wizard({ onClose, whatsappNumber }: any) {
   const [step, setStep] = useState(1);
+  const [alertModal, setAlertModal] = useState<{
+    isOpen: boolean;
+    type: 'success' | 'error' | 'warning';
+    title: string;
+    message: string;
+  }>({
+    isOpen: false,
+    type: 'success',
+    title: '',
+    message: ''
+  });
   const [formData, setFormData] = useState({
     escenario: '',
     objetivo: '',
@@ -1185,8 +1190,16 @@ function Wizard({ onClose, whatsappNumber }: any) {
   };
 
   const handleSubmit = () => {
-    alert('¡Listo! Un especialista Trendit te contactará. Si querés respuesta inmediata, escribinos por WhatsApp.');
-    console.log('Wizard data:', formData);
+    setAlertModal({
+      isOpen: true,
+      type: 'success',
+      title: '¡Listo!',
+      message: 'Un especialista Trendit te contactará. Si querés respuesta inmediata, escribinos por WhatsApp.'
+    });
+  };
+
+  const handleCloseAlert = () => {
+    setAlertModal({ ...alertModal, isOpen: false });
     onClose();
   };
 
@@ -1217,7 +1230,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
 
         {/* Progress bar */}
         <div className="h-2 bg-neutral-100">
-          <div 
+          <div
             className="h-full bg-[#00BE00] transition-all duration-300"
             style={{ width: `${(step / totalSteps) * 100}%` }}
           />
@@ -1233,11 +1246,10 @@ function Wizard({ onClose, whatsappNumber }: any) {
                     <button
                       key={esc}
                       onClick={() => updateField('escenario', esc)}
-                      className={`p-6 rounded-xl border-2 text-left transition-all ${
-                        formData.escenario === esc
-                          ? 'border-[#00BE00] bg-[#00BE00]/5'
-                          : 'border-neutral-200 hover:border-neutral-300'
-                      }`}
+                      className={`p-6 rounded-xl border-2 text-left transition-all ${formData.escenario === esc
+                        ? 'border-[#00BE00] bg-[#00BE00]/5'
+                        : 'border-neutral-200 hover:border-neutral-300'
+                        }`}
                     >
                       <span className="text-[16px] font-medium text-[#282327]">{esc}</span>
                     </button>
@@ -1253,11 +1265,10 @@ function Wizard({ onClose, whatsappNumber }: any) {
                     <button
                       key={obj}
                       onClick={() => updateField('objetivo', obj)}
-                      className={`px-6 py-3 rounded-xl border-2 transition-all ${
-                        formData.objetivo === obj
-                          ? 'border-[#00BE00] bg-[#00BE00] text-white'
-                          : 'border-neutral-200 hover:border-neutral-300'
-                      }`}
+                      className={`px-6 py-3 rounded-xl border-2 transition-all ${formData.objetivo === obj
+                        ? 'border-[#00BE00] bg-[#00BE00] text-white'
+                        : 'border-neutral-200 hover:border-neutral-300'
+                        }`}
                     >
                       {obj}
                     </button>
@@ -1278,11 +1289,10 @@ function Wizard({ onClose, whatsappNumber }: any) {
                         <button
                           key={pot}
                           onClick={() => updateField('potencia', pot)}
-                          className={`px-6 py-3 rounded-xl border-2 transition-all ${
-                            formData.potencia === pot
-                              ? 'border-[#00BE00] bg-[#00BE00] text-white'
-                              : 'border-neutral-200 hover:border-neutral-300'
-                          }`}
+                          className={`px-6 py-3 rounded-xl border-2 transition-all ${formData.potencia === pot
+                            ? 'border-[#00BE00] bg-[#00BE00] text-white'
+                            : 'border-neutral-200 hover:border-neutral-300'
+                            }`}
                         >
                           {pot}
                         </button>
@@ -1299,11 +1309,10 @@ function Wizard({ onClose, whatsappNumber }: any) {
                         <button
                           key={aut}
                           onClick={() => updateField('autonomia', aut)}
-                          className={`px-6 py-3 rounded-xl border-2 transition-all ${
-                            formData.autonomia === aut
-                              ? 'border-[#00BE00] bg-[#00BE00] text-white'
-                              : 'border-neutral-200 hover:border-neutral-300'
-                          }`}
+                          className={`px-6 py-3 rounded-xl border-2 transition-all ${formData.autonomia === aut
+                            ? 'border-[#00BE00] bg-[#00BE00] text-white'
+                            : 'border-neutral-200 hover:border-neutral-300'
+                            }`}
                         >
                           {aut}
                         </button>
@@ -1320,11 +1329,10 @@ function Wizard({ onClose, whatsappNumber }: any) {
                         <button
                           key={fase}
                           onClick={() => updateField('fase', fase)}
-                          className={`px-6 py-3 rounded-xl border-2 transition-all ${
-                            formData.fase === fase
-                              ? 'border-[#00BE00] bg-[#00BE00] text-white'
-                              : 'border-neutral-200 hover:border-neutral-300'
-                          }`}
+                          className={`px-6 py-3 rounded-xl border-2 transition-all ${formData.fase === fase
+                            ? 'border-[#00BE00] bg-[#00BE00] text-white'
+                            : 'border-neutral-200 hover:border-neutral-300'
+                            }`}
                         >
                           {fase}
                         </button>
@@ -1342,11 +1350,10 @@ function Wizard({ onClose, whatsappNumber }: any) {
                     <button
                       key={infra}
                       onClick={() => toggleInfra(infra)}
-                      className={`px-5 py-3 rounded-xl border-2 transition-all ${
-                        formData.infraestructura.includes(infra)
-                          ? 'border-[#00BE00] bg-[#00BE00] text-white'
-                          : 'border-neutral-200 hover:border-neutral-300'
-                      }`}
+                      className={`px-5 py-3 rounded-xl border-2 transition-all ${formData.infraestructura.includes(infra)
+                        ? 'border-[#00BE00] bg-[#00BE00] text-white'
+                        : 'border-neutral-200 hover:border-neutral-300'
+                        }`}
                     >
                       {infra}
                     </button>
@@ -1367,11 +1374,10 @@ function Wizard({ onClose, whatsappNumber }: any) {
                         <button
                           key={sitio}
                           onClick={() => updateField('sitios', sitio)}
-                          className={`px-6 py-3 rounded-xl border-2 transition-all ${
-                            formData.sitios === sitio
-                              ? 'border-[#00BE00] bg-[#00BE00] text-white'
-                              : 'border-neutral-200 hover:border-neutral-300'
-                          }`}
+                          className={`px-6 py-3 rounded-xl border-2 transition-all ${formData.sitios === sitio
+                            ? 'border-[#00BE00] bg-[#00BE00] text-white'
+                            : 'border-neutral-200 hover:border-neutral-300'
+                            }`}
                         >
                           {sitio}
                         </button>
@@ -1388,11 +1394,10 @@ function Wizard({ onClose, whatsappNumber }: any) {
                         <button
                           key={sla}
                           onClick={() => updateField('sla', sla)}
-                          className={`px-6 py-3 rounded-xl border-2 transition-all ${
-                            formData.sla === sla
-                              ? 'border-[#00BE00] bg-[#00BE00] text-white'
-                              : 'border-neutral-200 hover:border-neutral-300'
-                          }`}
+                          className={`px-6 py-3 rounded-xl border-2 transition-all ${formData.sla === sla
+                            ? 'border-[#00BE00] bg-[#00BE00] text-white'
+                            : 'border-neutral-200 hover:border-neutral-300'
+                            }`}
                         >
                           {sla}
                         </button>
@@ -1422,7 +1427,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
                       className="px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-[#00BE00] focus:border-transparent outline-none"
                     />
                   </div>
-                  
+
                   <input
                     type="text"
                     placeholder="Cargo"
@@ -1430,7 +1435,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
                     onChange={(e) => updateField('cargo', e.target.value)}
                     className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-[#00BE00] focus:border-transparent outline-none"
                   />
-                  
+
                   <div className="grid md:grid-cols-2 gap-4">
                     <input
                       type="email"
@@ -1447,7 +1452,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
                       className="px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-[#00BE00] focus:border-transparent outline-none"
                     />
                   </div>
-                  
+
                   <input
                     type="text"
                     placeholder="Ciudad *"
@@ -1455,7 +1460,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
                     onChange={(e) => updateField('ciudad', e.target.value)}
                     className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-[#00BE00] focus:border-transparent outline-none"
                   />
-                  
+
                   <textarea
                     placeholder="Detalle del proyecto"
                     value={formData.detalle}
@@ -1480,7 +1485,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
           </button>
 
           {step < totalSteps ? (
-            <Button 
+            <Button
               onClick={() => setStep(s => s + 1)}
               disabled={!canProceed()}
               className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white disabled:opacity-30"
@@ -1489,7 +1494,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
               <ArrowRight className="ml-2 size-4" />
             </Button>
           ) : (
-            <Button 
+            <Button
               onClick={handleSubmit}
               disabled={!canProceed()}
               className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white disabled:opacity-30"
@@ -1500,6 +1505,15 @@ function Wizard({ onClose, whatsappNumber }: any) {
           )}
         </div>
       </motion.div>
+
+      {/* Alert Modal */}
+      <AlertModal
+        isOpen={alertModal.isOpen}
+        onClose={handleCloseAlert}
+        type={alertModal.type}
+        title={alertModal.title}
+        message={alertModal.message}
+      />
     </div>
   );
 }
@@ -1578,13 +1592,12 @@ function FAQ() {
                 <span className="text-[17px] font-semibold text-[#282327] pr-8">
                   {faq.q}
                 </span>
-                <ChevronDown 
-                  className={`size-5 text-neutral-400 flex-shrink-0 transition-transform ${
-                    openIndex === idx ? 'rotate-180' : ''
-                  }`}
+                <ChevronDown
+                  className={`size-5 text-neutral-400 flex-shrink-0 transition-transform ${openIndex === idx ? 'rotate-180' : ''
+                    }`}
                 />
               </button>
-              
+
               <AnimatePresence>
                 {openIndex === idx && (
                   <motion.div

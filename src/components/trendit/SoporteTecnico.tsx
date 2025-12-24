@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { 
+import {
   ArrowRight,
   ChevronRight,
   MessageCircle,
@@ -19,6 +19,7 @@ import {
   Clock
 } from 'lucide-react';
 import { Button } from '../ui/button';
+import { AlertModal } from './AlertModal';
 
 export function SoporteTecnico() {
   return (
@@ -65,7 +66,7 @@ function HeaderSection() {
             <h1 className="text-[40px] lg:text-[48px] text-[#282327] mb-6 leading-[1.1] tracking-tight">
               Soporte técnico y gestión de garantías
             </h1>
-            
+
             <p className="text-[18px] text-neutral-700 mb-4 leading-[1.6]">
               Abrí un ticket para garantía, diagnóstico o reparación. También podés pedir recolección o avisarnos que enviás el producto.
             </p>
@@ -87,7 +88,7 @@ function HeaderSection() {
               Atención rápida
             </h3>
 
-            <Button 
+            <Button
               size="lg"
               className="w-full bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white mb-4 group"
               onClick={() => window.open(whatsappUrl, '_blank')}
@@ -213,9 +214,9 @@ function FormularioSoporte() {
     if (currentStep > 1) setCurrentStep(currentStep - 1);
   };
 
+
   const handleSubmit = () => {
-    alert('Ticket enviado correctamente. Recibirás confirmación por email/WhatsApp.');
-    console.log('Datos enviados:', formData);
+    //DO NOTHING
   };
 
   return (
@@ -227,25 +228,22 @@ function FormularioSoporte() {
             {[1, 2, 3].map((step) => (
               <React.Fragment key={step}>
                 <div className="flex flex-col items-center">
-                  <div className={`size-12 rounded-full flex items-center justify-center font-semibold mb-2 transition-all ${
-                    currentStep >= step 
-                      ? 'bg-[#E94E1B] text-white' 
-                      : 'bg-neutral-200 text-neutral-500'
-                  }`}>
+                  <div className={`size-12 rounded-full flex items-center justify-center font-semibold mb-2 transition-all ${currentStep >= step
+                    ? 'bg-[#E94E1B] text-white'
+                    : 'bg-neutral-200 text-neutral-500'
+                    }`}>
                     {step}
                   </div>
-                  <span className={`text-[13px] ${
-                    currentStep >= step ? 'text-[#282327]' : 'text-neutral-400'
-                  }`}>
+                  <span className={`text-[13px] ${currentStep >= step ? 'text-[#282327]' : 'text-neutral-400'
+                    }`}>
                     {step === 1 && 'Tipo de gestión'}
                     {step === 2 && 'Producto'}
                     {step === 3 && 'Contacto'}
                   </span>
                 </div>
                 {step < 3 && (
-                  <div className={`flex-1 h-1 mx-4 rounded-full ${
-                    currentStep > step ? 'bg-[#E94E1B]' : 'bg-neutral-200'
-                  }`} />
+                  <div className={`flex-1 h-1 mx-4 rounded-full ${currentStep > step ? 'bg-[#E94E1B]' : 'bg-neutral-200'
+                    }`} />
                 )}
               </React.Fragment>
             ))}
@@ -268,7 +266,7 @@ function FormularioSoporte() {
         {/* Botones de navegación */}
         <div className="flex justify-between mt-10">
           {currentStep > 1 && (
-            <Button 
+            <Button
               variant="outline"
               size="lg"
               onClick={prevStep}
@@ -276,10 +274,10 @@ function FormularioSoporte() {
               Volver
             </Button>
           )}
-          
+
           <div className="ml-auto">
             {currentStep < 3 ? (
-              <Button 
+              <Button
                 size="lg"
                 className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white"
                 onClick={nextStep}
@@ -288,7 +286,7 @@ function FormularioSoporte() {
                 <ArrowRight className="ml-2 size-5" />
               </Button>
             ) : (
-              <Button 
+              <Button
                 size="lg"
                 className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white"
                 onClick={handleSubmit}
@@ -340,23 +338,21 @@ function Paso1({ formData, updateField }: any) {
         <h3 className="text-[20px] font-semibold text-[#282327] mb-6">
           Tipo de gestión
         </h3>
-        
+
         <div className="grid md:grid-cols-2 gap-4">
           {tiposGestion.map((tipo) => (
             <button
               key={tipo.id}
               onClick={() => updateField('tipoGestion', tipo.id)}
-              className={`text-left border-2 rounded-2xl p-6 transition-all ${
-                formData.tipoGestion === tipo.id
-                  ? 'border-[#E94E1B] bg-[#E94E1B]/5'
-                  : 'border-neutral-200 hover:border-neutral-300'
-              }`}
+              className={`text-left border-2 rounded-2xl p-6 transition-all ${formData.tipoGestion === tipo.id
+                ? 'border-[#E94E1B] bg-[#E94E1B]/5'
+                : 'border-neutral-200 hover:border-neutral-300'
+                }`}
             >
-              <div className={`size-14 rounded-xl flex items-center justify-center mb-4 ${
-                formData.tipoGestion === tipo.id 
-                  ? 'bg-[#E94E1B] text-white' 
-                  : 'bg-neutral-100 text-neutral-600'
-              }`}>
+              <div className={`size-14 rounded-xl flex items-center justify-center mb-4 ${formData.tipoGestion === tipo.id
+                ? 'bg-[#E94E1B] text-white'
+                : 'bg-neutral-100 text-neutral-600'
+                }`}>
                 {tipo.icon}
               </div>
               <h4 className="font-semibold text-[16px] text-[#282327] mb-2">
@@ -374,23 +370,21 @@ function Paso1({ formData, updateField }: any) {
         <h3 className="text-[20px] font-semibold text-[#282327] mb-6">
           Logística del equipo
         </h3>
-        
+
         <div className="grid md:grid-cols-2 gap-4">
           {logisticaOpciones.map((opcion) => (
             <button
               key={opcion.id}
               onClick={() => updateField('logistica', opcion.id)}
-              className={`text-left border-2 rounded-2xl p-6 transition-all ${
-                formData.logistica === opcion.id
-                  ? 'border-[#E94E1B] bg-[#E94E1B]/5'
-                  : 'border-neutral-200 hover:border-neutral-300'
-              }`}
+              className={`text-left border-2 rounded-2xl p-6 transition-all ${formData.logistica === opcion.id
+                ? 'border-[#E94E1B] bg-[#E94E1B]/5'
+                : 'border-neutral-200 hover:border-neutral-300'
+                }`}
             >
-              <div className={`size-12 rounded-xl flex items-center justify-center mb-3 ${
-                formData.logistica === opcion.id 
-                  ? 'bg-[#E94E1B] text-white' 
-                  : 'bg-neutral-100 text-neutral-600'
-              }`}>
+              <div className={`size-12 rounded-xl flex items-center justify-center mb-3 ${formData.logistica === opcion.id
+                ? 'bg-[#E94E1B] text-white'
+                : 'bg-neutral-100 text-neutral-600'
+                }`}>
                 {opcion.icon}
               </div>
               <h4 className="font-semibold text-[15px] text-[#282327]">
@@ -575,23 +569,23 @@ function Paso2({ formData, updateField }: any) {
         </h4>
 
         <div className="grid md:grid-cols-2 gap-4">
-          <UploadCard 
+          <UploadCard
             icon={<ImageIcon className="size-6" />}
             title="Foto del producto / etiqueta *"
             accept="image/*"
           />
-          <UploadCard 
+          <UploadCard
             icon={<FileText className="size-6" />}
             title="Factura de compra *"
             accept=".pdf,image/*"
           />
-          <UploadCard 
+          <UploadCard
             icon={<FileText className="size-6" />}
             title="Remito"
             accept=".pdf,image/*"
             optional
           />
-          <UploadCard 
+          <UploadCard
             icon={<Video className="size-6" />}
             title="Video / evidencia"
             accept="video/*"
@@ -616,14 +610,14 @@ function UploadCard({ icon, title, accept, optional = false }: any) {
         {optional && (
           <span className="text-[12px] text-neutral-500">(Opcional)</span>
         )}
-        <input 
-          type="file" 
+        <input
+          type="file"
           accept={accept}
           className="hidden"
         />
-        <Button 
-          variant="ghost" 
-          size="sm" 
+        <Button
+          variant="ghost"
+          size="sm"
           className="mt-3 text-[#E94E1B]"
           onClick={(e) => {
             e.preventDefault();
@@ -855,28 +849,28 @@ function Paso3({ formData, updateField }: any) {
           <AlertCircle className="size-5 text-[#E94E1B]" />
           Resumen de tu solicitud
         </h4>
-        
+
         <div className="space-y-2 text-[14px]">
           <div className="flex justify-between">
             <span className="text-neutral-600">Tipo de gestión:</span>
             <span className="font-medium text-[#282327]">
-              {formData.tipoGestion === 'garantia' ? 'Garantía / RMA' : 
-               formData.tipoGestion === 'diagnostico' ? 'Diagnóstico / Reparación' : 
-               'No seleccionado'}
+              {formData.tipoGestion === 'garantia' ? 'Garantía / RMA' :
+                formData.tipoGestion === 'diagnostico' ? 'Diagnóstico / Reparación' :
+                  'No seleccionado'}
             </span>
           </div>
           <div className="flex justify-between">
             <span className="text-neutral-600">Logística:</span>
             <span className="font-medium text-[#282327]">
-              {formData.logistica === 'recoleccion' ? 'Solicitar recolección' : 
-               formData.logistica === 'envio' ? 'Voy a enviar el producto' : 
-               'No seleccionado'}
+              {formData.logistica === 'recoleccion' ? 'Solicitar recolección' :
+                formData.logistica === 'envio' ? 'Voy a enviar el producto' :
+                  'No seleccionado'}
             </span>
           </div>
           <div className="flex justify-between">
             <span className="text-neutral-600">Equipo:</span>
             <span className="font-medium text-[#282327]">
-              {formData.marca && formData.categoria 
+              {formData.marca && formData.categoria
                 ? `${formData.marca} - ${formData.categoria}`
                 : 'Pendiente'}
             </span>
@@ -918,6 +912,7 @@ function Paso3({ formData, updateField }: any) {
         </p>
       </div>
     </div>
+
   );
 }
 
@@ -975,13 +970,12 @@ function FAQ() {
                 <span className="text-[16px] font-semibold text-[#282327] pr-4">
                   {faq.question}
                 </span>
-                <ChevronDown 
-                  className={`size-5 text-neutral-500 flex-shrink-0 transition-transform ${
-                    openIndex === idx ? 'rotate-180' : ''
-                  }`}
+                <ChevronDown
+                  className={`size-5 text-neutral-500 flex-shrink-0 transition-transform ${openIndex === idx ? 'rotate-180' : ''
+                    }`}
                 />
               </button>
-              
+
               {openIndex === idx && (
                 <motion.div
                   initial={{ height: 0, opacity: 0 }}

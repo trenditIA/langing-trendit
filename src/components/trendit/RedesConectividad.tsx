@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
+import {
   Network,
   Wifi,
   Globe,
@@ -47,10 +47,10 @@ export function RedesConectividad() {
       <MarcasEscenario />
       <ComoTrabajamosRedes />
       <CTAFinalRedes />
-      
+
       {/* Modal de Contacto Rápido */}
-      <ContactModal 
-        isOpen={showContactModal} 
+      <ContactModal
+        isOpen={showContactModal}
         onClose={() => setShowContactModal(false)}
         selectedSolution={selectedSolution}
       />
@@ -86,7 +86,7 @@ function HeroRedes() {
   ];
 
   return (
-    <section 
+    <section
       className="relative pt-24 md:pt-28 lg:pt-32 pb-16 md:pb-20 lg:pb-24 px-6 lg:px-12 overflow-hidden"
       style={{
         minHeight: 'calc(100vh - 80px)',
@@ -94,13 +94,13 @@ function HeroRedes() {
       }}
     >
       {/* Subtle gradient overlay */}
-      <div 
+      <div
         className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-[0.04] blur-3xl pointer-events-none"
         style={{ background: '#E94E1B' }}
       />
 
       {/* Subtle background pattern on the right side */}
-      <div 
+      <div
         className="hidden lg:block absolute right-0 top-0 bottom-0 w-[45%] opacity-[0.03] pointer-events-none"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23282327' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
@@ -117,7 +117,7 @@ function HeroRedes() {
           className="max-w-[720px]"
         >
           {/* H1 */}
-          <h1 
+          <h1
             className="text-[36px] sm:text-[44px] md:text-[50px] lg:text-[54px] leading-[1.1] mb-5 lg:mb-6 text-[#282327]"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -128,7 +128,7 @@ function HeroRedes() {
           </h1>
 
           {/* Subtitle */}
-          <p 
+          <p
             className="text-[16px] md:text-[17px] lg:text-[18px] leading-[1.65] mb-7 text-neutral-600"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -147,7 +147,7 @@ function HeroRedes() {
             ].map((item, idx) => (
               <li key={idx} className="flex items-start gap-3">
                 <CheckCircle className="size-5 text-[#E94E1B] flex-shrink-0 mt-0.5" />
-                <span 
+                <span
                   className="text-[15px] lg:text-[16px] text-neutral-700 leading-[1.6]"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -163,7 +163,7 @@ function HeroRedes() {
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 mb-7">
             <a
-              href="#cta-final"
+              href="#contactanos"
               className="inline-flex items-center justify-center gap-2 px-7 py-4 bg-[#E94E1B] text-white rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:bg-[#D43E10] group"
               style={{
                 fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -190,7 +190,7 @@ function HeroRedes() {
           </div>
 
           {/* Microcopy */}
-          <p 
+          <p
             className="text-[13px] text-neutral-500 mb-8"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -227,10 +227,10 @@ function HeroRedes() {
               <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-[#F8F8F8] to-transparent z-10 pointer-events-none" />
               {/* Fade gradient derecha */}
               <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#F8F8F8] to-transparent z-10 pointer-events-none" />
-              
-              <div 
-                className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide" 
-                style={{ 
+
+              <div
+                className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide"
+                style={{
                   scrollbarWidth: 'none',
                   msOverflowStyle: 'none'
                 }}
@@ -282,7 +282,6 @@ function ContactModal({ isOpen, onClose, selectedSolution }: { isOpen: boolean; 
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', { ...formData, area: selectedSolution });
     onClose();
   };
 
@@ -298,7 +297,7 @@ function ContactModal({ isOpen, onClose, selectedSolution }: { isOpen: boolean; 
             onClick={onClose}
             className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50"
           />
-          
+
           {/* Modal */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -311,7 +310,7 @@ function ContactModal({ isOpen, onClose, selectedSolution }: { isOpen: boolean; 
             <div className="bg-white rounded-2xl shadow-2xl max-w-[500px] w-full max-h-[90vh] overflow-y-auto">
               {/* Header */}
               <div className="sticky top-0 bg-white border-b border-neutral-200 px-6 py-4 flex items-center justify-between rounded-t-2xl">
-                <h3 
+                <h3
                   className="text-[20px] text-[#282327]"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -332,7 +331,7 @@ function ContactModal({ isOpen, onClose, selectedSolution }: { isOpen: boolean; 
               <form onSubmit={handleSubmit} className="p-6 space-y-5">
                 {/* Área seleccionada (visual) */}
                 <div className="p-3 bg-[#FFF5F0] rounded-xl border border-[#E94E1B]/20">
-                  <p 
+                  <p
                     className="text-[13px] text-neutral-500 mb-1"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -341,7 +340,7 @@ function ContactModal({ isOpen, onClose, selectedSolution }: { isOpen: boolean; 
                   >
                     Área seleccionada
                   </p>
-                  <p 
+                  <p
                     className="text-[15px] text-[#E94E1B]"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -354,7 +353,7 @@ function ContactModal({ isOpen, onClose, selectedSolution }: { isOpen: boolean; 
 
                 {/* Nombre y apellido */}
                 <div>
-                  <label 
+                  <label
                     className="block text-[14px] text-neutral-700 mb-2"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -379,7 +378,7 @@ function ContactModal({ isOpen, onClose, selectedSolution }: { isOpen: boolean; 
 
                 {/* Empresa */}
                 <div>
-                  <label 
+                  <label
                     className="block text-[14px] text-neutral-700 mb-2"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -404,7 +403,7 @@ function ContactModal({ isOpen, onClose, selectedSolution }: { isOpen: boolean; 
 
                 {/* Email */}
                 <div>
-                  <label 
+                  <label
                     className="block text-[14px] text-neutral-700 mb-2"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -429,7 +428,7 @@ function ContactModal({ isOpen, onClose, selectedSolution }: { isOpen: boolean; 
 
                 {/* Teléfono */}
                 <div>
-                  <label 
+                  <label
                     className="block text-[14px] text-neutral-700 mb-2"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -454,7 +453,7 @@ function ContactModal({ isOpen, onClose, selectedSolution }: { isOpen: boolean; 
 
                 {/* Mensaje opcional */}
                 <div>
-                  <label 
+                  <label
                     className="block text-[14px] text-neutral-700 mb-2"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -507,7 +506,7 @@ function ContactModal({ isOpen, onClose, selectedSolution }: { isOpen: boolean; 
                 </div>
 
                 {/* Nota legal */}
-                <p 
+                <p
                   className="text-[12px] text-neutral-500 text-center leading-relaxed"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -555,7 +554,7 @@ function ContextoRedes() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 lg:mb-14"
         >
-          <h2 
+          <h2
             className="text-[32px] md:text-[40px] lg:text-[44px] mb-5 text-[#282327] leading-tight"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -579,7 +578,7 @@ function ContextoRedes() {
                 boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)'
               }}
             >
-              <div 
+              <div
                 className="size-12 rounded-xl flex items-center justify-center mb-4 text-white"
                 style={{
                   background: 'linear-gradient(135deg, #E94E1B 0%, #d94419 100%)',
@@ -588,7 +587,7 @@ function ContextoRedes() {
               >
                 {card.icon}
               </div>
-              <h3 
+              <h3
                 className="text-[18px] lg:text-[19px] mb-2 text-[#282327]"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -597,7 +596,7 @@ function ContextoRedes() {
               >
                 {card.title}
               </h3>
-              <p 
+              <p
                 className="text-[14px] lg:text-[15px] text-neutral-600 leading-relaxed"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -727,7 +726,7 @@ function SolucionesRedes({ onOpenContact }: { onOpenContact: (solutionName: stri
           viewport={{ once: true }}
           className="text-center mb-12 lg:mb-14"
         >
-          <h2 
+          <h2
             className="text-[32px] md:text-[40px] lg:text-[44px] mb-4 text-[#282327] leading-tight"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -746,11 +745,10 @@ function SolucionesRedes({ onOpenContact }: { onOpenContact: (solutionName: stri
                 <button
                   key={sol.id}
                   onClick={() => setSelectedSolution(sol.id)}
-                  className={`w-full flex items-center gap-3 px-5 py-4 rounded-xl transition-all duration-300 text-left ${
-                    selectedSolution === sol.id
-                      ? 'bg-[#E94E1B] text-white shadow-lg'
-                      : 'bg-white text-neutral-700 hover:bg-neutral-50 border border-neutral-200'
-                  }`}
+                  className={`w-full flex items-center gap-3 px-5 py-4 rounded-xl transition-all duration-300 text-left ${selectedSolution === sol.id
+                    ? 'bg-[#E94E1B] text-white shadow-lg'
+                    : 'bg-white text-neutral-700 hover:bg-neutral-50 border border-neutral-200'
+                    }`}
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
                     fontWeight: 600,
@@ -771,11 +769,10 @@ function SolucionesRedes({ onOpenContact }: { onOpenContact: (solutionName: stri
                 <button
                   key={sol.id}
                   onClick={() => setSelectedSolution(sol.id)}
-                  className={`flex items-center gap-2 px-4 py-3 rounded-full whitespace-nowrap transition-all duration-300 ${
-                    selectedSolution === sol.id
-                      ? 'bg-[#E94E1B] text-white shadow-md'
-                      : 'bg-white text-neutral-700 border border-neutral-200'
-                  }`}
+                  className={`flex items-center gap-2 px-4 py-3 rounded-full whitespace-nowrap transition-all duration-300 ${selectedSolution === sol.id
+                    ? 'bg-[#E94E1B] text-white shadow-md'
+                    : 'bg-white text-neutral-700 border border-neutral-200'
+                    }`}
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
                     fontWeight: 600,
@@ -800,7 +797,7 @@ function SolucionesRedes({ onOpenContact }: { onOpenContact: (solutionName: stri
               boxShadow: '0 4px 24px rgba(0, 0, 0, 0.06)'
             }}
           >
-            <h3 
+            <h3
               className="text-[26px] lg:text-[30px] mb-4 text-[#282327]"
               style={{
                 fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -811,7 +808,7 @@ function SolucionesRedes({ onOpenContact }: { onOpenContact: (solutionName: stri
             </h3>
 
             <div className="mb-6 p-4 bg-[#FFF5F0] rounded-xl border border-[#E94E1B]/20">
-              <p 
+              <p
                 className="text-[16px] lg:text-[17px] text-[#282327] leading-relaxed"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -826,7 +823,7 @@ function SolucionesRedes({ onOpenContact }: { onOpenContact: (solutionName: stri
             </div>
 
             <div className="mb-6">
-              <h4 
+              <h4
                 className="text-[14px] uppercase tracking-wide text-[#E94E1B] mb-3"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -839,7 +836,7 @@ function SolucionesRedes({ onOpenContact }: { onOpenContact: (solutionName: stri
                 {current.incluye.map((item: string, idx: number) => (
                   <li key={idx} className="flex items-start gap-2.5">
                     <CheckCircle className="size-5 text-[#E94E1B] flex-shrink-0 mt-0.5" />
-                    <span 
+                    <span
                       className="text-[15px] text-neutral-700 leading-relaxed"
                       style={{
                         fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -854,7 +851,7 @@ function SolucionesRedes({ onOpenContact }: { onOpenContact: (solutionName: stri
             </div>
 
             <div className="mb-6">
-              <h4 
+              <h4
                 className="text-[14px] uppercase tracking-wide text-neutral-500 mb-3"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -880,7 +877,7 @@ function SolucionesRedes({ onOpenContact }: { onOpenContact: (solutionName: stri
             </div>
 
             <div className="mb-6">
-              <h4 
+              <h4
                 className="text-[14px] uppercase tracking-wide text-neutral-500 mb-3"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -935,7 +932,7 @@ function SolucionesRedes({ onOpenContact }: { onOpenContact: (solutionName: stri
                 </button>
               </div>
 
-              <p 
+              <p
                 className="text-[12px] text-neutral-500 text-center leading-relaxed"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -988,7 +985,7 @@ function MarcasEscenario() {
           viewport={{ once: true }}
           className="text-center mb-10 lg:mb-12"
         >
-          <h2 
+          <h2
             className="text-[32px] md:text-[40px] lg:text-[44px] mb-4 text-[#282327] leading-tight"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1005,11 +1002,10 @@ function MarcasEscenario() {
             <button
               key={tab.id}
               onClick={() => setSelectedTab(tab.id)}
-              className={`px-6 py-3 rounded-full transition-all duration-300 ${
-                selectedTab === tab.id
-                  ? 'bg-[#E94E1B] text-white shadow-lg'
-                  : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
-              }`}
+              className={`px-6 py-3 rounded-full transition-all duration-300 ${selectedTab === tab.id
+                ? 'bg-[#E94E1B] text-white shadow-lg'
+                : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
+                }`}
               style={{
                 fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
                 fontWeight: 600,
@@ -1032,7 +1028,7 @@ function MarcasEscenario() {
             boxShadow: '0 4px 24px rgba(0, 0, 0, 0.04)'
           }}
         >
-          <p 
+          <p
             className="text-[16px] lg:text-[17px] text-neutral-600 mb-6 leading-relaxed text-center"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1048,7 +1044,7 @@ function MarcasEscenario() {
                 key={idx}
                 className="p-4 bg-white rounded-xl border border-neutral-200 text-center"
               >
-                <span 
+                <span
                   className="text-[14px] text-neutral-700"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1120,7 +1116,7 @@ function ComoTrabajamosRedes() {
               }}
             >
               <div className="flex items-start gap-4 mb-3">
-                <div 
+                <div
                   className="size-12 rounded-xl flex items-center justify-center flex-shrink-0 text-white"
                   style={{
                     background: 'linear-gradient(135deg, #E94E1B 0%, #d94419 100%)',
@@ -1130,7 +1126,7 @@ function ComoTrabajamosRedes() {
                   {paso.icon}
                 </div>
                 <div>
-                  <h3 
+                  <h3
                     className="text-[18px] mb-2 text-[#282327]"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1139,7 +1135,7 @@ function ComoTrabajamosRedes() {
                   >
                     {paso.title}
                   </h3>
-                  <p 
+                  <p
                     className="text-[14px] text-neutral-600 leading-relaxed"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1176,7 +1172,6 @@ function CTAFinalRedes() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
   };
 
   const necesidadesOptions = [
@@ -1206,7 +1201,7 @@ function CTAFinalRedes() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 
+          <h2
             className="text-[32px] md:text-[40px] lg:text-[44px] mb-4 text-[#282327] leading-tight"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1231,7 +1226,7 @@ function CTAFinalRedes() {
             <form onSubmit={handleSubmit} className="space-y-5">
               {/* Organización */}
               <div>
-                <label 
+                <label
                   className="block text-[14px] text-neutral-700 mb-2"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1257,7 +1252,7 @@ function CTAFinalRedes() {
               {/* Ciudad + Provincia */}
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label 
+                  <label
                     className="block text-[14px] text-neutral-700 mb-2"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1280,7 +1275,7 @@ function CTAFinalRedes() {
                   />
                 </div>
                 <div>
-                  <label 
+                  <label
                     className="block text-[14px] text-neutral-700 mb-2"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1306,7 +1301,7 @@ function CTAFinalRedes() {
 
               {/* Qué necesita */}
               <div>
-                <label 
+                <label
                   className="block text-[14px] text-neutral-700 mb-3"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1321,11 +1316,10 @@ function CTAFinalRedes() {
                       key={necesidad}
                       type="button"
                       onClick={() => toggleNecesidad(necesidad)}
-                      className={`px-4 py-2 rounded-full transition-all duration-300 ${
-                        formData.necesidades.includes(necesidad)
-                          ? 'bg-[#E94E1B] text-white border-2 border-[#E94E1B]'
-                          : 'bg-white text-neutral-700 border-2 border-neutral-200 hover:border-neutral-300'
-                      }`}
+                      className={`px-4 py-2 rounded-full transition-all duration-300 ${formData.necesidades.includes(necesidad)
+                        ? 'bg-[#E94E1B] text-white border-2 border-[#E94E1B]'
+                        : 'bg-white text-neutral-700 border-2 border-neutral-200 hover:border-neutral-300'
+                        }`}
                       style={{
                         fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
                         fontWeight: 600,
@@ -1341,7 +1335,7 @@ function CTAFinalRedes() {
               {/* Email + Teléfono */}
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label 
+                  <label
                     className="block text-[14px] text-neutral-700 mb-2"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1364,7 +1358,7 @@ function CTAFinalRedes() {
                   />
                 </div>
                 <div>
-                  <label 
+                  <label
                     className="block text-[14px] text-neutral-700 mb-2"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1390,7 +1384,7 @@ function CTAFinalRedes() {
 
               {/* Comentario */}
               <div>
-                <label 
+                <label
                   className="block text-[14px] text-neutral-700 mb-2"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1439,7 +1433,7 @@ function CTAFinalRedes() {
             }}
           >
             <div>
-              <h3 
+              <h3
                 className="text-[24px] lg:text-[28px] mb-4"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1448,7 +1442,7 @@ function CTAFinalRedes() {
               >
                 Atención rápida
               </h3>
-              <p 
+              <p
                 className="text-[15px] lg:text-[16px] text-white/80 mb-8 leading-relaxed"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',

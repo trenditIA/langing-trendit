@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { 
+import {
   ArrowRight,
   Server,
   Network,
@@ -42,7 +42,7 @@ export function ServiciosPage() {
       const serviceIndex = parseInt(storedService, 10);
       setTargetService(serviceIndex);
       sessionStorage.removeItem('targetService'); // Clean up after reading
-      
+
       // Scroll to services section after a short delay
       setTimeout(() => {
         serviciosRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -75,33 +75,33 @@ function HeroServicios({ onServiceClick, onOpenModal }: { onServiceClick: (index
   const [hoveredService, setHoveredService] = React.useState<number | null>(null);
 
   const services = [
-    { 
-      icon: <Server className="size-7" />, 
+    {
+      icon: <Server className="size-7" />,
       label: 'Infraestructura IT & Data Center',
       id: 0
     },
-    { 
-      icon: <Wifi className="size-7" />, 
+    {
+      icon: <Wifi className="size-7" />,
       label: 'Redes & Conectividad',
       id: 1
     },
-    { 
-      icon: <Users className="size-7" />, 
+    {
+      icon: <Users className="size-7" />,
       label: 'Team Collaboration',
       id: 2
     },
-    { 
-      icon: <Camera className="size-7" />, 
+    {
+      icon: <Camera className="size-7" />,
       label: 'Videoseguridad & Analítica',
       id: 3
     },
-    { 
-      icon: <Zap className="size-7" />, 
+    {
+      icon: <Zap className="size-7" />,
       label: 'Energía & Continuidad',
       id: 4
     },
-    { 
-      icon: <Laptop className="size-7" />, 
+    {
+      icon: <Laptop className="size-7" />,
       label: 'Microinformática',
       id: 5
     }
@@ -112,11 +112,11 @@ function HeroServicios({ onServiceClick, onOpenModal }: { onServiceClick: (index
   };
 
   const handleMeeting = () => {
-    console.log('Agendar reunión');
+    //DO NOTHING
   };
 
   return (
-    <section 
+    <section
       className="relative pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-16 sm:pb-20 md:pb-24 lg:pb-28 px-4 sm:px-6 lg:px-12"
       style={{
         minHeight: 'calc(100vh - 80px)',
@@ -125,7 +125,7 @@ function HeroServicios({ onServiceClick, onOpenModal }: { onServiceClick: (index
     >
       <div className="max-w-[1400px] mx-auto h-full flex items-center">
         <div className="grid lg:grid-cols-[48%_52%] gap-12 lg:gap-16 w-full items-center">
-          
+
           {/* Left column - Text & CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -134,7 +134,7 @@ function HeroServicios({ onServiceClick, onOpenModal }: { onServiceClick: (index
             className="max-w-[560px]"
           >
             {/* Main heading */}
-            <h1 
+            <h1
               className="text-[36px] sm:text-[42px] md:text-[54px] lg:text-[62px] leading-[1.08] mb-5 sm:mb-6 lg:mb-7 tracking-tight"
               style={{
                 color: '#141414',
@@ -146,7 +146,7 @@ function HeroServicios({ onServiceClick, onOpenModal }: { onServiceClick: (index
             </h1>
 
             {/* Subtitle */}
-            <p 
+            <p
               className="text-[16px] sm:text-[17px] md:text-[18px] lg:text-[19px] leading-[1.65] mb-5 sm:mb-6 lg:mb-7"
               style={{
                 color: '#4A4A4A',
@@ -158,7 +158,7 @@ function HeroServicios({ onServiceClick, onOpenModal }: { onServiceClick: (index
             </p>
 
             {/* Supporting text */}
-            <p 
+            <p
               className="text-[14px] sm:text-[15px] md:text-[16px] leading-[1.6] mb-7 sm:mb-8 lg:mb-10"
               style={{
                 color: '#6B6B6B',
@@ -171,7 +171,7 @@ function HeroServicios({ onServiceClick, onOpenModal }: { onServiceClick: (index
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
+              <Button
                 size="lg"
                 onClick={onOpenModal}
                 className="bg-[#E94E1B] hover:bg-[#d94419] text-white px-7 h-[54px] transition-all duration-300 w-full sm:w-auto"
@@ -185,7 +185,7 @@ function HeroServicios({ onServiceClick, onOpenModal }: { onServiceClick: (index
               >
                 Agendar una reunión con Trendit
               </Button>
-              <Button 
+              <Button
                 size="lg"
                 variant="outline"
                 onClick={handleWhatsApp}
@@ -230,13 +230,13 @@ function HeroServicios({ onServiceClick, onOpenModal }: { onServiceClick: (index
                       border: hoveredService === idx ? '1.5px solid #E94E1B' : '1px solid #E3E3E3',
                       borderRadius: '14px',
                       minHeight: '150px',
-                      boxShadow: hoveredService === idx 
+                      boxShadow: hoveredService === idx
                         ? '0 4px 16px rgba(233, 78, 27, 0.12), 0 1px 4px rgba(0, 0, 0, 0.04)'
                         : '0 1px 3px rgba(0, 0, 0, 0.04)'
                     }}
                   >
                     {/* Icon */}
-                    <div 
+                    <div
                       className="size-12 rounded-full flex items-center justify-center transition-all duration-300"
                       style={{
                         background: hoveredService === idx ? '#E94E1B' : '#F5F5F7',
@@ -245,9 +245,9 @@ function HeroServicios({ onServiceClick, onOpenModal }: { onServiceClick: (index
                     >
                       {React.cloneElement(service.icon, { className: 'size-6' })}
                     </div>
-                    
+
                     {/* Label */}
-                    <span 
+                    <span
                       className="text-[13px] text-center leading-tight px-2 transition-colors duration-300"
                       style={{
                         color: '#141414',
@@ -283,7 +283,7 @@ function HeroServicios({ onServiceClick, onOpenModal }: { onServiceClick: (index
                     }}
                   >
                     {/* Icon */}
-                    <div 
+                    <div
                       className="size-11 rounded-full flex items-center justify-center flex-shrink-0"
                       style={{
                         background: '#F5F5F7',
@@ -292,9 +292,9 @@ function HeroServicios({ onServiceClick, onOpenModal }: { onServiceClick: (index
                     >
                       {React.cloneElement(service.icon, { className: 'size-5' })}
                     </div>
-                    
+
                     {/* Label */}
-                    <span 
+                    <span
                       className="text-[14px] text-left leading-tight flex-1"
                       style={{
                         color: '#141414',
@@ -306,7 +306,7 @@ function HeroServicios({ onServiceClick, onOpenModal }: { onServiceClick: (index
                     </span>
 
                     {/* Arrow indicator */}
-                    <ArrowRight 
+                    <ArrowRight
                       className="size-4 flex-shrink-0 opacity-40"
                       style={{ color: '#6B6B6B' }}
                     />
@@ -358,7 +358,7 @@ function IntroServicios() {
           <div className="text-sm font-bold text-[#E94E1B] mb-4 uppercase tracking-wide">
             Cómo te acompañamos
           </div>
-          
+
           <h2 className="text-[40px] lg:text-[44px] text-[#282327] mb-8 leading-[1.15] tracking-tight">
             Un socio de infraestructura que piensa como tu negocio
           </h2>
@@ -389,7 +389,7 @@ function IntroServicios() {
                 }}
               >
                 {/* Icon container */}
-                <div 
+                <div
                   className="size-14 rounded-full flex items-center justify-center text-white mb-5"
                   style={{
                     background: '#F2692F'
@@ -492,8 +492,8 @@ function MetodoTrabajo() {
                   onMouseEnter={() => setActiveStep(idx)}
                   className={`
                     flex-1 p-6 rounded-2xl border-2 transition-all duration-300 cursor-pointer
-                    ${activeStep === idx 
-                      ? 'bg-[#E94E1B] border-[#E94E1B] text-white shadow-lg' 
+                    ${activeStep === idx
+                      ? 'bg-[#E94E1B] border-[#E94E1B] text-white shadow-lg'
                       : 'bg-white border-neutral-200 text-neutral-700 hover:border-[#E94E1B]/40'
                     }
                   `}
@@ -528,8 +528,8 @@ function MetodoTrabajo() {
                 >
                   <div className={`
                     p-5 rounded-2xl border-2 transition-all duration-300
-                    ${activeStep === idx 
-                      ? 'bg-[#E94E1B] border-[#E94E1B] text-white' 
+                    ${activeStep === idx
+                      ? 'bg-[#E94E1B] border-[#E94E1B] text-white'
                       : 'bg-white border-neutral-200 text-neutral-700'
                     }
                   `}>
@@ -704,7 +704,7 @@ const ExploradorServicios = React.forwardRef<HTMLDivElement, { initialService: n
           {/* Desktop: Nav oscuro izquierda + Card derecha */}
           <div className="hidden lg:grid lg:grid-cols-[340px_1fr] gap-8">
             {/* Nav vertical - light panel con tarjetas suaves */}
-            <div 
+            <div
               className="rounded-[28px] p-5"
               style={{
                 background: '#FFF5ED',
@@ -731,14 +731,14 @@ const ExploradorServicios = React.forwardRef<HTMLDivElement, { initialService: n
                         boxShadow: selectedService === idx
                           ? '0 4px 16px rgba(245, 110, 42, 0.25), 0 1px 4px rgba(245, 110, 42, 0.15)'
                           : '0 1px 3px rgba(40, 35, 39, 0.04)',
-                        border: selectedService === idx 
-                          ? '1px solid rgba(245, 110, 42, 0.3)' 
+                        border: selectedService === idx
+                          ? '1px solid rgba(245, 110, 42, 0.3)'
                           : '1px solid #E8D8C8',
-                        borderLeft: selectedService === idx 
-                          ? '3px solid #E94E1B' 
+                        borderLeft: selectedService === idx
+                          ? '3px solid #E94E1B'
                           : '3px solid #F6A46A'
                       }}
-                      whileHover={{ 
+                      whileHover={{
                         scale: selectedService === idx ? 1 : 1.01,
                         boxShadow: selectedService === idx
                           ? '0 4px 16px rgba(245, 110, 42, 0.25), 0 1px 4px rgba(245, 110, 42, 0.15)'
@@ -746,7 +746,7 @@ const ExploradorServicios = React.forwardRef<HTMLDivElement, { initialService: n
                       }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      <div 
+                      <div
                         className="size-10 rounded-xl flex items-center justify-center flex-shrink-0"
                         style={{
                           background: selectedService === idx ? 'rgba(255, 255, 255, 0.25)' : '#F56E2A',
@@ -755,7 +755,7 @@ const ExploradorServicios = React.forwardRef<HTMLDivElement, { initialService: n
                       >
                         {React.cloneElement(servicio.icon, { className: 'size-5' })}
                       </div>
-                      <span 
+                      <span
                         className="text-[13px] font-bold leading-tight"
                         style={{
                           color: selectedService === idx ? 'white' : '#2A2A2A'
@@ -779,7 +779,7 @@ const ExploradorServicios = React.forwardRef<HTMLDivElement, { initialService: n
             >
               {/* Header */}
               <div className="flex items-start gap-5 mb-8 pb-8 border-b border-neutral-200">
-                <div 
+                <div
                   className="size-20 rounded-2xl flex items-center justify-center text-white flex-shrink-0"
                   style={{
                     background: 'linear-gradient(135deg, #E94E1B 0%, #d94419 100%)',
@@ -834,18 +834,18 @@ const ExploradorServicios = React.forwardRef<HTMLDivElement, { initialService: n
                 <p className="text-[13px] text-neutral-600 italic leading-[1.7]">
                   {currentService.footer}
                 </p>
-                
+
                 {/* Botón "Ver detalle completo" para todos los servicios con páginas */}
                 {(selectedService === 0 || selectedService === 1 || selectedService === 2 || selectedService === 3 || selectedService === 4 || selectedService === 5 || selectedService === 6) && (
                   <motion.a
                     href={
                       selectedService === 0 ? '#servicios/infraestructura-it-data-center' :
-                      selectedService === 1 ? '#servicios/redes-conectividad' :
-                      selectedService === 2 ? '#servicios/team-collaboration' :
-                      selectedService === 3 ? '#servicios/videoseguridad-analitica' :
-                      selectedService === 4 ? '#servicios/energia-continuidad' :
-                      selectedService === 5 ? '#servicios/microinformatica' :
-                      '#servicios/cableado-estructurado-obras-tecnologicas'
+                        selectedService === 1 ? '#servicios/redes-conectividad' :
+                          selectedService === 2 ? '#servicios/team-collaboration' :
+                            selectedService === 3 ? '#servicios/videoseguridad-analitica' :
+                              selectedService === 4 ? '#servicios/energia-continuidad' :
+                                selectedService === 5 ? '#servicios/microinformatica' :
+                                  '#servicios/cableado-estructurado-obras-tecnologicas'
                     }
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -886,7 +886,7 @@ const ExploradorServicios = React.forwardRef<HTMLDivElement, { initialService: n
                       border: selectedService === idx ? '2px solid rgba(255, 255, 255, 0.3)' : 'none'
                     }}
                   >
-                    <div 
+                    <div
                       className="size-8 rounded-xl flex items-center justify-center mb-2 mx-auto text-white"
                       style={{
                         background: 'rgba(255, 255, 255, 0.18)'
@@ -910,7 +910,7 @@ const ExploradorServicios = React.forwardRef<HTMLDivElement, { initialService: n
               className="bg-white border border-neutral-200 rounded-3xl p-6 shadow-lg"
             >
               <div className="text-center mb-6 pb-6 border-b border-neutral-200">
-                <div 
+                <div
                   className="size-16 rounded-2xl flex items-center justify-center text-white mx-auto mb-3"
                   style={{
                     background: 'linear-gradient(135deg, #E94E1B 0%, #d94419 100%)',
@@ -959,18 +959,18 @@ const ExploradorServicios = React.forwardRef<HTMLDivElement, { initialService: n
                 <p className="text-[13px] text-neutral-600 italic leading-[1.7]">
                   {currentService.footer}
                 </p>
-                
+
                 {/* Botón "Ver detalle completo" para todos los servicios con páginas */}
                 {(selectedService === 0 || selectedService === 1 || selectedService === 2 || selectedService === 3 || selectedService === 4 || selectedService === 5 || selectedService === 6) && (
                   <motion.a
                     href={
                       selectedService === 0 ? '#servicios/infraestructura-it-data-center' :
-                      selectedService === 1 ? '#servicios/redes-conectividad' :
-                      selectedService === 2 ? '#servicios/team-collaboration' :
-                      selectedService === 3 ? '#servicios/videoseguridad-analitica' :
-                      selectedService === 4 ? '#servicios/energia-continuidad' :
-                      selectedService === 5 ? '#servicios/microinformatica' :
-                      '#servicios/cableado-estructurado-obras-tecnologicas'
+                        selectedService === 1 ? '#servicios/redes-conectividad' :
+                          selectedService === 2 ? '#servicios/team-collaboration' :
+                            selectedService === 3 ? '#servicios/videoseguridad-analitica' :
+                              selectedService === 4 ? '#servicios/energia-continuidad' :
+                                selectedService === 5 ? '#servicios/microinformatica' :
+                                  '#servicios/cableado-estructurado-obras-tecnologicas'
                     }
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -1061,9 +1061,9 @@ function CTAFinalServicios({ onOpenModal }: { onOpenModal: () => void }) {
 
           {/* Content */}
           <div className="relative z-10 px-6 md:px-12 lg:px-16 py-12 md:py-16 lg:py-20">
-            
+
             {/* Heading */}
-            <h2 
+            <h2
               className="text-[28px] sm:text-[32px] md:text-[42px] lg:text-[48px] text-white mb-4 md:mb-5 lg:mb-6 leading-[1.1] tracking-tight text-center max-w-[800px] mx-auto"
               style={{
                 fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1072,9 +1072,9 @@ function CTAFinalServicios({ onOpenModal }: { onOpenModal: () => void }) {
             >
               ¿Planificando una nueva etapa en tu infraestructura?
             </h2>
-            
+
             {/* Subtitle */}
-            <p 
+            <p
               className="text-[15px] sm:text-[16px] md:text-[18px] lg:text-[19px] text-white/75 mb-8 md:mb-10 lg:mb-12 leading-[1.6] text-center max-w-[680px] mx-auto"
               style={{
                 fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1083,12 +1083,12 @@ function CTAFinalServicios({ onOpenModal }: { onOpenModal: () => void }) {
             >
               Ya sea que estés abriendo una nueva sede, modernizando tu data center o mejorando la colaboración de tu equipo, podemos ayudarte a bajar el proyecto a tierra.
             </p>
-            
+
             {/* CTA Actions - Simplified 2 buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-[600px] mx-auto">
-              
+
               {/* Primary CTA Button - Agendar Reunión */}
-              <Button 
+              <Button
                 size="lg"
                 onClick={onOpenModal}
                 className="bg-[#E94E1B] hover:bg-[#d94419] text-white px-8 md:px-10 h-[54px] md:h-[58px] w-full sm:w-auto sm:flex-1 shadow-xl hover:shadow-2xl transition-all duration-300 group"
@@ -1105,7 +1105,7 @@ function CTAFinalServicios({ onOpenModal }: { onOpenModal: () => void }) {
               </Button>
 
               {/* Secondary CTA Button - WhatsApp */}
-              <Button 
+              <Button
                 size="lg"
                 variant="outline"
                 onClick={handleWhatsApp}
@@ -1123,7 +1123,7 @@ function CTAFinalServicios({ onOpenModal }: { onOpenModal: () => void }) {
             </div>
 
             {/* Helper text */}
-            <p 
+            <p
               className="text-center text-white/50 text-[13px] sm:text-[14px] mt-6"
               style={{
                 fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
+import {
   ArrowRight,
   ChevronRight,
   ChevronDown,
@@ -31,6 +31,7 @@ import {
   Award
 } from 'lucide-react';
 import { Button } from '../ui/button';
+import { AlertModal } from './AlertModal';
 
 export function Axis() {
   const [activeIndustryTab, setActiveIndustryTab] = useState(0);
@@ -145,7 +146,7 @@ function Hero({ scrollToSection, whatsappNumber, whatsappMessage }: any) {
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-8 md:mb-10 justify-center">
-            <Button 
+            <Button
               size="lg"
               className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white px-6 md:px-8 group shadow-lg shadow-[#E94E1B]/20 w-full sm:w-auto"
               onClick={() => scrollToSection('cta-wizard')}
@@ -153,8 +154,8 @@ function Hero({ scrollToSection, whatsappNumber, whatsappMessage }: any) {
               Iniciar consulta guiada
               <ArrowRight className="ml-2 size-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            
-            <Button 
+
+            <Button
               size="lg"
               variant="outline"
               className="border-2 border-white/40 bg-white/5 text-white hover:bg-white/10 hover:border-white/60 backdrop-blur-sm w-full sm:w-auto transition-all duration-300"
@@ -175,7 +176,7 @@ function Hero({ scrollToSection, whatsappNumber, whatsappMessage }: any) {
           {/* Trust chips */}
           <div className="flex flex-wrap gap-3 mb-4 justify-center">
             {trustChips.map((chip, idx) => (
-              <span 
+              <span
                 key={idx}
                 className="inline-block bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-full text-xs sm:text-sm hover:bg-white/15 hover:border-white/30 transition-all duration-300 cursor-help"
                 title={chip.tooltip}
@@ -329,7 +330,7 @@ function ExplorarIndustrias({ scrollToSection }: any) {
               <p className="text-[15px] text-neutral-600 mb-6 leading-[1.6]">
                 {industria.tag}
               </p>
-              
+
               <div className="flex gap-3">
                 <button
                   onClick={() => scrollToSection(industria.id)}
@@ -423,11 +424,10 @@ function BloquesIndustria({ selectedTab, setSelectedTab }: any) {
             <button
               key={idx}
               onClick={() => setSelectedTab(idx)}
-              className={`px-6 py-3 rounded-xl text-[14px] font-medium whitespace-nowrap transition-all ${
-                selectedTab === idx
-                  ? 'bg-[#DC291E] text-white'
-                  : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
-              }`}
+              className={`px-6 py-3 rounded-xl text-[14px] font-medium whitespace-nowrap transition-all ${selectedTab === idx
+                ? 'bg-[#DC291E] text-white'
+                : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
+                }`}
             >
               {ind.name}
             </button>
@@ -504,7 +504,7 @@ function BloquesIndustria({ selectedTab, setSelectedTab }: any) {
                   </ul>
                 </div>
 
-                <Button 
+                <Button
                   size="lg"
                   className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white w-full sm:w-auto"
                   onClick={() => {
@@ -608,11 +608,10 @@ function AutomatizacionIA() {
               <button
                 key={idx}
                 onClick={() => setSelectedCaso(idx)}
-                className={`px-6 py-3 rounded-xl text-[14px] font-medium transition-all ${
-                  selectedCaso === idx
-                    ? 'bg-[#DC291E] text-white'
-                    : 'bg-white/10 text-white hover:bg-white/20'
-                }`}
+                className={`px-6 py-3 rounded-xl text-[14px] font-medium transition-all ${selectedCaso === idx
+                  ? 'bg-[#DC291E] text-white'
+                  : 'bg-white/10 text-white hover:bg-white/20'
+                  }`}
               >
                 {caso.nombre}
               </button>
@@ -680,7 +679,7 @@ function Ciberseguridad() {
             ))}
           </ul>
 
-          <Button 
+          <Button
             variant="outline"
             className="border-[#DC291E] text-[#DC291E] hover:bg-[#DC291E] hover:text-white"
             onClick={() => {
@@ -806,7 +805,7 @@ function CTAWizard({ whatsappNumber }: any) {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
+              <Button
                 size="lg"
                 className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white px-10 text-[16px]"
                 onClick={() => setShowWizard(true)}
@@ -814,8 +813,8 @@ function CTAWizard({ whatsappNumber }: any) {
                 Iniciar consulta guiada
                 <ArrowRight className="ml-2 size-5" />
               </Button>
-              
-              <Button 
+
+              <Button
                 size="lg"
                 variant="outline"
                 className="border-[#DC291E] text-[#DC291E] hover:bg-[#DC291E] hover:text-white px-10 text-[16px]"
@@ -839,6 +838,17 @@ function CTAWizard({ whatsappNumber }: any) {
 
 function Wizard({ onClose, whatsappNumber }: any) {
   const [step, setStep] = useState(1);
+  const [alertModal, setAlertModal] = useState<{
+    isOpen: boolean;
+    type: 'success' | 'error' | 'warning';
+    title: string;
+    message: string;
+  }>({
+    isOpen: false,
+    type: 'success',
+    title: '',
+    message: ''
+  });
   const [formData, setFormData] = useState({
     industria: '',
     objetivo: '',
@@ -882,8 +892,16 @@ function Wizard({ onClose, whatsappNumber }: any) {
   };
 
   const handleSubmit = () => {
-    alert('¡Listo! Un especialista de Trendit te contactará. Si preferís respuesta inmediata, escribinos por WhatsApp.');
-    console.log('Wizard data:', formData);
+    setAlertModal({
+      isOpen: true,
+      type: 'success',
+      title: '¡Listo!',
+      message: 'Un especialista de Trendit te contactará. Si preferís respuesta inmediata, escribinos por WhatsApp.'
+    });
+  };
+
+  const handleCloseAlert = () => {
+    setAlertModal({ ...alertModal, isOpen: false });
     onClose();
   };
 
@@ -914,7 +932,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
 
         {/* Progress bar */}
         <div className="h-2 bg-neutral-100">
-          <div 
+          <div
             className="h-full bg-[#DC291E] transition-all duration-300"
             style={{ width: `${(step / totalSteps) * 100}%` }}
           />
@@ -930,11 +948,10 @@ function Wizard({ onClose, whatsappNumber }: any) {
                     <button
                       key={ind}
                       onClick={() => updateField('industria', ind)}
-                      className={`p-6 rounded-xl border-2 text-left transition-all ${
-                        formData.industria === ind
-                          ? 'border-[#DC291E] bg-[#DC291E]/5'
-                          : 'border-neutral-200 hover:border-neutral-300'
-                      }`}
+                      className={`p-6 rounded-xl border-2 text-left transition-all ${formData.industria === ind
+                        ? 'border-[#DC291E] bg-[#DC291E]/5'
+                        : 'border-neutral-200 hover:border-neutral-300'
+                        }`}
                     >
                       <span className="text-[16px] font-medium text-[#282327]">{ind}</span>
                     </button>
@@ -950,11 +967,10 @@ function Wizard({ onClose, whatsappNumber }: any) {
                     <button
                       key={obj}
                       onClick={() => updateField('objetivo', obj)}
-                      className={`px-6 py-3 rounded-xl border-2 transition-all ${
-                        formData.objetivo === obj
-                          ? 'border-[#DC291E] bg-[#DC291E] text-white'
-                          : 'border-neutral-200 hover:border-neutral-300'
-                      }`}
+                      className={`px-6 py-3 rounded-xl border-2 transition-all ${formData.objetivo === obj
+                        ? 'border-[#DC291E] bg-[#DC291E] text-white'
+                        : 'border-neutral-200 hover:border-neutral-300'
+                        }`}
                     >
                       {obj}
                     </button>
@@ -970,11 +986,10 @@ function Wizard({ onClose, whatsappNumber }: any) {
                     <button
                       key={caso}
                       onClick={() => toggleArrayField('casosUso', caso)}
-                      className={`px-5 py-3 rounded-xl border-2 transition-all ${
-                        formData.casosUso.includes(caso)
-                          ? 'border-[#DC291E] bg-[#DC291E] text-white'
-                          : 'border-neutral-200 hover:border-neutral-300'
-                      }`}
+                      className={`px-5 py-3 rounded-xl border-2 transition-all ${formData.casosUso.includes(caso)
+                        ? 'border-[#DC291E] bg-[#DC291E] text-white'
+                        : 'border-neutral-200 hover:border-neutral-300'
+                        }`}
                     >
                       {caso}
                     </button>
@@ -995,11 +1010,10 @@ function Wizard({ onClose, whatsappNumber }: any) {
                         <button
                           key={opt}
                           onClick={() => updateField('sitios', opt)}
-                          className={`px-6 py-3 rounded-xl border-2 transition-all ${
-                            formData.sitios === opt
-                              ? 'border-[#DC291E] bg-[#DC291E] text-white'
-                              : 'border-neutral-200 hover:border-neutral-300'
-                          }`}
+                          className={`px-6 py-3 rounded-xl border-2 transition-all ${formData.sitios === opt
+                            ? 'border-[#DC291E] bg-[#DC291E] text-white'
+                            : 'border-neutral-200 hover:border-neutral-300'
+                            }`}
                         >
                           {opt}
                         </button>
@@ -1016,11 +1030,10 @@ function Wizard({ onClose, whatsappNumber }: any) {
                         <button
                           key={opt}
                           onClick={() => updateField('dispositivos', opt)}
-                          className={`px-6 py-3 rounded-xl border-2 transition-all ${
-                            formData.dispositivos === opt
-                              ? 'border-[#DC291E] bg-[#DC291E] text-white'
-                              : 'border-neutral-200 hover:border-neutral-300'
-                          }`}
+                          className={`px-6 py-3 rounded-xl border-2 transition-all ${formData.dispositivos === opt
+                            ? 'border-[#DC291E] bg-[#DC291E] text-white'
+                            : 'border-neutral-200 hover:border-neutral-300'
+                            }`}
                         >
                           {opt}
                         </button>
@@ -1037,11 +1050,10 @@ function Wizard({ onClose, whatsappNumber }: any) {
                         <button
                           key={opt}
                           onClick={() => updateField('retencion', opt)}
-                          className={`px-6 py-3 rounded-xl border-2 transition-all ${
-                            formData.retencion === opt
-                              ? 'border-[#DC291E] bg-[#DC291E] text-white'
-                              : 'border-neutral-200 hover:border-neutral-300'
-                          }`}
+                          className={`px-6 py-3 rounded-xl border-2 transition-all ${formData.retencion === opt
+                            ? 'border-[#DC291E] bg-[#DC291E] text-white'
+                            : 'border-neutral-200 hover:border-neutral-300'
+                            }`}
                         >
                           {opt}
                         </button>
@@ -1059,11 +1071,10 @@ function Wizard({ onClose, whatsappNumber }: any) {
                     <button
                       key={cond}
                       onClick={() => toggleArrayField('condiciones', cond)}
-                      className={`px-5 py-3 rounded-xl border-2 transition-all ${
-                        formData.condiciones.includes(cond)
-                          ? 'border-[#DC291E] bg-[#DC291E] text-white'
-                          : 'border-neutral-200 hover:border-neutral-300'
-                      }`}
+                      className={`px-5 py-3 rounded-xl border-2 transition-all ${formData.condiciones.includes(cond)
+                        ? 'border-[#DC291E] bg-[#DC291E] text-white'
+                        : 'border-neutral-200 hover:border-neutral-300'
+                        }`}
                     >
                       {cond}
                     </button>
@@ -1091,7 +1102,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
                       className="px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-[#DC291E] focus:border-transparent outline-none"
                     />
                   </div>
-                  
+
                   <input
                     type="text"
                     placeholder="Cargo"
@@ -1099,7 +1110,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
                     onChange={(e) => updateField('cargo', e.target.value)}
                     className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-[#DC291E] focus:border-transparent outline-none"
                   />
-                  
+
                   <div className="grid md:grid-cols-2 gap-4">
                     <input
                       type="email"
@@ -1116,7 +1127,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
                       className="px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-[#DC291E] focus:border-transparent outline-none"
                     />
                   </div>
-                  
+
                   <input
                     type="text"
                     placeholder="Ciudad *"
@@ -1124,7 +1135,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
                     onChange={(e) => updateField('ciudad', e.target.value)}
                     className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-[#DC291E] focus:border-transparent outline-none"
                   />
-                  
+
                   <textarea
                     placeholder="Detalle del proyecto"
                     value={formData.detalle}
@@ -1149,7 +1160,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
           </button>
 
           {step < totalSteps ? (
-            <Button 
+            <Button
               onClick={() => setStep(s => s + 1)}
               disabled={!canProceed()}
               className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white disabled:opacity-30"
@@ -1158,7 +1169,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
               <ArrowRight className="ml-2 size-4" />
             </Button>
           ) : (
-            <Button 
+            <Button
               onClick={handleSubmit}
               disabled={!canProceed()}
               className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white disabled:opacity-30"
@@ -1169,6 +1180,15 @@ function Wizard({ onClose, whatsappNumber }: any) {
           )}
         </div>
       </motion.div>
+
+      {/* Alert Modal */}
+      <AlertModal
+        isOpen={alertModal.isOpen}
+        onClose={handleCloseAlert}
+        type={alertModal.type}
+        title={alertModal.title}
+        message={alertModal.message}
+      />
     </div>
   );
 }
@@ -1239,13 +1259,12 @@ function FAQ() {
                 <span className="text-[17px] font-semibold text-[#282327] pr-8">
                   {faq.q}
                 </span>
-                <ChevronDown 
-                  className={`size-5 text-neutral-400 flex-shrink-0 transition-transform ${
-                    openIndex === idx ? 'rotate-180' : ''
-                  }`}
+                <ChevronDown
+                  className={`size-5 text-neutral-400 flex-shrink-0 transition-transform ${openIndex === idx ? 'rotate-180' : ''
+                    }`}
                 />
               </button>
-              
+
               <AnimatePresence>
                 {openIndex === idx && (
                   <motion.div

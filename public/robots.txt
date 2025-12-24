@@ -1,0 +1,30 @@
+# robots.txt para trendit.com.ar
+# Permite a los motores de búsqueda indexar todo el sitio
+
+User-agent: *
+Allow: /
+
+# Bloquear acceso a archivos de desarrollo y build
+Disallow: /node_modules/
+Disallow: /build/
+Disallow: /.git/
+Disallow: /src/
+
+# Permitir acceso a recursos estáticos
+Allow: /assets/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.ico
+Allow: /*.webp
+
+# Sitemap location
+Sitemap: https://www.trendit.com.ar/sitemap.xml
+
+# Crawl-delay para ser respetuosos con los servidores
+Crawl-delay: 1
+

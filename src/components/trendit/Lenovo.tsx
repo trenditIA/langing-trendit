@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { 
+import {
   ArrowRight,
   ChevronRight,
   ChevronDown,
@@ -29,6 +29,7 @@ import {
   Zap
 } from 'lucide-react';
 import { Button } from '../ui/button';
+import { AlertModal } from './AlertModal';
 
 export function Lenovo() {
   const whatsappNumber = '5493516714007';
@@ -116,7 +117,7 @@ function Hero({ scrollToSection, whatsappNumber, whatsappMessage }: any) {
           {/* Columna izquierda */}
           <div>
             <h1 className="text-[36px] sm:text-[44px] md:text-[52px] lg:text-[56px] xl:text-[64px] leading-[1.1] text-white mb-4 md:mb-6">
-              Lenovo para empresas,<br/>integrado por Trendit
+              Lenovo para empresas,<br />integrado por Trendit
             </h1>
 
             <p className="text-base sm:text-lg md:text-xl text-white/70 mb-4 md:mb-5 leading-[1.6] max-w-2xl">
@@ -129,7 +130,7 @@ function Hero({ scrollToSection, whatsappNumber, whatsappMessage }: any) {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-8 md:mb-10">
-              <Button 
+              <Button
                 size="lg"
                 className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white px-6 md:px-8 group shadow-lg shadow-[#E94E1B]/20 w-full sm:w-auto"
                 onClick={() => window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank')}
@@ -138,8 +139,8 @@ function Hero({ scrollToSection, whatsappNumber, whatsappMessage }: any) {
                 Hablar por WhatsApp
                 <ArrowRight className="ml-2 size-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              
-              <Button 
+
+              <Button
                 size="lg"
                 variant="outline"
                 className="border-2 border-white/40 bg-white/5 text-white hover:bg-white/10 hover:border-white/60 backdrop-blur-sm w-full sm:w-auto transition-all duration-300"
@@ -152,7 +153,7 @@ function Hero({ scrollToSection, whatsappNumber, whatsappMessage }: any) {
             {/* Chips de confianza */}
             <div className="flex flex-wrap gap-3">
               {confianzaPills.map((pill, idx) => (
-                <span 
+                <span
                   key={idx}
                   className="inline-block bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-full text-xs sm:text-sm hover:bg-white/15 hover:border-white/30 transition-all duration-300"
                 >
@@ -167,7 +168,7 @@ function Hero({ scrollToSection, whatsappNumber, whatsappMessage }: any) {
             <h3 className="text-[17px] font-semibold text-white mb-4">
               Navegación rápida
             </h3>
-            
+
             <div className="space-y-2">
               {navPills.map((pill, idx) => (
                 <button
@@ -340,13 +341,13 @@ function Microinformatica() {
       <div className="max-w-[1440px] mx-auto">
         {/* Header */}
         <div className="text-center mb-8 lg:mb-12">
-          <h2 
+          <h2
             className="mb-4 text-neutral-900"
             style={{ fontFamily: 'Campton, sans-serif' }}
           >
             Microinformática por segmento (Lenovo)
           </h2>
-          <p 
+          <p
             className="text-neutral-600 text-[17px] md:text-[18px] max-w-3xl mx-auto"
             style={{ fontFamily: 'Campton, sans-serif', fontWeight: 400 }}
           >
@@ -362,11 +363,10 @@ function Microinformatica() {
               <button
                 key={segment.id}
                 onClick={() => setActiveSegment(segment.id as any)}
-                className={`flex-shrink-0 px-6 py-4 rounded-xl border-2 transition-all duration-300 flex items-center gap-3 min-w-[200px] sm:min-w-[240px] ${
-                  activeSegment === segment.id
-                    ? 'bg-[#E94E1B] border-[#E94E1B] text-white shadow-lg shadow-[#E94E1B]/30'
-                    : 'bg-white border-neutral-200 text-neutral-700 hover:border-[#E94E1B]/30 hover:bg-neutral-50'
-                }`}
+                className={`flex-shrink-0 px-6 py-4 rounded-xl border-2 transition-all duration-300 flex items-center gap-3 min-w-[200px] sm:min-w-[240px] ${activeSegment === segment.id
+                  ? 'bg-[#E94E1B] border-[#E94E1B] text-white shadow-lg shadow-[#E94E1B]/30'
+                  : 'bg-white border-neutral-200 text-neutral-700 hover:border-[#E94E1B]/30 hover:bg-neutral-50'
+                  }`}
                 style={{ fontFamily: 'Campton, sans-serif', fontWeight: 600 }}
               >
                 <SegmentIcon className="size-5 flex-shrink-0" />
@@ -391,7 +391,7 @@ function Microinformatica() {
                 <div className="size-12 rounded-xl bg-gradient-to-br from-[#E94E1B] to-[#d44317] flex items-center justify-center">
                   <IconComponent className="size-6 text-white" />
                 </div>
-                <h3 
+                <h3
                   className="text-neutral-900"
                   style={{ fontFamily: 'Campton, sans-serif' }}
                 >
@@ -400,13 +400,13 @@ function Microinformatica() {
               </div>
 
               <div className="mb-8">
-                <div 
+                <div
                   className="text-[13px] uppercase tracking-wide text-[#E94E1B] mb-2"
                   style={{ fontFamily: 'Campton, sans-serif', fontWeight: 700 }}
                 >
                   Para quién es
                 </div>
-                <p 
+                <p
                   className="text-neutral-700 text-[15px] leading-relaxed"
                   style={{ fontFamily: 'Campton, sans-serif', fontWeight: 400 }}
                 >
@@ -415,7 +415,7 @@ function Microinformatica() {
               </div>
 
               <div>
-                <div 
+                <div
                   className="text-[13px] uppercase tracking-wide text-[#E94E1B] mb-4"
                   style={{ fontFamily: 'Campton, sans-serif', fontWeight: 700 }}
                 >
@@ -425,7 +425,7 @@ function Microinformatica() {
                   {currentSegment.beneficios.map((beneficio, idx) => (
                     <li key={idx} className="flex items-start gap-3">
                       <CheckCircle2 className="size-5 text-[#E94E1B] flex-shrink-0 mt-0.5" />
-                      <span 
+                      <span
                         className="text-neutral-700 text-[15px]"
                         style={{ fontFamily: 'Campton, sans-serif', fontWeight: 400 }}
                       >
@@ -439,7 +439,7 @@ function Microinformatica() {
 
             {/* Columna derecha - Líneas recomendadas */}
             <div>
-              <div 
+              <div
                 className="text-[13px] uppercase tracking-wide text-[#E94E1B] mb-4"
                 style={{ fontFamily: 'Campton, sans-serif', fontWeight: 700 }}
               >
@@ -452,13 +452,13 @@ function Microinformatica() {
                     onClick={handleWhatsApp}
                     className="w-full text-left bg-gradient-to-br from-neutral-50 to-neutral-100 rounded-xl p-4 border border-neutral-200 hover:border-[#E94E1B]/30 hover:shadow-md transition-all duration-300 group"
                   >
-                    <div 
+                    <div
                       className="text-neutral-900 mb-1 group-hover:text-[#E94E1B] transition-colors"
                       style={{ fontFamily: 'Campton, sans-serif', fontWeight: 600 }}
                     >
                       {linea.name}
                     </div>
-                    <div 
+                    <div
                       className="text-neutral-600 text-[14px]"
                       style={{ fontFamily: 'Campton, sans-serif', fontWeight: 400 }}
                     >
@@ -474,13 +474,13 @@ function Microinformatica() {
         {/* Comparación rápida (Desktop) */}
         <div className="hidden lg:block mb-10">
           <div className="text-center mb-6">
-            <h3 
+            <h3
               className="mb-2 text-neutral-900"
               style={{ fontFamily: 'Campton, sans-serif' }}
             >
               Comparación rápida
             </h3>
-            <p 
+            <p
               className="text-neutral-600 text-[15px]"
               style={{ fontFamily: 'Campton, sans-serif', fontWeight: 400 }}
             >
@@ -551,7 +551,7 @@ function Microinformatica() {
         {/* Comparación rápida (Mobile - Acordeón) */}
         <div className="block lg:hidden mb-10">
           <div className="text-center mb-6">
-            <h3 
+            <h3
               className="mb-2 text-neutral-900"
               style={{ fontFamily: 'Campton, sans-serif' }}
             >
@@ -602,23 +602,23 @@ function Microinformatica() {
         {/* CTA Final de la sección */}
         <div className="bg-gradient-to-br from-[#282327] via-[#2d2832] to-[#282327] rounded-2xl p-8 md:p-10 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#E94E1B] rounded-full blur-[120px] opacity-20" />
-          
+
           <div className="relative z-10 text-center">
-            <h3 
+            <h3
               className="mb-4 text-white"
               style={{ fontFamily: 'Campton, sans-serif' }}
             >
               ¿Necesitás asesoramiento sobre Lenovo?
             </h3>
-            <p 
+            <p
               className="text-neutral-300 text-[15px] md:text-[16px] mb-8 max-w-2xl mx-auto"
               style={{ fontFamily: 'Campton, sans-serif', fontWeight: 400 }}
             >
               Te ayudamos a elegir la línea ideal para tu operación
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
+              <Button
                 onClick={handleWhatsApp}
                 className="bg-[#E94E1B] hover:bg-[#d44317] text-white px-8 py-6 rounded-xl transition-all duration-300 group shadow-lg shadow-[#E94E1B]/30"
                 style={{ fontFamily: 'Campton, sans-serif', fontWeight: 600 }}
@@ -652,9 +652,8 @@ function IndicadorNivelLenovo({ nivel }: { nivel: number }) {
       {[1, 2, 3].map((dot) => (
         <div
           key={dot}
-          className={`size-2 rounded-full ${
-            dot <= nivel ? 'bg-[#E94E1B]' : 'bg-neutral-300'
-          }`}
+          className={`size-2 rounded-full ${dot <= nivel ? 'bg-[#E94E1B]' : 'bg-neutral-300'
+            }`}
         />
       ))}
     </div>
@@ -687,7 +686,7 @@ function ServiciosGarantias() {
           className="text-center mb-12"
         >
           <h2 className="text-[36px] lg:text-[42px] text-[#282327] mb-6 leading-[1.2]">
-            Servicios que cambian la ecuación<br/>(y protegen tu inversión)
+            Servicios que cambian la ecuación<br />(y protegen tu inversión)
           </h2>
           <p className="text-[18px] text-neutral-700 max-w-[800px] mx-auto leading-[1.7]">
             El diferencial en entornos corporativos muchas veces no está en el modelo: está en el servicio.
@@ -938,7 +937,7 @@ function Sustentabilidad() {
           <div className="size-20 mx-auto rounded-full bg-green-100 flex items-center justify-center text-green-600 mb-6">
             <Leaf className="size-10" />
           </div>
-          
+
           <h2 className="text-[36px] lg:text-[42px] text-[#282327] mb-6 leading-[1.2]">
             Sustentabilidad con impacto medible
           </h2>
@@ -961,6 +960,17 @@ function Sustentabilidad() {
 }
 
 function CTAFinal({ whatsappNumber, whatsappMessage }: any) {
+  const [alertModal, setAlertModal] = useState<{
+    isOpen: boolean;
+    type: 'success' | 'error' | 'warning';
+    title: string;
+    message: string;
+  }>({
+    isOpen: false,
+    type: 'success',
+    title: '',
+    message: ''
+  });
   const [formData, setFormData] = useState({
     nombre: '',
     empresa: '',
@@ -999,8 +1009,12 @@ function CTAFinal({ whatsappNumber, whatsappMessage }: any) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Solicitud enviada. Te contactaremos pronto con tu propuesta Lenovo.');
-    console.log('Datos enviados:', formData);
+    setAlertModal({
+      isOpen: true,
+      type: 'success',
+      title: '¡Solicitud enviada!',
+      message: 'Te contactaremos pronto con tu propuesta Lenovo.'
+    });
   };
 
   return (
@@ -1031,11 +1045,10 @@ function CTAFinal({ whatsappNumber, whatsappMessage }: any) {
                 <button
                   key={idx}
                   onClick={() => setAreaSeleccionada(area)}
-                  className={`px-4 py-3 rounded-xl text-[14px] font-medium transition-all border-2 ${
-                    areaSeleccionada === area
-                      ? 'bg-[#E94E1B] text-white border-[#E94E1B]'
-                      : 'bg-neutral-50 text-neutral-700 border-neutral-200 hover:border-neutral-300'
-                  }`}
+                  className={`px-4 py-3 rounded-xl text-[14px] font-medium transition-all border-2 ${areaSeleccionada === area
+                    ? 'bg-[#E94E1B] text-white border-[#E94E1B]'
+                    : 'bg-neutral-50 text-neutral-700 border-neutral-200 hover:border-neutral-300'
+                    }`}
                 >
                   {area}
                 </button>
@@ -1155,11 +1168,10 @@ function CTAFinal({ whatsappNumber, whatsappMessage }: any) {
                     key={idx}
                     type="button"
                     onClick={() => updateField('lineaPreferida', linea)}
-                    className={`px-4 py-2 rounded-lg text-[13px] font-medium transition-all border ${
-                      formData.lineaPreferida === linea
-                        ? 'bg-[#E94E1B] text-white border-[#E94E1B]'
-                        : 'bg-neutral-50 text-neutral-700 border-neutral-200 hover:border-neutral-300'
-                    }`}
+                    className={`px-4 py-2 rounded-lg text-[13px] font-medium transition-all border ${formData.lineaPreferida === linea
+                      ? 'bg-[#E94E1B] text-white border-[#E94E1B]'
+                      : 'bg-neutral-50 text-neutral-700 border-neutral-200 hover:border-neutral-300'
+                      }`}
                   >
                     {linea}
                   </button>
@@ -1202,7 +1214,7 @@ function CTAFinal({ whatsappNumber, whatsappMessage }: any) {
 
             {/* Botones */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button 
+              <Button
                 type="submit"
                 size="lg"
                 className="flex-1 bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white"
@@ -1211,8 +1223,8 @@ function CTAFinal({ whatsappNumber, whatsappMessage }: any) {
                 Enviar solicitud
                 <ArrowRight className="ml-2 size-5" />
               </Button>
-              
-              <Button 
+
+              <Button
                 type="button"
                 size="lg"
                 variant="outline"
@@ -1229,6 +1241,15 @@ function CTAFinal({ whatsappNumber, whatsappMessage }: any) {
             </p>
           </form>
         </div>
+
+        {/* Alert Modal */}
+        <AlertModal
+          isOpen={alertModal.isOpen}
+          onClose={() => setAlertModal({ ...alertModal, isOpen: false })}
+          type={alertModal.type}
+          title={alertModal.title}
+          message={alertModal.message}
+        />
       </div>
     </section>
   );

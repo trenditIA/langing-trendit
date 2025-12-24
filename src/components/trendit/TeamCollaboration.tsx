@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { 
-  Video, 
-  Users, 
+import {
+  Video,
+  Users,
   Monitor,
   Headphones,
   MessageCircle,
@@ -21,6 +21,7 @@ import {
   Shield,
   BarChart3
 } from 'lucide-react';
+import { AlertModal } from './AlertModal';
 
 export function TeamCollaboration() {
   return (
@@ -54,14 +55,14 @@ function HeroTeamCollab() {
   };
 
   return (
-    <section 
+    <section
       className="relative pt-32 md:pt-36 lg:pt-40 pb-16 md:pb-20 lg:pb-24 px-6 lg:px-12"
       style={{
         background: 'linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%)'
       }}
     >
       {/* Subtle gradient overlay */}
-      <div 
+      <div
         className="absolute inset-0 opacity-[0.02] pointer-events-none"
         style={{
           background: 'radial-gradient(circle at 50% 0%, #E94E1B 0%, transparent 60%)'
@@ -74,7 +75,7 @@ function HeroTeamCollab() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 
+          <h1
             className="text-[40px] md:text-[52px] lg:text-[58px] leading-[1.1] mb-6 lg:mb-7 text-[#282327]"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -84,7 +85,7 @@ function HeroTeamCollab() {
             Team Collaboration que se siente natural
           </h1>
 
-          <p 
+          <p
             className="text-[17px] md:text-[19px] lg:text-[21px] leading-[1.5] mb-5 text-neutral-600 max-w-[860px] mx-auto"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -94,7 +95,7 @@ function HeroTeamCollab() {
             Diseñamos e integramos salas, aulas y espacios híbridos donde audio, video y colaboración funcionan como una sola experiencia: clara, segura y lista para escalar.
           </p>
 
-          <p 
+          <p
             className="text-[15px] lg:text-[16px] mb-8 lg:mb-10 text-neutral-500"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -168,30 +169,27 @@ function SelectorSecciones() {
             <button
               key={sec.id}
               onClick={() => scrollToSection(sec.id)}
-              className={`p-4 rounded-xl transition-all duration-300 text-center group ${
-                activeSection === sec.id 
-                  ? 'bg-neutral-100 ring-1 ring-[#E94E1B]/30' 
-                  : 'bg-neutral-50 hover:bg-neutral-100'
-              }`}
+              className={`p-4 rounded-xl transition-all duration-300 text-center group ${activeSection === sec.id
+                ? 'bg-neutral-100 ring-1 ring-[#E94E1B]/30'
+                : 'bg-neutral-50 hover:bg-neutral-100'
+                }`}
               style={{
-                boxShadow: activeSection === sec.id 
-                  ? '0 2px 8px rgba(233, 78, 27, 0.08)' 
+                boxShadow: activeSection === sec.id
+                  ? '0 2px 8px rgba(233, 78, 27, 0.08)'
                   : '0 1px 3px rgba(0, 0, 0, 0.05)'
               }}
             >
-              <div 
-                className={`size-10 mx-auto rounded-lg flex items-center justify-center mb-2 transition-all ${
-                  activeSection === sec.id 
-                    ? 'bg-[#E94E1B] text-white' 
-                    : 'bg-white text-neutral-600 group-hover:bg-neutral-200'
-                }`}
+              <div
+                className={`size-10 mx-auto rounded-lg flex items-center justify-center mb-2 transition-all ${activeSection === sec.id
+                  ? 'bg-[#E94E1B] text-white'
+                  : 'bg-white text-neutral-600 group-hover:bg-neutral-200'
+                  }`}
               >
                 {sec.icon}
               </div>
-              <span 
-                className={`text-[13px] leading-tight ${
-                  activeSection === sec.id ? 'text-[#282327]' : 'text-neutral-600'
-                }`}
+              <span
+                className={`text-[13px] leading-tight ${activeSection === sec.id ? 'text-[#282327]' : 'text-neutral-600'
+                  }`}
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
                   fontWeight: 600
@@ -210,11 +208,10 @@ function SelectorSecciones() {
               <button
                 key={sec.id}
                 onClick={() => scrollToSection(sec.id)}
-                className={`flex items-center gap-2 px-4 py-3 rounded-full transition-all duration-300 whitespace-nowrap ${
-                  activeSection === sec.id 
-                    ? 'bg-[#E94E1B] text-white shadow-md' 
-                    : 'bg-neutral-100 text-neutral-700'
-                }`}
+                className={`flex items-center gap-2 px-4 py-3 rounded-full transition-all duration-300 whitespace-nowrap ${activeSection === sec.id
+                  ? 'bg-[#E94E1B] text-white shadow-md'
+                  : 'bg-neutral-100 text-neutral-700'
+                  }`}
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
                   fontWeight: 600,
@@ -265,7 +262,7 @@ function BandaContexto() {
               transition={{ delay: idx * 0.1, duration: 0.5 }}
               className="p-6 lg:p-7 bg-white rounded-2xl border border-neutral-200"
             >
-              <h3 
+              <h3
                 className="text-[18px] lg:text-[20px] mb-3 text-[#282327] leading-tight"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -274,7 +271,7 @@ function BandaContexto() {
               >
                 {stat.title}
               </h3>
-              <p 
+              <p
                 className="text-[14px] lg:text-[15px] text-neutral-600 mb-3 leading-relaxed"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -283,7 +280,7 @@ function BandaContexto() {
               >
                 {stat.text}
               </p>
-              <p 
+              <p
                 className="text-[12px] text-neutral-400 italic"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -346,7 +343,7 @@ function QueResolvemos() {
               transition={{ delay: idx * 0.15, duration: 0.5 }}
               className="p-6 lg:p-8 bg-neutral-50 rounded-2xl border border-neutral-200 hover:shadow-lg transition-all duration-300"
             >
-              <div 
+              <div
                 className="size-14 rounded-xl flex items-center justify-center mb-5 text-white"
                 style={{
                   background: 'linear-gradient(135deg, #E94E1B 0%, #d94419 100%)',
@@ -355,7 +352,7 @@ function QueResolvemos() {
               >
                 {pilar.icon}
               </div>
-              <h3 
+              <h3
                 className="text-[20px] lg:text-[22px] mb-3 text-[#282327]"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -364,7 +361,7 @@ function QueResolvemos() {
               >
                 {pilar.title}
               </h3>
-              <p 
+              <p
                 className="text-[15px] lg:text-[16px] text-neutral-600 leading-relaxed"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -468,7 +465,7 @@ function ArquitecturasSalas() {
               transition={{ delay: idx * 0.1, duration: 0.5 }}
               className="p-6 lg:p-7 bg-white rounded-2xl border border-neutral-200 hover:shadow-md transition-all duration-300"
             >
-              <h3 
+              <h3
                 className="text-[20px] lg:text-[22px] mb-1 text-[#282327]"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -477,7 +474,7 @@ function ArquitecturasSalas() {
               >
                 {sala.title}
               </h3>
-              <p 
+              <p
                 className="text-[13px] text-neutral-500 mb-5"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -492,7 +489,7 @@ function ArquitecturasSalas() {
                     <div className="size-7 rounded-lg bg-neutral-100 flex items-center justify-center flex-shrink-0 text-neutral-600">
                       {comp.icon}
                     </div>
-                    <span 
+                    <span
                       className="text-[14px] text-neutral-700 leading-relaxed pt-0.5"
                       style={{
                         fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -634,14 +631,14 @@ function ComoImplementamos() {
               className="relative"
             >
               <div className="p-6 lg:p-7 bg-white rounded-2xl border border-neutral-200 h-full">
-                <div 
+                <div
                   className="size-14 rounded-xl flex items-center justify-center mb-4 text-white"
                   style={{
                     background: 'linear-gradient(135deg, #E94E1B 0%, #d94419 100%)',
                     boxShadow: '0 4px 12px rgba(233, 78, 27, 0.25)'
                   }}
                 >
-                  <span 
+                  <span
                     className="text-[22px]"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -651,7 +648,7 @@ function ComoImplementamos() {
                     {paso.number}
                   </span>
                 </div>
-                <h3 
+                <h3
                   className="text-[18px] lg:text-[20px] mb-3 text-[#282327]"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -660,7 +657,7 @@ function ComoImplementamos() {
                 >
                   {paso.title}
                 </h3>
-                <p 
+                <p
                   className="text-[14px] lg:text-[15px] text-neutral-600 leading-relaxed"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -681,6 +678,17 @@ function ComoImplementamos() {
 // ==================== CTA WIZARD ====================
 function CTAWizard() {
   const [step, setStep] = useState(1);
+  const [alertModal, setAlertModal] = useState<{
+    isOpen: boolean;
+    type: 'success' | 'error' | 'warning';
+    title: string;
+    message: string;
+  }>({
+    isOpen: false,
+    type: 'success',
+    title: '',
+    message: ''
+  });
   const [formData, setFormData] = useState({
     tipoEspacio: '',
     plataforma: '',
@@ -708,22 +716,42 @@ function CTAWizard() {
 
   const nextStep = () => {
     if (step === 1 && !formData.tipoEspacio) {
-      alert('Selecciona un tipo de espacio');
+      setAlertModal({
+        isOpen: true,
+        type: 'error',
+        title: 'Campo requerido',
+        message: 'Selecciona un tipo de espacio para continuar.'
+      });
       return;
     }
     if (step === 2) {
       if (!formData.plataforma || formData.marcasPreferidas.length === 0) {
-        alert('Completa todos los campos obligatorios');
+        setAlertModal({
+          isOpen: true,
+          type: 'error',
+          title: 'Campos incompletos',
+          message: 'Completa todos los campos obligatorios para continuar.'
+        });
         return;
       }
       if (formData.marcasPreferidas.includes('Otros') && !formData.otraMarca) {
-        alert('Especifica la marca en "Otros"');
+        setAlertModal({
+          isOpen: true,
+          type: 'error',
+          title: 'Información requerida',
+          message: 'Especifica la marca en el campo "Otros".'
+        });
         return;
       }
     }
     if (step === 3) {
       if (!formData.razonSocial || !formData.cuit || !formData.email || !formData.telefono || !formData.ubicacion) {
-        alert('Completa todos los campos obligatorios');
+        setAlertModal({
+          isOpen: true,
+          type: 'error',
+          title: 'Campos incompletos',
+          message: 'Completa todos los campos obligatorios para continuar.'
+        });
         return;
       }
     }
@@ -741,8 +769,12 @@ function CTAWizard() {
   };
 
   const handleSubmit = () => {
-    console.log('Formulario enviado:', formData);
-    alert('¡Solicitud enviada! Un especialista de Trendit se pondrá en contacto pronto.');
+    setAlertModal({
+      isOpen: true,
+      type: 'success',
+      title: '¡Solicitud enviada!',
+      message: 'Un especialista de Trendit se pondrá en contacto pronto.'
+    });
   };
 
   const handleWhatsApp = () => {
@@ -758,7 +790,7 @@ function CTAWizard() {
           viewport={{ once: true }}
           className="text-center mb-10 lg:mb-12"
         >
-          <h2 
+          <h2
             className="text-[32px] md:text-[40px] lg:text-[44px] mb-5 text-[#282327] leading-tight"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -767,7 +799,7 @@ function CTAWizard() {
           >
             Diseñar un espacio
           </h2>
-          <p 
+          <p
             className="text-[16px] md:text-[17px] text-neutral-600 leading-relaxed"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -783,10 +815,9 @@ function CTAWizard() {
           <div className="flex items-center justify-between mb-3">
             {[1, 2, 3].map((s) => (
               <div key={s} className="flex items-center flex-1">
-                <div 
-                  className={`size-10 rounded-full flex items-center justify-center transition-all duration-300 ${
-                    step >= s ? 'bg-[#E94E1B] text-white' : 'bg-neutral-200 text-neutral-500'
-                  }`}
+                <div
+                  className={`size-10 rounded-full flex items-center justify-center transition-all duration-300 ${step >= s ? 'bg-[#E94E1B] text-white' : 'bg-neutral-200 text-neutral-500'
+                    }`}
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
                     fontWeight: 600
@@ -795,10 +826,9 @@ function CTAWizard() {
                   {s}
                 </div>
                 {s < 3 && (
-                  <div 
-                    className={`flex-1 h-1 mx-2 rounded ${
-                      step > s ? 'bg-[#E94E1B]' : 'bg-neutral-200'
-                    }`}
+                  <div
+                    className={`flex-1 h-1 mx-2 rounded ${step > s ? 'bg-[#E94E1B]' : 'bg-neutral-200'
+                      }`}
                   />
                 )}
               </div>
@@ -815,7 +845,7 @@ function CTAWizard() {
         <div className="bg-neutral-50 rounded-2xl p-8 lg:p-10 border border-neutral-200 mb-8">
           {step === 1 && (
             <div>
-              <h3 
+              <h3
                 className="text-[22px] mb-6 text-[#282327]"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -829,18 +859,16 @@ function CTAWizard() {
                   <button
                     key={tipo.id}
                     onClick={() => setFormData({ ...formData, tipoEspacio: tipo.id })}
-                    className={`p-5 rounded-xl text-left transition-all duration-300 ${
-                      formData.tipoEspacio === tipo.id
-                        ? 'bg-[#E94E1B] text-white shadow-lg ring-2 ring-[#E94E1B]'
-                        : 'bg-white text-neutral-700 border border-neutral-200 hover:border-[#E94E1B]'
-                    }`}
+                    className={`p-5 rounded-xl text-left transition-all duration-300 ${formData.tipoEspacio === tipo.id
+                      ? 'bg-[#E94E1B] text-white shadow-lg ring-2 ring-[#E94E1B]'
+                      : 'bg-white text-neutral-700 border border-neutral-200 hover:border-[#E94E1B]'
+                      }`}
                   >
-                    <div className={`size-10 rounded-lg flex items-center justify-center mb-3 ${
-                      formData.tipoEspacio === tipo.id ? 'bg-white/20' : 'bg-neutral-100'
-                    }`}>
+                    <div className={`size-10 rounded-lg flex items-center justify-center mb-3 ${formData.tipoEspacio === tipo.id ? 'bg-white/20' : 'bg-neutral-100'
+                      }`}>
                       {tipo.icon}
                     </div>
-                    <span 
+                    <span
                       className="text-[15px]"
                       style={{
                         fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -857,7 +885,7 @@ function CTAWizard() {
 
           {step === 2 && (
             <div>
-              <h3 
+              <h3
                 className="text-[22px] mb-2 text-[#282327]"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -910,11 +938,10 @@ function CTAWizard() {
                     <button
                       key={marca}
                       onClick={() => toggleMarca(marca)}
-                      className={`px-5 py-2.5 rounded-full transition-all duration-300 ${
-                        formData.marcasPreferidas.includes(marca)
-                          ? 'bg-[#E94E1B] text-white shadow-md'
-                          : 'bg-white text-neutral-700 border border-neutral-200 hover:border-[#E94E1B]'
-                      }`}
+                      className={`px-5 py-2.5 rounded-full transition-all duration-300 ${formData.marcasPreferidas.includes(marca)
+                        ? 'bg-[#E94E1B] text-white shadow-md'
+                        : 'bg-white text-neutral-700 border border-neutral-200 hover:border-[#E94E1B]'
+                        }`}
                       style={{
                         fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
                         fontWeight: 600,
@@ -941,7 +968,7 @@ function CTAWizard() {
 
           {step === 3 && (
             <div>
-              <h3 
+              <h3
                 className="text-[22px] mb-6 text-[#282327]"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1001,7 +1028,7 @@ function CTAWizard() {
                 <div className="size-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
                   <CheckCircle2 className="size-10 text-green-600" />
                 </div>
-                <h3 
+                <h3
                   className="text-[24px] mb-3 text-[#282327]"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1010,7 +1037,7 @@ function CTAWizard() {
                 >
                   Tu pedido
                 </h3>
-                <p 
+                <p
                   className="text-[15px] text-neutral-600"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -1116,6 +1143,15 @@ function CTAWizard() {
           </div>
         )}
       </div>
+
+      {/* Alert Modal */}
+      <AlertModal
+        isOpen={alertModal.isOpen}
+        onClose={() => setAlertModal({ ...alertModal, isOpen: false })}
+        type={alertModal.type}
+        title={alertModal.title}
+        message={alertModal.message}
+      />
     </section>
   );
 }

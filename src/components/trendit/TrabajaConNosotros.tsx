@@ -6,7 +6,7 @@ export function TrabajaConNosotros() {
   const [submitted, setSubmitted] = useState(false);
   const [fileName, setFileName] = useState('');
   const fileInputRef = useRef<HTMLInputElement>(null);
-  
+
   const [formData, setFormData] = useState({
     // Step 1
     nombre: '',
@@ -54,8 +54,6 @@ export function TrabajaConNosotros() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate submission
-    console.log('Form submitted:', formData);
     setSubmitted(true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -82,7 +80,7 @@ export function TrabajaConNosotros() {
             <div className="size-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
               <CheckCircle2 className="size-8 text-green-600" />
             </div>
-            <h1 
+            <h1
               className="text-[32px] md:text-[36px] mb-4 text-[#282327]"
               style={{
                 fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -91,7 +89,7 @@ export function TrabajaConNosotros() {
             >
               ¡Postulación enviada!
             </h1>
-            <p 
+            <p
               className="text-[16px] md:text-[17px] text-neutral-600 leading-[1.6] mb-8"
               style={{
                 fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -121,7 +119,7 @@ export function TrabajaConNosotros() {
       {/* Header Section */}
       <section className="bg-gradient-to-b from-neutral-100 to-neutral-50 pt-32 md:pt-36 pb-16 md:pb-20">
         <div className="max-w-[1100px] mx-auto px-6 lg:px-12 text-center">
-          <h1 
+          <h1
             className="text-[42px] md:text-[52px] lg:text-[58px] leading-[1.1] mb-6 text-[#282327]"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -130,7 +128,7 @@ export function TrabajaConNosotros() {
           >
             Trabajá con nosotros
           </h1>
-          <p 
+          <p
             className="text-[17px] md:text-[18px] text-neutral-600 leading-[1.6] mb-8 max-w-[780px] mx-auto"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -172,7 +170,7 @@ export function TrabajaConNosotros() {
       <section className="py-16 md:py-20">
         <div className="max-w-[1100px] mx-auto px-6 lg:px-12">
           <div className="text-center mb-12">
-            <h2 
+            <h2
               className="text-[32px] md:text-[38px] mb-4 text-[#282327]"
               style={{
                 fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -181,7 +179,7 @@ export function TrabajaConNosotros() {
             >
               Cultura Trendit
             </h2>
-            <p 
+            <p
               className="text-[16px] md:text-[17px] text-neutral-600 leading-[1.6] max-w-[780px] mx-auto"
               style={{
                 fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -198,7 +196,7 @@ export function TrabajaConNosotros() {
               <div className="size-12 bg-[#E94E1B]/10 rounded-xl flex items-center justify-center mb-5">
                 <Target className="size-6 text-[#E94E1B]" />
               </div>
-              <h3 
+              <h3
                 className="text-[20px] mb-3 text-[#282327]"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -207,7 +205,7 @@ export function TrabajaConNosotros() {
               >
                 Mejora continua desde 2016
               </h3>
-              <p 
+              <p
                 className="text-[15px] text-neutral-600 leading-[1.6]"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -223,7 +221,7 @@ export function TrabajaConNosotros() {
               <div className="size-12 bg-[#E94E1B]/10 rounded-xl flex items-center justify-center mb-5">
                 <Users className="size-6 text-[#E94E1B]" />
               </div>
-              <h3 
+              <h3
                 className="text-[20px] mb-3 text-[#282327]"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -232,7 +230,7 @@ export function TrabajaConNosotros() {
               >
                 Trabajo en equipo, con método
               </h3>
-              <p 
+              <p
                 className="text-[15px] text-neutral-600 leading-[1.6]"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -248,7 +246,7 @@ export function TrabajaConNosotros() {
               <div className="size-12 bg-[#E94E1B]/10 rounded-xl flex items-center justify-center mb-5">
                 <Leaf className="size-6 text-[#E94E1B]" />
               </div>
-              <h3 
+              <h3
                 className="text-[20px] mb-3 text-[#282327]"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -257,7 +255,7 @@ export function TrabajaConNosotros() {
               >
                 Tecnología con propósito
               </h3>
-              <p 
+              <p
                 className="text-[15px] text-neutral-600 leading-[1.6]"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -274,7 +272,7 @@ export function TrabajaConNosotros() {
       {/* Lo que vas a encontrar */}
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-[1100px] mx-auto px-6 lg:px-12">
-          <h2 
+          <h2
             className="text-[32px] md:text-[38px] mb-10 text-[#282327] text-center"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -293,7 +291,7 @@ export function TrabajaConNosotros() {
             ].map((item, index) => (
               <div key={index} className="flex items-start gap-3 bg-neutral-50 rounded-lg p-5 border border-neutral-200">
                 <Check className="size-5 text-[#E94E1B] mt-0.5 flex-shrink-0" />
-                <p 
+                <p
                   className="text-[15px] text-neutral-700 leading-[1.6]"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -311,7 +309,7 @@ export function TrabajaConNosotros() {
       {/* Beneficios */}
       <section className="py-16 md:py-20">
         <div className="max-w-[1100px] mx-auto px-6 lg:px-12">
-          <h2 
+          <h2
             className="text-[32px] md:text-[38px] mb-10 text-[#282327] text-center"
             style={{
               fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -333,7 +331,7 @@ export function TrabajaConNosotros() {
                 <div className="size-8 bg-[#E94E1B]/10 rounded-lg flex items-center justify-center mb-4">
                   <Check className="size-5 text-[#E94E1B]" />
                 </div>
-                <p 
+                <p
                   className="text-[15px] text-neutral-700 leading-[1.6]"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -356,7 +354,7 @@ export function TrabajaConNosotros() {
               <div className="inline-flex items-center justify-center size-14 bg-green-600 rounded-xl mb-6">
                 <Leaf className="size-7 text-white" />
               </div>
-              <h2 
+              <h2
                 className="text-[28px] md:text-[32px] mb-4 text-[#282327]"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -365,7 +363,7 @@ export function TrabajaConNosotros() {
               >
                 Nuestra visión ambiental
               </h2>
-              <p 
+              <p
                 className="text-[16px] md:text-[17px] text-neutral-700 leading-[1.6] mb-6"
                 style={{
                   fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -394,7 +392,7 @@ export function TrabajaConNosotros() {
       <section id="postulacion" className="py-16 md:py-20">
         <div className="max-w-[820px] mx-auto px-6 lg:px-12">
           <div className="text-center mb-10">
-            <h2 
+            <h2
               className="text-[36px] md:text-[42px] mb-4 text-[#282327]"
               style={{
                 fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -403,7 +401,7 @@ export function TrabajaConNosotros() {
             >
               Postulación
             </h2>
-            <p 
+            <p
               className="text-[16px] text-neutral-600 leading-[1.6]"
               style={{
                 fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -418,17 +416,16 @@ export function TrabajaConNosotros() {
           <div className="flex items-center justify-center gap-2 mb-10">
             {[1, 2, 3].map((step) => (
               <div key={step} className="flex items-center">
-                <div className={`flex items-center justify-center size-10 rounded-full border-2 transition-all ${
-                  currentStep === step 
-                    ? 'bg-[#E94E1B] border-[#E94E1B] text-white' 
+                <div className={`flex items-center justify-center size-10 rounded-full border-2 transition-all ${currentStep === step
+                    ? 'bg-[#E94E1B] border-[#E94E1B] text-white'
                     : currentStep > step
-                    ? 'bg-green-600 border-green-600 text-white'
-                    : 'bg-white border-neutral-300 text-neutral-400'
-                }`}
-                style={{
-                  fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-                  fontWeight: 600
-                }}
+                      ? 'bg-green-600 border-green-600 text-white'
+                      : 'bg-white border-neutral-300 text-neutral-400'
+                  }`}
+                  style={{
+                    fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+                    fontWeight: 600
+                  }}
                 >
                   {currentStep > step ? <Check className="size-5" /> : step}
                 </div>
@@ -440,11 +437,11 @@ export function TrabajaConNosotros() {
           </div>
 
           <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 md:p-10 border border-neutral-200 shadow-sm">
-            
+
             {/* Step 1 - Perfil */}
             {currentStep === 1 && (
               <div className="space-y-5">
-                <h3 
+                <h3
                   className="text-[22px] mb-6 text-[#282327]"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -453,9 +450,9 @@ export function TrabajaConNosotros() {
                 >
                   Paso 1 — Perfil
                 </h3>
-                
+
                 <div>
-                  <label 
+                  <label
                     className="block text-[14px] text-neutral-700 mb-2"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -480,7 +477,7 @@ export function TrabajaConNosotros() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
-                    <label 
+                    <label
                       className="block text-[14px] text-neutral-700 mb-2"
                       style={{
                         fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -504,7 +501,7 @@ export function TrabajaConNosotros() {
                   </div>
 
                   <div>
-                    <label 
+                    <label
                       className="block text-[14px] text-neutral-700 mb-2"
                       style={{
                         fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -529,7 +526,7 @@ export function TrabajaConNosotros() {
                 </div>
 
                 <div>
-                  <label 
+                  <label
                     className="block text-[14px] text-neutral-700 mb-2"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -553,7 +550,7 @@ export function TrabajaConNosotros() {
                 </div>
 
                 <div>
-                  <label 
+                  <label
                     className="block text-[14px] text-neutral-700 mb-2"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -597,7 +594,7 @@ export function TrabajaConNosotros() {
             {/* Step 2 - Intereses */}
             {currentStep === 2 && (
               <div className="space-y-5">
-                <h3 
+                <h3
                   className="text-[22px] mb-6 text-[#282327]"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -606,9 +603,9 @@ export function TrabajaConNosotros() {
                 >
                   Paso 2 — Intereses
                 </h3>
-                
+
                 <div>
-                  <label 
+                  <label
                     className="block text-[14px] text-neutral-700 mb-2"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -644,7 +641,7 @@ export function TrabajaConNosotros() {
 
                 {formData.area === 'otra' && (
                   <div>
-                    <label 
+                    <label
                       className="block text-[14px] text-neutral-700 mb-2"
                       style={{
                         fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -669,7 +666,7 @@ export function TrabajaConNosotros() {
                 )}
 
                 <div>
-                  <label 
+                  <label
                     className="block text-[14px] text-neutral-700 mb-2"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -697,7 +694,7 @@ export function TrabajaConNosotros() {
                 </div>
 
                 <div>
-                  <label 
+                  <label
                     className="block text-[14px] text-neutral-700 mb-2"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -706,7 +703,7 @@ export function TrabajaConNosotros() {
                   >
                     Mensaje breve <span className="text-[#E94E1B]">*</span>
                   </label>
-                  <p 
+                  <p
                     className="text-[13px] text-neutral-500 mb-2"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -762,7 +759,7 @@ export function TrabajaConNosotros() {
             {/* Step 3 - Adjuntos */}
             {currentStep === 3 && (
               <div className="space-y-5">
-                <h3 
+                <h3
                   className="text-[22px] mb-6 text-[#282327]"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -771,9 +768,9 @@ export function TrabajaConNosotros() {
                 >
                   Paso 3 — Adjuntos y confirmación
                 </h3>
-                
+
                 <div>
-                  <label 
+                  <label
                     className="block text-[14px] text-neutral-700 mb-2"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -782,7 +779,7 @@ export function TrabajaConNosotros() {
                   >
                     Adjuntar CV <span className="text-[#E94E1B]">*</span>
                   </label>
-                  <p 
+                  <p
                     className="text-[13px] text-neutral-500 mb-3"
                     style={{
                       fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -791,7 +788,7 @@ export function TrabajaConNosotros() {
                   >
                     Máximo sugerido: 10 MB. Formatos: PDF, DOC, DOCX
                   </p>
-                  
+
                   <div
                     onDrop={handleFileDrop}
                     onDragOver={(e) => e.preventDefault()}
@@ -801,7 +798,7 @@ export function TrabajaConNosotros() {
                     {fileName ? (
                       <div className="flex items-center justify-center gap-3">
                         <CheckCircle2 className="size-6 text-green-600" />
-                        <span 
+                        <span
                           className="text-[15px] text-neutral-700"
                           style={{
                             fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -825,7 +822,7 @@ export function TrabajaConNosotros() {
                     ) : (
                       <>
                         <Upload className="size-10 text-neutral-400 mx-auto mb-3" />
-                        <p 
+                        <p
                           className="text-[15px] text-neutral-600 mb-1"
                           style={{
                             fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -834,7 +831,7 @@ export function TrabajaConNosotros() {
                         >
                           Arrastrá tu CV aquí o hacé clic para seleccionar
                         </p>
-                        <p 
+                        <p
                           className="text-[13px] text-neutral-500"
                           style={{
                             fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -866,7 +863,7 @@ export function TrabajaConNosotros() {
                       required
                       className="mt-1 size-4 text-[#E94E1B] border-neutral-300 rounded focus:ring-[#E94E1B]"
                     />
-                    <span 
+                    <span
                       className="text-[14px] text-neutral-700"
                       style={{
                         fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -885,7 +882,7 @@ export function TrabajaConNosotros() {
                       onChange={handleInputChange}
                       className="mt-1 size-4 text-[#E94E1B] border-neutral-300 rounded focus:ring-[#E94E1B]"
                     />
-                    <span 
+                    <span
                       className="text-[14px] text-neutral-700"
                       style={{
                         fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -924,7 +921,7 @@ export function TrabajaConNosotros() {
                   </button>
                 </div>
 
-                <p 
+                <p
                   className="text-[13px] text-neutral-500 text-center pt-4"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',

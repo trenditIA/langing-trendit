@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
+import {
   ArrowRight,
   ChevronRight,
   ChevronDown,
@@ -29,6 +29,7 @@ import {
   Battery
 } from 'lucide-react';
 import { Button } from '../ui/button';
+import { AlertModal } from './AlertModal';
 
 export function Eaton() {
   const whatsappNumber = '5493516013543';
@@ -159,7 +160,7 @@ function Hero({ scrollToSection, whatsappNumber, whatsappMessage }: any) {
             {/* Badges */}
             <div className="flex flex-wrap gap-3 mb-8 md:mb-10">
               {badges.map((badge, idx) => (
-                <span 
+                <span
                   key={idx}
                   className="inline-block bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-full text-xs sm:text-sm hover:bg-white/15 hover:border-white/30 transition-all duration-300"
                 >
@@ -170,7 +171,7 @@ function Hero({ scrollToSection, whatsappNumber, whatsappMessage }: any) {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-10 md:mb-12">
-              <Button 
+              <Button
                 size="lg"
                 className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white px-6 md:px-8 group shadow-lg shadow-[#E94E1B]/20 w-full sm:w-auto"
                 onClick={() => scrollToSection('cta-wizard')}
@@ -178,8 +179,8 @@ function Hero({ scrollToSection, whatsappNumber, whatsappMessage }: any) {
                 Dimensionar y Cotizar
                 <ArrowRight className="ml-2 size-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              
-              <Button 
+
+              <Button
                 size="lg"
                 variant="outline"
                 className="border-2 border-white/40 bg-white/5 text-white hover:bg-white/10 hover:border-white/60 backdrop-blur-sm w-full sm:w-auto transition-all duration-300"
@@ -195,17 +196,16 @@ function Hero({ scrollToSection, whatsappNumber, whatsappMessage }: any) {
               <h3 className="text-sm uppercase tracking-wider text-white/50 mb-4">
                 Selector de necesidad
               </h3>
-              
+
               <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
                 {tabs.map((tab) => (
                   <button
                     key={tab.id}
                     onClick={() => setSelectedTab(tab.id)}
-                    className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-300 ${
-                      selectedTab === tab.id
-                        ? 'bg-[#E94E1B] text-white shadow-lg'
-                        : 'bg-white/10 text-white/70 hover:bg-white/15 border border-white/20'
-                    }`}
+                    className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-300 ${selectedTab === tab.id
+                      ? 'bg-[#E94E1B] text-white shadow-lg'
+                      : 'bg-white/10 text-white/70 hover:bg-white/15 border border-white/20'
+                      }`}
                   >
                     {tab.label}
                   </button>
@@ -232,7 +232,7 @@ function Hero({ scrollToSection, whatsappNumber, whatsappMessage }: any) {
                 <p className="text-sm md:text-base text-white/70 mb-6 leading-relaxed">
                   {currentRec.description}
                 </p>
-                
+
                 <div className="flex flex-wrap gap-3">
                   {currentRec.products.map((product, idx) => (
                     <button
@@ -309,7 +309,7 @@ function QueResolvemos() {
               <div className="absolute top-6 right-6 text-[64px] font-bold text-neutral-100 leading-none">
                 {item.num}
               </div>
-              
+
               <div className="relative z-10">
                 <div className="size-16 rounded-xl bg-[#E94E1B]/5 group-hover:bg-[#E94E1B]/10 flex items-center justify-center text-[#E94E1B] mb-5 transition-colors">
                   {item.icon}
@@ -435,11 +435,10 @@ function FamiliasEaton({ scrollToSection }: any) {
               <button
                 key={family.id}
                 onClick={() => setActiveFamily(family.id)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all ${
-                  activeFamily === family.id
-                    ? 'bg-[#E94E1B] text-white'
-                    : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
-                }`}
+                className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all ${activeFamily === family.id
+                  ? 'bg-[#E94E1B] text-white'
+                  : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
+                  }`}
               >
                 {family.label}
               </button>
@@ -463,13 +462,13 @@ function FamiliasEaton({ scrollToSection }: any) {
                 <h3 className="text-[28px] md:text-[32px] font-semibold text-[#282327] mb-4">
                   {current.headline}
                 </h3>
-                
+
                 {current.badge && (
                   <span className="inline-block px-4 py-2 bg-[#E94E1B]/10 border border-[#E94E1B]/20 text-[#E94E1B] rounded-full text-sm font-medium mb-6">
                     {current.badge}
                   </span>
                 )}
-                
+
                 <p className="text-base md:text-lg text-neutral-700 leading-relaxed mb-8">
                   {current.description}
                 </p>
@@ -531,7 +530,7 @@ function FamiliasEaton({ scrollToSection }: any) {
 
             {/* CTA */}
             <div className="pt-6 border-t border-neutral-200">
-              <Button 
+              <Button
                 size="lg"
                 className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white"
                 onClick={() => scrollToSection('cta-wizard')}
@@ -769,13 +768,12 @@ function FAQ() {
                 <span className="text-base md:text-lg font-semibold text-[#282327] pr-8">
                   {faq.q}
                 </span>
-                <ChevronDown 
-                  className={`size-5 text-neutral-400 flex-shrink-0 transition-transform ${
-                    openIndex === idx ? 'rotate-180' : ''
-                  }`}
+                <ChevronDown
+                  className={`size-5 text-neutral-400 flex-shrink-0 transition-transform ${openIndex === idx ? 'rotate-180' : ''
+                    }`}
                 />
               </button>
-              
+
               <AnimatePresence>
                 {openIndex === idx && (
                   <motion.div
@@ -819,7 +817,7 @@ function CTAWizard({ whatsappNumber }: any) {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
+              <Button
                 size="lg"
                 className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white px-10 text-base md:text-lg"
                 onClick={() => setShowWizard(true)}
@@ -827,8 +825,8 @@ function CTAWizard({ whatsappNumber }: any) {
                 Iniciar asistente
                 <ArrowRight className="ml-2 size-5" />
               </Button>
-              
-              <Button 
+
+              <Button
                 size="lg"
                 variant="outline"
                 className="border-2 border-[#E94E1B] text-[#E94E1B] hover:bg-[#E94E1B] hover:text-white px-10 text-base md:text-lg transition-all"
@@ -856,6 +854,17 @@ function CTAWizard({ whatsappNumber }: any) {
 
 function Wizard({ onClose, whatsappNumber }: any) {
   const [step, setStep] = useState(1);
+  const [alertModal, setAlertModal] = useState<{
+    isOpen: boolean;
+    type: 'success' | 'error' | 'warning';
+    title: string;
+    message: string;
+  }>({
+    isOpen: false,
+    type: 'success',
+    title: '',
+    message: ''
+  });
   const [formData, setFormData] = useState({
     escenario: '',
     potencia: '',
@@ -898,8 +907,16 @@ function Wizard({ onClose, whatsappNumber }: any) {
   };
 
   const handleSubmit = () => {
-    alert('¡Consulta enviada! Un especialista Trendit te contactará en breve.');
-    console.log('Wizard data:', formData);
+    setAlertModal({
+      isOpen: true,
+      type: 'success',
+      title: '¡Consulta enviada!',
+      message: 'Un especialista Trendit te contactará en breve.'
+    });
+  };
+
+  const handleCloseAlert = () => {
+    setAlertModal({ ...alertModal, isOpen: false });
     onClose();
   };
 
@@ -930,7 +947,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
 
         {/* Progress bar */}
         <div className="h-2 bg-neutral-100">
-          <div 
+          <div
             className="h-full bg-[#E94E1B] transition-all duration-300"
             style={{ width: `${(step / totalSteps) * 100}%` }}
           />
@@ -946,11 +963,10 @@ function Wizard({ onClose, whatsappNumber }: any) {
                     <button
                       key={esc}
                       onClick={() => updateField('escenario', esc)}
-                      className={`p-6 rounded-xl border-2 text-left transition-all ${
-                        formData.escenario === esc
-                          ? 'border-[#E94E1B] bg-[#E94E1B]/5'
-                          : 'border-neutral-200 hover:border-neutral-300'
-                      }`}
+                      className={`p-6 rounded-xl border-2 text-left transition-all ${formData.escenario === esc
+                        ? 'border-[#E94E1B] bg-[#E94E1B]/5'
+                        : 'border-neutral-200 hover:border-neutral-300'
+                        }`}
                     >
                       <span className="text-base md:text-lg font-medium text-[#282327]">{esc}</span>
                     </button>
@@ -1016,11 +1032,10 @@ function Wizard({ onClose, whatsappNumber }: any) {
                         <button
                           key={v}
                           onClick={() => updateField('voltaje', v)}
-                          className={`px-6 py-3 rounded-xl border-2 transition-all ${
-                            formData.voltaje === v
-                              ? 'border-[#E94E1B] bg-[#E94E1B] text-white'
-                              : 'border-neutral-200 hover:border-neutral-300'
-                          }`}
+                          className={`px-6 py-3 rounded-xl border-2 transition-all ${formData.voltaje === v
+                            ? 'border-[#E94E1B] bg-[#E94E1B] text-white'
+                            : 'border-neutral-200 hover:border-neutral-300'
+                            }`}
                         >
                           {v}
                         </button>
@@ -1050,11 +1065,10 @@ function Wizard({ onClose, whatsappNumber }: any) {
                         <button
                           key={b}
                           onClick={() => updateField('bateria', b)}
-                          className={`px-6 py-3 rounded-xl border-2 transition-all ${
-                            formData.bateria === b
-                              ? 'border-[#E94E1B] bg-[#E94E1B] text-white'
-                              : 'border-neutral-200 hover:border-neutral-300'
-                          }`}
+                          className={`px-6 py-3 rounded-xl border-2 transition-all ${formData.bateria === b
+                            ? 'border-[#E94E1B] bg-[#E94E1B] text-white'
+                            : 'border-neutral-200 hover:border-neutral-300'
+                            }`}
                         >
                           {b}
                         </button>
@@ -1072,11 +1086,10 @@ function Wizard({ onClose, whatsappNumber }: any) {
                     <button
                       key={serv}
                       onClick={() => toggleServicio(serv)}
-                      className={`px-5 py-3 rounded-xl border-2 transition-all ${
-                        formData.servicios.includes(serv)
-                          ? 'border-[#E94E1B] bg-[#E94E1B] text-white'
-                          : 'border-neutral-200 hover:border-neutral-300'
-                      }`}
+                      className={`px-5 py-3 rounded-xl border-2 transition-all ${formData.servicios.includes(serv)
+                        ? 'border-[#E94E1B] bg-[#E94E1B] text-white'
+                        : 'border-neutral-200 hover:border-neutral-300'
+                        }`}
                     >
                       {serv}
                     </button>
@@ -1104,7 +1117,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
                       className="px-4 py-3 border-2 border-neutral-300 rounded-xl focus:ring-2 focus:ring-[#E94E1B] focus:border-transparent outline-none"
                     />
                   </div>
-                  
+
                   <div className="grid md:grid-cols-2 gap-4">
                     <input
                       type="email"
@@ -1121,7 +1134,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
                       className="px-4 py-3 border-2 border-neutral-300 rounded-xl focus:ring-2 focus:ring-[#E94E1B] focus:border-transparent outline-none"
                     />
                   </div>
-                  
+
                   <input
                     type="text"
                     placeholder="Ciudad"
@@ -1129,7 +1142,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
                     onChange={(e) => updateField('ciudad', e.target.value)}
                     className="w-full px-4 py-3 border-2 border-neutral-300 rounded-xl focus:ring-2 focus:ring-[#E94E1B] focus:border-transparent outline-none"
                   />
-                  
+
                   <textarea
                     placeholder="Contanos tu problema / criticidad / plazos"
                     value={formData.mensaje}
@@ -1154,7 +1167,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
           </button>
 
           {step < totalSteps ? (
-            <Button 
+            <Button
               onClick={() => setStep(s => s + 1)}
               disabled={!canProceed()}
               className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white disabled:opacity-30"
@@ -1163,7 +1176,7 @@ function Wizard({ onClose, whatsappNumber }: any) {
               <ArrowRight className="ml-2 size-4" />
             </Button>
           ) : (
-            <Button 
+            <Button
               onClick={handleSubmit}
               disabled={!canProceed()}
               className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white disabled:opacity-30"
@@ -1174,6 +1187,15 @@ function Wizard({ onClose, whatsappNumber }: any) {
           )}
         </div>
       </motion.div>
+
+      {/* Alert Modal */}
+      <AlertModal
+        isOpen={alertModal.isOpen}
+        onClose={handleCloseAlert}
+        type={alertModal.type}
+        title={alertModal.title}
+        message={alertModal.message}
+      />
     </div>
   );
 }
