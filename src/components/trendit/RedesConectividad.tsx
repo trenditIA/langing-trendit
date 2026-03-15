@@ -1038,14 +1038,14 @@ function MarcasEscenario() {
             {current.descripcion}
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {current.marcas.map((marca: string, idx: number) => (
               <div
                 key={idx}
                 className="p-4 bg-white rounded-xl border border-neutral-200 text-center"
               >
                 <span
-                  className="text-[14px] text-neutral-700"
+                  className="text-[13px] sm:text-[14px] text-neutral-700 break-words"
                   style={{
                     fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
                     fontWeight: 600

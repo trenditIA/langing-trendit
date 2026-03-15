@@ -133,9 +133,9 @@ export function SEOHead({
       favicon.href = href;
     };
 
-    setFavicon('/src/assets/trendit-logo-icono.ico', 'icon');
-    setFavicon('/src/assets/trendit-logo-icono.ico', 'shortcut icon');
-    setFavicon('/src/assets/trendit-logo-icono.ico', 'apple-touch-icon');
+    setFavicon('/trendit-logo-icono.ico', 'icon');
+    setFavicon('/trendit-logo-icono.ico', 'shortcut icon');
+    setFavicon('/trendit-logo-icono.ico', 'apple-touch-icon');
 
     // JSON-LD Structured Data for Organization
     const existingScript = document.getElementById('json-ld-org');

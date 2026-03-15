@@ -163,14 +163,14 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  
+
   /* Enhanced focus visible for keyboard navigation - Accessibility */
   *:focus-visible {
     outline: 2px solid #E94E1B;
     outline-offset: 2px;
     border-radius: 4px;
   }
-  
+
   /* Skip link styling */
   .sr-only {
     position: absolute;
@@ -183,7 +183,7 @@
     white-space: nowrap;
     border-width: 0;
   }
-  
+
   .focus\:not-sr-only:focus {
     position: static;
     width: auto;
@@ -310,12 +310,22 @@ body {
   display: none;
 }
 
+/* Timeline financing: right-align text for even steps on desktop */
+@media (min-width: 1024px) {
+
+  .paso-even-text h3,
+  .paso-even-text p {
+    text-align: end !important;
+  }
+}
+
 /* Performance-optimized fade-in animation (replaces motion for Hero LCP) */
 @keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -351,6 +361,7 @@ body {
 
 /* Reduced motion support for accessibility */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -359,7 +370,7 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  
+
   html {
     scroll-behavior: auto;
   }
@@ -367,7 +378,8 @@ body {
 
 /* Touch target size - accessibility */
 @media (pointer: coarse) {
-  button, 
+
+  button,
   a,
   input[type="submit"],
   input[type="button"] {

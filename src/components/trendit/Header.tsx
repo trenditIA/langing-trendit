@@ -12,7 +12,7 @@ export const Header = memo(function Header() {
   const [mobileMarcasOpen, setMobileMarcasOpen] = useState(false);
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
-  
+
   // Timers para delay en cerrar dropdowns
   const [serviciosTimer, setServiciosTimer] = useState<NodeJS.Timeout | null>(null);
   const [marcasTimer, setMarcasTimer] = useState<NodeJS.Timeout | null>(null);
@@ -38,13 +38,13 @@ export const Header = memo(function Header() {
         setActiveSection(hash);
       }
     };
-    
+
     window.addEventListener('hashchange', updateActiveSection);
     updateActiveSection(); // Initial sync
-    
+
     return () => window.removeEventListener('hashchange', updateActiveSection);
   }, []);
-  
+
   // Limpiar timers al desmontar
   useEffect(() => {
     return () => {
@@ -52,25 +52,25 @@ export const Header = memo(function Header() {
       if (marcasTimer) clearTimeout(marcasTimer);
     };
   }, [serviciosTimer, marcasTimer]);
-  
+
   // Funciones mejoradas para manejar hover con delay
   const handleServiciosEnter = () => {
     if (serviciosTimer) clearTimeout(serviciosTimer);
     setServiciosOpen(true);
   };
-  
+
   const handleServiciosLeave = () => {
     const timer = setTimeout(() => {
       setServiciosOpen(false);
     }, 300); // 300ms delay antes de cerrar
     setServiciosTimer(timer);
   };
-  
+
   const handleMarcasEnter = () => {
     if (marcasTimer) clearTimeout(marcasTimer);
     setMarcasOpen(true);
   };
-  
+
   const handleMarcasLeave = () => {
     const timer = setTimeout(() => {
       setMarcasOpen(false);
@@ -117,7 +117,7 @@ export const Header = memo(function Header() {
     setMobileMenuOpen(false);
     setServiciosOpen(false);
     setMarcasOpen(false);
-    
+
     // Update URL hash for routing
     window.location.hash = sectionId;
   };
@@ -141,20 +141,20 @@ export const Header = memo(function Header() {
   return (
     <>
       {/* Skip to main content link for accessibility */}
-      <a 
-        href="#main-content" 
+      <a
+        href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#E94E1B] focus:text-white focus:rounded-lg focus:shadow-lg"
         style={{ fontFamily: 'Campton, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif', fontWeight: 600 }}
       >
         Saltar al contenido principal
       </a>
-      
+
       <motion.header
         role="banner"
         className="fixed top-0 left-0 right-0 z-50 bg-[#1a1618] text-white"
         style={{
-          boxShadow: isScrolled 
-            ? '0 4px 20px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.15)' 
+          boxShadow: isScrolled
+            ? '0 4px 20px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.15)'
             : '0 2px 8px rgba(0, 0, 0, 0.1)',
           backdropFilter: 'blur(8px)',
           transition: 'all 0.3s ease'
@@ -167,22 +167,22 @@ export const Header = memo(function Header() {
             className="flex-shrink-0 group relative z-10"
             aria-label="Trendit - Inicio"
           >
-            <img 
-              src={logo} 
-              alt="Trendit" 
-              width="120"
-              height="32"
+            <img
+              src={logo}
+              alt="Trendit"
+              width="240"
+              height="64"
               fetchPriority="high"
               decoding="async"
-              className="h-7 sm:h-8 w-auto transition-transform duration-200 group-hover:scale-105"
+              className="h-14 sm:h-16 w-auto transition-transform duration-200 group-hover:scale-105"
             />
           </button>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1 flex-1 justify-center mx-8">
             {navItems.map((item) => (
-              <div 
-                key={item.id} 
+              <div
+                key={item.id}
                 className="relative"
                 onMouseEnter={() => {
                   if (item.id === 'servicios') handleServiciosEnter();
@@ -195,28 +195,25 @@ export const Header = memo(function Header() {
               >
                 <button
                   onClick={() => handleNavClick(item.id)}
-                  className={`relative px-4 py-2 text-xs font-semibold tracking-wider transition-all duration-200 group flex items-center gap-1 ${
-                    activeSection === item.id
-                      ? 'text-white'
-                      : 'text-neutral-400 hover:text-white'
-                  }`}
+                  className={`relative px-4 py-2 text-xs font-semibold tracking-wider transition-all duration-200 group flex items-center gap-1 ${activeSection === item.id
+                    ? 'text-white'
+                    : 'text-neutral-400 hover:text-white'
+                    }`}
                 >
                   {item.label}
                   {item.hasDropdown && (
-                    <ChevronDown className={`size-3 transition-transform duration-200 ${
-                      (item.id === 'servicios' && serviciosOpen) || (item.id === 'marcas-partners' && marcasOpen) 
-                        ? 'rotate-180' 
-                        : ''
-                    }`} />
+                    <ChevronDown className={`size-3 transition-transform duration-200 ${(item.id === 'servicios' && serviciosOpen) || (item.id === 'marcas-partners' && marcasOpen)
+                      ? 'rotate-180'
+                      : ''
+                      }`} />
                   )}
-                  
+
                   {/* Underline indicator */}
-                  <span 
-                    className={`absolute bottom-0 left-0 right-0 h-0.5 bg-[#E94E1B] transition-all duration-300 ${
-                      activeSection === item.id 
-                        ? 'opacity-100 scale-x-100' 
-                        : 'opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100'
-                    }`}
+                  <span
+                    className={`absolute bottom-0 left-0 right-0 h-0.5 bg-[#E94E1B] transition-all duration-300 ${activeSection === item.id
+                      ? 'opacity-100 scale-x-100'
+                      : 'opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100'
+                      }`}
                     style={{
                       boxShadow: activeSection === item.id ? '0 0 8px rgba(233, 78, 27, 0.6)' : 'none'
                     }}
@@ -289,7 +286,7 @@ export const Header = memo(function Header() {
               className="relative px-6 py-2.5 bg-[#E94E1B] text-white text-xs font-bold uppercase tracking-wider rounded-full hover:bg-[#D43E10] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 group overflow-hidden"
             >
               <span className="relative z-10">Contáctanos</span>
-              
+
               {/* Hover glow effect */}
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
             </button>
@@ -352,11 +349,10 @@ export const Header = memo(function Header() {
                     handleNavClick(item.id);
                   }
                 }}
-                className={`flex items-center justify-between w-full text-left px-6 py-4 rounded-xl text-sm font-bold uppercase tracking-wider transition-all duration-200 ${
-                  activeSection === item.id
-                    ? 'bg-[#E94E1B] text-white shadow-lg'
-                    : 'text-neutral-300 hover:bg-white/5 hover:text-white'
-                }`}
+                className={`flex items-center justify-between w-full text-left px-6 py-4 rounded-xl text-sm font-bold uppercase tracking-wider transition-all duration-200 ${activeSection === item.id
+                  ? 'bg-[#E94E1B] text-white shadow-lg'
+                  : 'text-neutral-300 hover:bg-white/5 hover:text-white'
+                  }`}
               >
                 {item.label}
                 {item.hasDropdown && (

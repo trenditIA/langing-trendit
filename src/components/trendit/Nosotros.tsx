@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
-import { 
-  ArrowRight, 
+import {
+  ArrowRight,
   Server,
   Network,
   Target,
@@ -79,36 +79,6 @@ export function Nosotros() {
 
   return (
     <div className="bg-white relative">
-      {/* Side Navigation - Desktop */}
-      <div className="hidden xl:block fixed right-8 top-1/2 -translate-y-1/2 z-40">
-        <div className="flex flex-col gap-4">
-          {sections.map((section) => (
-            <button
-              key={section.id}
-              onClick={() => scrollToSection(section.id)}
-              className="group flex items-center gap-3 transition-all duration-300"
-            >
-              <span
-                className={`text-xs font-medium transition-all duration-300 ${
-                  activeSection === section.id
-                    ? 'opacity-100 text-[#E94E1B]'
-                    : 'opacity-0 group-hover:opacity-100 text-neutral-600'
-                }`}
-              >
-                {section.label}
-              </span>
-              <div
-                className={`size-2.5 rounded-full transition-all duration-300 ${
-                  activeSection === section.id
-                    ? 'bg-[#E94E1B] scale-125'
-                    : 'bg-neutral-300 group-hover:bg-neutral-400'
-                }`}
-              />
-            </button>
-          ))}
-        </div>
-      </div>
-
       {/* Mobile Navigation - Horizontal scroll chips */}
       <div className="xl:hidden sticky top-16 z-30 bg-white/95 backdrop-blur-sm border-b border-neutral-200 px-6 py-3 overflow-x-auto">
         <div className="flex gap-2 min-w-max">
@@ -116,11 +86,10 @@ export function Nosotros() {
             <button
               key={section.id}
               onClick={() => scrollToSection(section.id)}
-              className={`px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap transition-all duration-200 ${
-                activeSection === section.id
+              className={`px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap transition-all duration-200 ${activeSection === section.id
                   ? 'bg-[#E94E1B] text-white'
                   : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200'
-              }`}
+                }`}
             >
               {section.label}
             </button>
@@ -136,7 +105,7 @@ export function Nosotros() {
       <ComoTrabajamos />
       <PorQueElegirTrendit onOpenModal={() => setIsModalOpen(true)} />
       <CTAFinal onOpenModal={() => setIsModalOpen(true)} />
-      
+
       <AgendarReunionModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
@@ -171,7 +140,7 @@ function HeroCentral({ scrollToSection, onOpenModal }: { scrollToSection: (id: s
   };
 
   return (
-    <section 
+    <section
       id="hero"
       className="relative min-h-[95vh] flex flex-col items-center justify-center overflow-hidden pt-32 pb-24 px-4 sm:px-6"
       style={{
@@ -184,7 +153,7 @@ function HeroCentral({ scrollToSection, onOpenModal }: { scrollToSection: (id: s
                          radial-gradient(circle at 80% 70%, #E94E1B 1px, transparent 1px),
                          radial-gradient(circle at 40% 80%, #E94E1B 1px, transparent 1px)`,
         backgroundSize: '100px 100px, 150px 150px, 120px 120px'
-      }}/>
+      }} />
 
       <div className="relative z-10 max-w-[1200px] mx-auto w-full">
         {/* Text block - CENTERED */}
@@ -239,7 +208,7 @@ function HeroCentral({ scrollToSection, onOpenModal }: { scrollToSection: (id: s
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-24"
           >
-            <Button 
+            <Button
               size="lg"
               onClick={onOpenModal}
               className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white px-8 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto"
@@ -251,7 +220,7 @@ function HeroCentral({ scrollToSection, onOpenModal }: { scrollToSection: (id: s
             >
               Agendá una reunión
             </Button>
-            <Button 
+            <Button
               size="lg"
               variant="outline"
               onClick={handleWhatsApp}
@@ -307,7 +276,7 @@ function HeroCentral({ scrollToSection, onOpenModal }: { scrollToSection: (id: s
               }}
             >
               {/* Icon circle */}
-              <div 
+              <div
                 className="size-14 rounded-full flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110"
                 style={{
                   background: 'linear-gradient(135deg, #fed7aa 0%, #fdba74 100%)',
@@ -375,7 +344,7 @@ function Pilar1Equipos() {
   ];
 
   return (
-    <section 
+    <section
       id="pilar-1"
       className="py-24 px-6 lg:px-12 bg-white"
     >
@@ -391,11 +360,11 @@ function Pilar1Equipos() {
             <div className="text-[11px] tracking-[0.15em] uppercase text-[#E94E1B] font-semibold mb-4">
               Pilar 1 · Equipos
             </div>
-            
+
             <h2 className="text-[38px] lg:text-[44px] text-[#282327] mb-8 leading-[1.1] tracking-tight">
               Equipos multidisciplinarios que nunca dejan de aprender
             </h2>
-            
+
             <div className="space-y-5 text-[16px] md:text-[17px] text-neutral-600 leading-[1.7]">
               <p>
                 En Trendit el producto principal es nuestro equipo. Invertimos en capacitación, certificaciones con fabricantes y aprendizaje en cada proyecto. Trabajamos en células chicas donde conviven redes, data center, seguridad, energía y soporte, coordinadas por project managers que entienden el negocio del cliente.
@@ -434,7 +403,7 @@ function Pilar1Equipos() {
                 }}
               >
                 <div className="flex items-start gap-4">
-                  <div 
+                  <div
                     className="size-12 rounded-xl flex items-center justify-center flex-shrink-0"
                     style={{
                       background: 'linear-gradient(135deg, #fed7aa 0%, #fdba74 100%)',
@@ -482,7 +451,7 @@ function Pilar2Proposito() {
   ];
 
   return (
-    <section 
+    <section
       id="pilar-2"
       className="py-24 px-6 lg:px-12 bg-gradient-to-br from-neutral-50 to-white"
     >
@@ -498,11 +467,11 @@ function Pilar2Proposito() {
             <div className="text-[11px] tracking-[0.15em] uppercase text-[#E94E1B] font-semibold mb-4">
               Pilar 2 · Propósito e innovación
             </div>
-            
+
             <h2 className="text-[38px] lg:text-[44px] text-[#282327] mb-8 leading-[1.1] tracking-tight">
               Innovar sin perder de vista el impacto
             </h2>
-            
+
             <div className="space-y-5 text-[16px] md:text-[17px] text-neutral-600 leading-[1.7]">
               <p>
                 El crecimiento del tráfico de datos, los centros de datos de IA y la fabricación de tecnología consumen cada vez más energía y recursos. Creemos que la infraestructura debe evolucionar hacia modelos más eficientes y responsables.
@@ -541,7 +510,7 @@ function Pilar2Proposito() {
                 }}
               >
                 <div className="flex items-start gap-4">
-                  <div 
+                  <div
                     className="size-12 rounded-xl flex items-center justify-center flex-shrink-0"
                     style={{
                       background: 'linear-gradient(135deg, #fed7aa 0%, #fdba74 100%)',
@@ -594,7 +563,7 @@ function Pilar3ValoresB4B() {
   ];
 
   return (
-    <section 
+    <section
       id="pilar-3"
       className="py-24 px-6 lg:px-12 bg-white"
     >
@@ -609,11 +578,11 @@ function Pilar3ValoresB4B() {
           <div className="text-[11px] tracking-[0.15em] uppercase text-[#E94E1B] font-semibold mb-4">
             Pilar 3 · Cultura Trendit
           </div>
-          
+
           <h2 className="text-[38px] lg:text-[44px] text-[#282327] mb-8 leading-[1.1] tracking-tight">
             Nuestra cultura: B4B, valores y sostenibilidad en acción
           </h2>
-          
+
           <div className="space-y-5 text-[16px] md:text-[17px] text-neutral-600 leading-[1.7]">
             <p>
               En Trendit no solo importa lo que hacemos, sino cómo lo hacemos. Construimos una cultura donde la relación B4B, los valores y la mirada sustentable se cruzan en cada decisión: desde la elección de fabricantes hasta la forma en que acompañamos a tus equipos.
@@ -651,7 +620,7 @@ function Pilar3ValoresB4B() {
                 e.currentTarget.style.transform = 'translateY(0)';
               }}
             >
-              <div 
+              <div
                 className="size-12 rounded-xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110"
                 style={{
                   background: 'linear-gradient(135deg, #fed7aa 0%, #fdba74 100%)',
@@ -704,7 +673,7 @@ function ComoTrabajamos() {
   ];
 
   return (
-    <section 
+    <section
       id="metodo"
       className="py-24 px-6 lg:px-12 bg-gradient-to-br from-neutral-50 to-white"
     >
@@ -741,11 +710,11 @@ function ComoTrabajamos() {
                     {step.number}
                   </div>
                 </div>
-                
+
                 <h3 className="text-[16px] font-semibold text-[#282327] mb-3 leading-tight">
                   {step.title}
                 </h3>
-                
+
                 <p className="text-[14px] text-neutral-600 leading-[1.6]">
                   {step.text}
                 </p>
@@ -789,7 +758,7 @@ function PorQueElegirTrendit({ onOpenModal }: { onOpenModal: () => void }) {
   };
 
   return (
-    <section 
+    <section
       id="por-que-trendit"
       className="py-24 px-4 sm:px-6 lg:px-12 bg-white"
     >
@@ -835,7 +804,7 @@ function PorQueElegirTrendit({ onOpenModal }: { onOpenModal: () => void }) {
                 e.currentTarget.style.transform = 'translateY(0)';
               }}
             >
-              <div 
+              <div
                 className="size-14 rounded-2xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110"
                 style={{
                   background: 'linear-gradient(135deg, #fed7aa 0%, #fdba74 100%)',
@@ -863,7 +832,7 @@ function PorQueElegirTrendit({ onOpenModal }: { onOpenModal: () => void }) {
           transition={{ delay: 0.4, duration: 0.5 }}
           className="text-center"
         >
-          <Button 
+          <Button
             size="lg"
             onClick={handleContactClick}
             className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white px-8 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto"
@@ -889,7 +858,7 @@ function CTAFinal({ onOpenModal }: { onOpenModal: () => void }) {
   };
 
   return (
-    <section 
+    <section
       id="cta"
       className="py-20 px-4 sm:px-6 lg:px-12"
       style={{
@@ -906,13 +875,13 @@ function CTAFinal({ onOpenModal }: { onOpenModal: () => void }) {
           <h2 className="text-[28px] sm:text-[34px] lg:text-[42px] text-[#282327] mb-5 md:mb-6 leading-[1.15] tracking-tight">
             ¿Hablamos de la infraestructura que viene para tu organización?
           </h2>
-          
+
           <p className="text-[15px] sm:text-[16px] md:text-[17px] text-neutral-700 leading-[1.7] mb-8 md:mb-10 max-w-3xl mx-auto">
             Si estás planificando un proyecto de red, data center, videoseguridad, energía o colaboración, podemos ayudarte a diseñarlo, implementarlo y sostenerlo con una mirada B4B.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
+            <Button
               size="lg"
               onClick={onOpenModal}
               className="bg-[#E94E1B] hover:bg-[#E94E1B]/90 text-white px-8 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto"
@@ -924,7 +893,7 @@ function CTAFinal({ onOpenModal }: { onOpenModal: () => void }) {
             >
               Agendá una reunión con nuestro equipo
             </Button>
-            <Button 
+            <Button
               size="lg"
               variant="outline"
               onClick={handleWhatsApp}

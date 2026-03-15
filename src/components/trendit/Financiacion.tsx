@@ -1032,7 +1032,12 @@ function ComoFunciona({ setActiveSection }: { setActiveSection: (section: string
                   </div>
 
                   {/* Content Card - alternating sides on desktop */}
-                  <div className={`flex-1 lg:w-[calc(50%-40px)] ${idx % 2 === 0 ? 'lg:mr-auto lg:pr-16' : 'lg:ml-auto lg:pl-16'}`}>
+                  <div
+                    className={`flex-1 lg:w-[calc(50%-40px)] ${idx % 2 === 0
+                        ? 'lg:mr-auto lg:pr-16'
+                        : 'lg:ml-auto lg:pl-16 paso-even-text'
+                      }`}
+                  >
                     <div className="bg-white border border-neutral-200 rounded-2xl p-6 hover:shadow-xl hover:border-[#E94E1B]/30 transition-all duration-300">
                       <h3
                         className="text-[18px] mb-2 leading-tight"
